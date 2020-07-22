@@ -10,6 +10,7 @@ import Button from './Button';
 import CenterView from './CenterView';
 import Welcome from './Welcome';
 import Something from './components/Something';
+import Login from './Login';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -28,3 +29,6 @@ storiesOf('Button', module)
   .add('something', () => (
     <Something />
   ));
+
+  storiesOf('Login', module)
+  .add('Login ID', () => <Login showApp={linkTo('Button')} />);

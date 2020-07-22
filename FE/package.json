@@ -14,7 +14,7 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/react-native": "^5.3.19",
     "@storybook/react-native-server": "^5.3.19",
-    "expo": "~38.0.1",
+    "expo": "^38.0.8",
     "expo-status-bar": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "~16.11.0",
