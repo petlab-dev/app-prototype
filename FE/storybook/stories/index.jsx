@@ -10,7 +10,9 @@ import Button from './Button';
 import CenterView from './CenterView';
 import Welcome from './Welcome';
 import Something from './components/Something';
+
 import Login from './JyeongMu/src/screen/login';
+import PracticeStyleComponent from './JyeongMu/src/components/practice_style_component';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -30,4 +32,6 @@ storiesOf('Button', module)
     <Something />
   ));
 
-storiesOf('정무', module).add('로그인 페이지', () => <Login showApp={linkTo('Button')} />);
+storiesOf('정무', module)
+  .add('로그인 페이지', () => <Login showApp={linkTo('Button')} />)
+  .add('스타일 컴포넌트 연습', () => <PracticeStyleComponent showApp={linkTo('Button')} />);
