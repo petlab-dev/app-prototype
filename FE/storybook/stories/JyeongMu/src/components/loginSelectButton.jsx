@@ -1,20 +1,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import {
-  StyleSheet, Text, View, TouchableOpacity,
-} from 'react-native';
-
-const styles = StyleSheet.create({
-  containter: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  selectButton: {
-    flex: 1,
-    alignItems: 'center',
-  },
-});
+import { Text, View, TouchableOpacity } from 'react-native';
+import styles from '../style/style';
 
 export default function LoginSelectButton(props) {
   return (

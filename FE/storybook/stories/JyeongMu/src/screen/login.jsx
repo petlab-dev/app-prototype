@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import {
-  StyleSheet, View, Button, TextInput,
-} from 'react-native';
+import { View, Button, TextInput } from 'react-native';
 
 import ClosingMent from '../components/loginClosingMent';
 import LoginHeader from '../components/loginHeader';
 import LoginSelectButton from '../components/loginSelectButton';
+import styles from '../style/style';
 
 export default function Login() {
   const [value, setValue] = useState('');
@@ -29,36 +28,6 @@ export default function Login() {
     setColor({ button1: '#87cefa', button2: '#1e90ff' });
     setState({ ...state, defualtMessage: 'Email Adrress ex)email@adress.com' });
   }
-
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      flexDirection: 'column',
-    },
-    body: {
-      flex: 9,
-      alignItems: 'center',
-    },
-    select: {
-      flexDirection: 'row',
-      margin: '5%',
-      justifyContent: 'space-around',
-    },
-    normalBody: {
-      margin: '3%',
-    },
-    textInput: {
-      padding: '2%',
-      margin: '5%',
-      borderRadius: 10,
-      backgroundColor: '#eeeeee',
-      width: '80%',
-    },
-    buttonContainer: {
-      width: '80%',
-    },
-  });
 
   return (
     <View style={styles.container}>
