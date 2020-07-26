@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 // eslint-disable-next-line no-unused-vars
-const styles = StyleSheet.create({
-  containter: {
+const Styles = StyleSheet.create({
+  tail: {
     flex: 1,
     alignItems: 'center',
-    flexDirection: 'row',
   },
   selectButton: {
     flex: 1,
