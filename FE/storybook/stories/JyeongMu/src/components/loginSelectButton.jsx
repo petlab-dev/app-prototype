@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
-import styles from '../style/style';
+import { TouchableOpacity } from 'react-native';
 
-export default function LoginSelectButton(props) {
+import { SelectButton, SelectButtonColor } from '../styles';
+
+export default function LoginSelectButton({ onClick, text, active}) {
   return (
-    <View style={styles.selectButton}>
-      <TouchableOpacity onPress={props.onClick}>
-        <Text style={{ fontSize: 25, fontWeight: 'bold', color: props.color }}>{props.text}</Text>
+    <SelectButton>
+      <TouchableOpacity onClick={onClick}>
+        <SelectButtonColor active={active}>{text}</SelectButtonColor>
       </TouchableOpacity>
-    </View>
+    </SelectButton>
   );
 }

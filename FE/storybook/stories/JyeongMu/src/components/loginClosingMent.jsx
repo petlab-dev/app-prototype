@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import styles from '../style/style';
+
+import { Container, TextWrap } from '../styles';
 
 export default function ClosingMent() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}> You may receive SMS updates from</Text>
-      <Text styels={styles.text}>Instagram and can opt out at any time. </Text>
-    </View>
+    <Container>
+      <TextWrap> You may receive SMS updates from</TextWrap>
+      <TextWrap>Instagram and can opt out at any time. </TextWrap>
+    </Container>
   );
 }

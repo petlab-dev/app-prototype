@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
-import { View, Button, TextInput } from 'react-native';
+import { Button, TextInput } from 'react-native';
 
 import ClosingMent from '../components/loginClosingMent';
 import LoginHeader from '../components/loginHeader';
 import LoginSelectButton from '../components/loginSelectButton';
-import styles from '../style/style';
+import {
+  Container,
+  Body,
+  Select,
+  TextInputWrap,
+  ButtonContainer,
+} from '../styles';
 
 export default function Login() {
   const [value, setValue] = useState('');
-  const [color, setColor] = useState({ button1: '#1e90ff', button2: '#87cefa' });
+  const [color, setColor] = useState({ button1: true, button2: false });
   const [state, setState] = useState({ button: true, defualtMessage: 'Phone Number ex)01011112222' });
 
   const { button, defualtMessage } = state;
@@ -19,48 +25,48 @@ export default function Login() {
     else setState({ ...state, button: true });
   }
 
-  function changeToPhoneButton() {
-    setColor({ button1: '#1e90ff', button2: '#87cefa' });
+  function handleChangeToPhoneButton() {
+    setColor({ button1: true, button2: false });
     setState({ ...state, defualtMessage: 'Phone Number ex)01011112222' });
   }
 
-  function changeToEmailButton() {
-    setColor({ button1: '#87cefa', button2: '#1e90ff' });
+  function handleChangeToEmailButton() {
+    setColor({ button1: false, button2: true });
     setState({ ...state, defualtMessage: 'Email Adrress ex)email@adress.com' });
   }
 
   return (
-    <View style={styles.container}>
+    <Container>
       <LoginHeader
         text="Enter Phone or Email"
       />
-      <View style={styles.body}>
-        <View style={styles.select}>
+      <Body>
+        <Select>
           <LoginSelectButton
-            onClick={changeToPhoneButton}
-            color={color.button1}
+            onClick={handleChangeToPhoneButton}
             text="Phone"
+            active={color.button1}
           />
           <LoginSelectButton
-            onClick={changeToEmailButton}
-            color={color.button2}
+            onClick={handleChangeToEmailButton}
             text="Email"
+            active={color.button2}
           />
-        </View>
-        <View style={styles.textInput}>
+        </Select>
+        <TextInputWrap>
           <TextInput
             placeholder={defualtMessage}
             onChangeText={isDisabled}
           />
-        </View>
-        <View style={styles.buttonContainer}>
+        </TextInputWrap>
+        <ButtonContainer>
           <Button
             title="Next"
             disabled={button}
           />
-        </View>
+        </ButtonContainer>
         <ClosingMent />
-      </View>
-    </View>
+      </Body>
+    </Container>
   );
 }
