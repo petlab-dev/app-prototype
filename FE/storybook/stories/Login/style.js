@@ -45,6 +45,11 @@ export default {
   loginButtonView: {
     marginBottom: 20,
   },
+  loginButtonText: {
+    fontSize: 12,
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+  },
   loginButton: {
     width: 200,
     height: 50,
@@ -58,6 +63,11 @@ export default {
     height: 20,
     margin: 0,
     textAlign: 'center',
+  },
+  subButtonText: {
+    height: 50,
+    width: 150,
+    textAlign: 'left',
   },
   iconButton: {
     width: 70,
