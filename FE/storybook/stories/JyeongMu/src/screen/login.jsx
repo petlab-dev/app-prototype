@@ -4,6 +4,7 @@ import { Button, TextInput } from 'react-native';
 import ClosingMent from '../components/loginClosingMent';
 import LoginHeader from '../components/loginHeader';
 import LoginSelectButton from '../components/loginSelectButton';
+
 import {
   Container,
   Body,
@@ -21,8 +22,11 @@ export default function Login() {
 
   function isDisabled(event) {
     setValue(event);
-    if (value.length > 1) setState({ ...state, button: false });
-    else setState({ ...state, button: true });
+    if (value.length > 1) {
+      setState({ ...state, button: false });
+      return;
+    }
+    setState({ ...state, button: true });
   }
 
   function handleChangeToPhoneButton() {
