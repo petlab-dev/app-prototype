@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Button, TextInput } from 'react-native';
 
-import ClosingMent from '../components/loginClosingMent';
-import LoginHeader from '../components/loginHeader';
-import LoginSelectButton from '../components/loginSelectButton';
+import PreSignUpClosingMent from '../components/PreSignUpClosingMent';
+import PreSignUpHeader from '../components/PreSignUpHeader';
+import PreSignUpSelectButton from '../components/PreSignUpSelectButton';
 
 import {
   Container,
@@ -13,7 +13,7 @@ import {
   ButtonContainer,
 } from '../styles';
 
-export default function Login() {
+export default function SignUpFirst() {
   const [value, setValue] = useState('');
   const [state, setState] = useState({
     nextButton: true,
@@ -42,17 +42,17 @@ export default function Login() {
 
   return (
     <Container>
-      <LoginHeader
+      <PreSignUpHeader
         text="Enter Phone or Email"
       />
       <Body>
         <Select>
-          <LoginSelectButton
+          <PreSignUpSelectButton
             onClick={handleChangeToPhoneButton}
             text="Phone"
             active={toggleButton}
           />
-          <LoginSelectButton
+          <PreSignUpSelectButton
             onClick={handleChangeToEmailButton}
             text="Email"
             active={!toggleButton}
@@ -70,7 +70,7 @@ export default function Login() {
             disabled={nextButton}
           />
         </ButtonContainer>
-        <ClosingMent />
+        <PreSignUpClosingMent />
       </Body>
     </Container>
   );

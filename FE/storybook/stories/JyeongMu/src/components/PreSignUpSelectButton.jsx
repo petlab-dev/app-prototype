@@ -6,7 +6,7 @@ import { TouchableOpacity } from 'react-native';
 
 import { SelectButton, SelectButtonColor } from '../styles';
 
-export default function LoginSelectButton({ onClick, text, active }) {
+export default function PreSignUpLoginSelectButton({ onClick, text, active }) {
   return (
     <SelectButton>
       <TouchableOpacity onClick={onClick}>

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, TextWrap } from '../styles';
 
-export default function ClosingMent() {
+export default function PreSignUpClosingMent() {
   return (
     <Container>
       <TextWrap> You may receive SMS updates from</TextWrap>

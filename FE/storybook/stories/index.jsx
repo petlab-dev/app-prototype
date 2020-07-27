@@ -4,7 +4,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { linkTo } from '@storybook/addon-links';
 
-import Login from './JyeongMu/src/screen/login';
+import PreSignUp from './JyeongMu/src/screens/PreSignUp';
 
 storiesOf('정무', module)
-  .add('로그인 페이지', () => <Login showApp={linkTo('Button')} />);
+  .add('회왼가입 판별 페이지', () => <PreSignUp showApp={linkTo('Button')} />);
