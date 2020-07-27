@@ -11,6 +11,8 @@ import CenterView from './CenterView';
 import Welcome from './Welcome';
 import Something from './components/Something';
 
+import Login from './JyeongMu/src/screen/login';
+
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
 storiesOf('Button', module)
@@ -28,3 +30,6 @@ storiesOf('Button', module)
   .add('something', () => (
     <Something />
   ));
+
+storiesOf('정무', module)
+  .add('로그인 페이지', () => <Login showApp={linkTo('Button')} />);
