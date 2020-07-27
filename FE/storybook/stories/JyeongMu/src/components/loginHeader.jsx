@@ -4,10 +4,10 @@ import React from 'react';
 
 import { Header, HeaderText } from '../styles';
 
-export default function LoginHeader(props) {
+export default function LoginHeader({ text }) {
   return (
     <Header>
-      <HeaderText>{props.text}</HeaderText>
+      <HeaderText>{text}</HeaderText>
     </Header>
   );
 }
