@@ -2,12 +2,12 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-import { Container } from '../../styles';
+import { MainContainer } from '../../styles';
 
 export default function Main() {
   return (
-    <Container>
+    <MainContainer>
       <Text>Open up App.js to start working on your app!</Text>
-    </Container>
+    </MainContainer>
   );
 }
