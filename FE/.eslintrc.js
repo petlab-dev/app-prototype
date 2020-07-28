@@ -9,6 +9,7 @@ module.exports = {
   env: {
     browser: true,
     es2020: true,
+    jest: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -25,6 +26,8 @@ module.exports = {
     'react',
   ],
   rules: {
-    "react/forbid-prop-types": 0,
+    'react/forbid-prop-types': 0,
+    'react/prop-types': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
   },
 };
