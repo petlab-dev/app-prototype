@@ -2,10 +2,25 @@ import React, { useState } from 'react';
 import {
   View, Text, TextInput, TouchableOpacity,
 } from 'react-native';
-import style from './style';
 
-import SubButton from './subButton';
+import IconButton from './iconButton';
 import TopText from './topText';
+import {
+  InputBox,
+  LoginView,
+  IconButtonStyle,
+  CloseButtonView,
+  Header,
+  InputData,
+  ViewSet,
+  LoginButtonView,
+  LoginButton,
+  LoginButtonText,
+  SubButton,
+  SubButtonTextLeft,
+  SubButtonTextRight,
+  TopInput,
+} from './emotionStyle';
 
 export default function Login() {
   const [value, setValue] = useState({
@@ -13,45 +28,45 @@ export default function Login() {
     password: '',
   });
   return (
-    <View style={style.loginView}>
-      <View style={style.closeButton}>
-        <TouchableOpacity style={style.iconButton}>
+    <LoginView>
+      <CloseButtonView>
+        <IconButtonStyle>
           <Text>닫기</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={style.header}>
+        </IconButtonStyle>
+      </CloseButtonView>
+      <Header>
         <TopText />
-      </View>
-      <View style={style.InputData}>
-        <Text style={style.topInput}>E-mail</Text>
-        <TextInput style={style.inputBox} placeholder="E-mail" onChangeText={(email) => setValue({ ...value, email })} />
-        <Text style={style.topInput}>Password</Text>
-        <TextInput style={style.inputBox} placeholder="Password" onChangeText={(password) => setValue({ ...value, password })} />
-      </View>
-      <View style={style.loginButtonView}>
-        <TouchableOpacity style={style.loginButton} onPress={() => alert(value.email + "\n" +  value.password)}>
-          <Text style={style.loginButtonText}>로그인</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={style.view}>
-        <TouchableOpacity style={style.subButton} SubButton onPress={() => alert('아이디/비밀번호찾기')}>
-          <Text style={style.subButtonText}>
+      </Header>
+      <InputData>
+        <TopInput>E-mail</TopInput>
+        <InputBox placeholder="E-mail" onChangeText={(email) => setValue({ ...value, email })} />
+        <TopInput>Password</TopInput>
+        <InputBox secureTextEntry placeholder="Password" onChangeText={(password) => setValue({ ...value, password })} />
+      </InputData>
+      <LoginButtonView>
+        <LoginButton onPress={() => alert(value.email + "\n" +  value.password)}>
+          <LoginButtonText>로그인</LoginButtonText>
+        </LoginButton>
+      </LoginButtonView>
+      <ViewSet>
+        <SubButton SubButton onPress={() => alert('아이디/비밀번호찾기')}>
+          <SubButtonTextLeft>
             {' 아이디/비밀번호 찾기 '}
-          </Text>
-        </TouchableOpacity>
+          </SubButtonTextLeft>
+        </SubButton>
         <Text>|</Text>
-        <TouchableOpacity style={style.subButton} SubButton onPress={() => alert('이메일로 회원가입')}>
-          <Text style={style.subButtonText}>
+        <SubButton onPress={() => alert('이메일로 회원가입')}>
+          <SubButtonTextRight>
             {' 이메일로 회원가입 '}
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <View style={style.view}>
-        <SubButton plattform="카카오" />
-        <SubButton plattform="페이스북" />
-        <SubButton plattform="네이버" />
-        <SubButton plattform="구글" />
-      </View>
-    </View>
+          </SubButtonTextRight>
+        </SubButton>
+      </ViewSet>
+      <ViewSet>
+        <IconButton plattform="카카오" />
+        <IconButton plattform="페이스북" />
+        <IconButton plattform="네이버" />
+        <IconButton plattform="구글" />
+      </ViewSet>
+    </LoginView>
   );
 }
