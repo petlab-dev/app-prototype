@@ -4,6 +4,7 @@ export const LoginView = styled.View({
   display: 'flex',
   flex: 1,
   height: '100%',
+  width: '100%',
   flexDirection: 'column',
   alignItems: 'center',
 });
@@ -14,6 +15,7 @@ export const CloseButtonView = styled.View({
 export const Header = styled.View({
   flex: 1,
   width: '50%',
+  maxWidth: 300,
   marginBottom: 50,
 });
 export const HeaderText = styled.Text({
@@ -32,6 +34,7 @@ export const SubButtonView = styled.View({
 });
 export const InputData = styled.View({
   width: '50%',
+  maxWidth: 300,
   marginBottom: '10%',
   flex: 1,
 });
