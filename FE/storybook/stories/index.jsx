@@ -5,12 +5,7 @@ import { linkTo } from '@storybook/addon-links';
 import Login from './Login';
 import Second from './Second';
 
-<<<<<<< HEAD
-storiesOf('Login', module)
-  .add('Login ID', () => <Login showApp={linkTo('Button')} />);
-  storiesOf('second', module)
-  .add('Login ID', () => <Second showApp={linkTo('Button')} />);  
-=======
+
 import PreSignUp from './JyeongMu/src/screens/PreSignUp';
 
 storiesOf('정무', module)
