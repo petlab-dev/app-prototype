@@ -7,5 +7,3 @@ import Calendar from './Calendar';
 
 storiesOf('Login', module)
   .add('Login ID', () => <Login showApp={linkTo('Button')} />);
-storiesOf('Calendar', module)
-  .add('Calendar screen', () => <Calendar showApp={linkTo('Button')} />);
