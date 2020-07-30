@@ -6,7 +6,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "node_modules/.bin/jest --watchAll --coverage"
+    "test": "node_modules/.bin/jest --watchAll --coverage",
+    "lint": "eslint --ext js,jsx ."
   },
   "resolutions": {
     "styled-components": "^5"
