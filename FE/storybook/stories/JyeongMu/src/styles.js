@@ -151,3 +151,18 @@ export const HospitalInfoView = styled.View({
   borderWidth: 2,
   borderColor: '#aaaaaa',
 });
+
+export const TermsButtonContainer = styled.View({
+  flexDirection: 'row',
+  padding: '2%',
+});
+
+export const TermsContentsContainer = styled.View({
+  flexDirection: 'column',
+  padding: '2%',
+});
+
+export const TermsHeaderContainer = styled.View({
+  flexDirection: 'column',
+  padding: '2%',
+});
