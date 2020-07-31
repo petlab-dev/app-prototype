@@ -1,5 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
 import React from 'react';
 
 import { Header, HeaderText } from '../styles';
