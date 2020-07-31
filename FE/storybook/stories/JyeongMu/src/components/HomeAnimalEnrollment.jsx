@@ -2,7 +2,10 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import {
-  AnimalEnrollmentContainter, EnrollmentTextContainer, AnimalEnrollImage, TextWrapForEnroll,
+  AnimalEnrollmentContainter,
+  EnrollmentTextContainer,
+  AnimalEnrollImage,
+  TextWrapForEnroll,
 } from '../styles';
 
 export default function HomeAnimalEnrollment() {
