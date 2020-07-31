@@ -41,7 +41,7 @@ export const Header = styled.View({
 
 export const HomeHeaderContainer = styled.View({
   alignItems: 'center',
-  padding: 80,
+  paddingTop: 80,
 });
 
 export const HeaderText = styled.Text({
@@ -102,9 +102,9 @@ export const SearchBoxContainer = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  width: 400,
-  height: 100,
-  margin: '2%',
+  margin: 20,
+  width: 350,
+  height: 70,
 });
 
 export const AnimalEnrollImage = styled.Image({
@@ -127,11 +127,11 @@ export const SearchBox = styled.TextInput({
 
 export const AnimalEnrollmentContainter = styled.View({
   flexDirection: 'row',
-  padding: '3%',
+  padding: '2%',
 });
 
 export const HomeHospitalContainer = styled.View({
-  padding: '3%',
+  padding: '2%',
 });
 
 export const EnrollmentTextContainer = styled.View({
@@ -140,7 +140,7 @@ export const EnrollmentTextContainer = styled.View({
 });
 
 export const HospitalInformationContainer = styled.ScrollView({
-  padding: '5%',
+  padding: '2%',
 });
 
 export const HospitalInfoView = styled.View({
