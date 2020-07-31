@@ -5,6 +5,12 @@ export const constants = {
   COLOR_LIGHT: '#808080',
   COLOR_LIGHTER: '#EEEEEE',
   COLOR_LIGHTEST: '#FFF',
+  FONTSIZE_BIGGEST: 35,
+  FONTSIZE_BIGGER: 30,
+  FONTSIZE_BIG: 22,
+  FONTSIZE_SMALL: 17,
+  FONTSIZE_SMALLER: 15,
+  FONTSIZE_SAMALLEST: 12,
 };
 
 const {
@@ -12,6 +18,12 @@ const {
   // COLOR_LIGHT,
   COLOR_LIGHTER,
   // COLOR_LIGHTEST,
+  FONTSIZE_BIGGEST,
+  FONTSIZE_BIGGER,
+  FONTSIZE_BIG,
+  FONTSIZE_SMALL,
+  FONTSIZE_SMALLER,
+  // FONTSIZE_SAMALLEST,
 } = constants;
 
 export const Container = styled.View({
@@ -24,12 +36,16 @@ export const Header = styled.View({
   flex: 1,
   alignItems: 'center',
   height: '7%',
-  padding: '5%',
-  margin: '10%',
+  padding: '10%',
+});
+
+export const HomeHeaderContainer = styled.View({
+  alignItems: 'center',
+  padding: 80,
 });
 
 export const HeaderText = styled.Text({
-  fontSize: 30,
+  fontSize: FONTSIZE_BIGGER,
   fontStyle: 'italic',
   color: 'black',
 });
@@ -63,11 +79,75 @@ export const SelectButton = styled.View({
 });
 
 export const SelectButtonColor = styled.Text(({ active }) => ({
-  fontSize: 25,
+  fontSize: FONTSIZE_BIG,
   fontWeight: 'bold',
   color: active ? '#1e90ff' : '#87cefa',
 }));
 
 export const TextWrap = styled.Text({
-  fontSize: 15,
+  fontSize: FONTSIZE_SMALLER,
+});
+
+export const Title = styled.Text({
+  fontSize: FONTSIZE_BIGGEST,
+  fontWeight: 'bold',
+  color: '#4169e1',
+  textShadowColor: 'black',
+  letterSpacing: 2,
+});
+
+export const SearchBoxContainer = styled.View({
+  borderColor: '#4169e1',
+  borderWidth: 2,
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: 400,
+  height: 100,
+  margin: '2%',
+});
+
+export const AnimalEnrollImage = styled.Image({
+  width: 150,
+  height: 150,
+  margin: 20,
+});
+
+export const TextWrapForEnroll = styled.Text({
+  fontSize: FONTSIZE_SMALL,
+  fontWeight: 'bold',
+  padding: 20,
+});
+
+export const SearchBox = styled.TextInput({
+  padding: '2%',
+  width: 250,
+  height: 5,
+});
+
+export const AnimalEnrollmentContainter = styled.View({
+  flexDirection: 'row',
+  padding: '3%',
+});
+
+export const HomeHospitalContainer = styled.View({
+  padding: '3%',
+});
+
+export const EnrollmentTextContainer = styled.View({
+  flexDirection: 'column',
+  justifyContent: 'center',
+});
+
+export const HospitalInformationContainer = styled.ScrollView({
+  padding: '5%',
+});
+
+export const HospitalInfoView = styled.View({
+  flexDirection: 'column',
+  margin: 20,
+  backgroundColor: '#eeeeee',
+  borderRadius: 10,
+  borderWidth: 2,
+  borderColor: '#aaaaaa',
 });
