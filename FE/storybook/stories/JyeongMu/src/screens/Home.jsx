@@ -32,6 +32,18 @@ export default function Home() {
       phone: '042-826-7584',
       key: '3',
     },
+    {
+      name: '도안 ECO종합 동물 병원',
+      adress: '11-13, 봉명서로',
+      phone: '042-485-7582',
+      key: '4',
+    },
+    {
+      name: '피니펫 동물병원',
+      adress: '어은동 105-7',
+      phone: '042-862-7588',
+      key: '5',
+    },
   ];
 
   function handleOnChangeText(event) {
