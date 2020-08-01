@@ -88,6 +88,10 @@ export const TextWrap = styled.Text({
   fontSize: FONTSIZE_SMALLER,
 });
 
+export const TextWrapBig = styled.Text({
+  fontSize: FONTSIZE_BIG,
+});
+
 export const TextWrapBold = styled.Text({
   fontWeight: 'bold',
   fontSize: FONTSIZE_SMALLER,
@@ -116,6 +120,12 @@ export const AnimalEnrollImage = styled.Image({
   width: 150,
   height: 150,
   margin: 20,
+});
+
+export const TermsContentsImage = styled.Image({
+  width: 300,
+  height: 170,
+  margin: 15,
 });
 
 export const TextWrapForEnroll = styled.Text({
