@@ -88,6 +88,11 @@ export const TextWrap = styled.Text({
   fontSize: FONTSIZE_SMALLER,
 });
 
+export const TextWrapBold = styled.Text({
+  fontWeight: 'bold',
+  fontSize: FONTSIZE_SMALLER,
+});
+
 export const Title = styled.Text({
   fontSize: FONTSIZE_BIGGEST,
   fontWeight: 'bold',
@@ -159,10 +164,14 @@ export const TermsButtonContainer = styled.View({
 
 export const TermsContentsContainer = styled.View({
   flexDirection: 'column',
-  padding: '2%',
+  borderWidth: '1',
+  borderBottomColor: '#eeeeee',
+  paddingTop: '2%',
 });
 
 export const TermsHeaderContainer = styled.View({
   flexDirection: 'column',
   padding: '2%',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
