@@ -17,13 +17,13 @@ const {
   // COLOR_SECONDARY,
   // COLOR_LIGHT,
   COLOR_LIGHTER,
-  // COLOR_LIGHTEST,
+  COLOR_LIGHTEST,
   FONTSIZE_BIGGEST,
   FONTSIZE_BIGGER,
   FONTSIZE_BIG,
   FONTSIZE_SMALL,
   FONTSIZE_SMALLER,
-  // FONTSIZE_SAMALLEST,
+  // FONTSIZE_SMALLEST,
 } = constants;
 
 export const Container = styled.View({
@@ -79,7 +79,7 @@ export const SelectButton = styled.View({
 });
 
 export const SelectButtonColor = styled.Text(({ active }) => ({
-  fontSize: FONTSIZE_BIG,
+  fontSize: FONTSIZE_BIGGER,
   fontWeight: 'bold',
   color: active ? '#1e90ff' : '#87cefa',
 }));
@@ -125,7 +125,7 @@ export const AnimalEnrollImage = styled.Image({
 export const TermsContentsImage = styled.Image({
   width: 300,
   height: 170,
-  margin: 15,
+  margin: 20,
 });
 
 export const TextWrapForEnroll = styled.Text({
@@ -173,15 +173,28 @@ export const TermsButtonContainer = styled.View({
 });
 
 export const TermsContentsContainer = styled.View({
+  borderWidth: 2,
+  borderTopColor: COLOR_LIGHTER,
+  borderLeftColor: COLOR_LIGHTEST,
+  borderBottomColor: COLOR_LIGHTEST,
+  borderRightWidth: 0,
   flexDirection: 'column',
-  borderWidth: '1',
-  borderBottomColor: '#eeeeee',
-  paddingTop: '2%',
+  padding: '4%',
 });
 
 export const TermsHeaderContainer = styled.View({
-  flexDirection: 'column',
-  padding: '2%',
+  paddingTop: '5%',
+  margin: '2%',
   justifyContent: 'center',
   alignItems: 'center',
+});
+
+export const ConsentButtonContainer = styled.View({
+  flexDirection: 'row',
+  padding: '2%',
+});
+
+export const CosentButton = styled.Text({
+  fontSize: FONTSIZE_SMALLER,
+  textDecorationLine: 'underline',
 });

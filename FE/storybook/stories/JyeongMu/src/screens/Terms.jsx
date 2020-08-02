@@ -3,6 +3,7 @@ import React from 'react';
 import TermsButton from '../components/TermsButton';
 import TermsContents from '../components/TermsContents';
 import TermsHeader from '../components/TermsHeader';
+import TermsBottomButton from '../components/TermsBottomButton';
 
 import {
   Container,
@@ -14,6 +15,7 @@ export default function Home() {
       <TermsHeader />
       <TermsContents />
       <TermsButton />
+      <TermsBottomButton />
     </Container>
   );
 }
