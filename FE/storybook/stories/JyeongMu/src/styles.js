@@ -198,3 +198,26 @@ export const CosentButton = styled.Text({
   fontSize: FONTSIZE_SMALLER,
   textDecorationLine: 'underline',
 });
+
+export const TermsBottomButtonContainer = styled.View({
+  justifyContent: 'flex-end',
+  flex: 1,
+});
+
+export const RowView = styled.View({
+  flexDirection: 'row',
+});
+
+export const BottomButtonContainer = styled.View({
+  flex: 1,
+});
+
+export const CancelButton = styled.Text({
+  flex: 1,
+  margin: 20,
+  fontSize: FONTSIZE_SMALL,
+});
+
+export const ConsentBotton = styled(CancelButton)({
+  color: 'red',
+});
