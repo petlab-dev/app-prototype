@@ -4,7 +4,6 @@ import { TouchableOpacity } from 'react-native';
 
 import {
   TermsBottomButtonContainer,
-  BottomButtonContainer,
   CancelButton,
   ConsentBotton,
   RowView,
@@ -15,14 +14,10 @@ export default function TermsBottomButton() {
     <TermsBottomButtonContainer>
       <RowView>
         <TouchableOpacity onPress={() => {}}>
-          <BottomButtonContainer>
-            <CancelButton> 취소 </CancelButton>
-          </BottomButtonContainer>
+          <CancelButton> 취소 </CancelButton>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => {}}>
-          <BottomButtonContainer>
-            <ConsentBotton> 확인</ConsentBotton>
-          </BottomButtonContainer>
+          <ConsentBotton> 확인</ConsentBotton>
         </TouchableOpacity>
       </RowView>
     </TermsBottomButtonContainer>

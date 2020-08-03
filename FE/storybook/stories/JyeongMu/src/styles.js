@@ -206,10 +206,7 @@ export const TermsBottomButtonContainer = styled.View({
 
 export const RowView = styled.View({
   flexDirection: 'row',
-});
-
-export const BottomButtonContainer = styled.View({
-  flex: 1,
+  justifyContent: 'space-betwenn',
 });
 
 export const CancelButton = styled.Text({
