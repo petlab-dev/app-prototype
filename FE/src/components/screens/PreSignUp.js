@@ -13,7 +13,7 @@ import {
   ButtonContainer,
 } from '../../styles';
 
-export default function SignUpFirst() {
+export default function PreSignUp({ navigation }) {
   const [value, setValue] = useState('');
   const [state, setState] = useState({
     nextButton: true,
@@ -68,6 +68,7 @@ export default function SignUpFirst() {
           <Button
             title="Next"
             disabled={nextButton}
+            onPress={() => navigation.navigate('Main')}
           />
         </ButtonContainer>
         <PreSignUpClosingMent />
