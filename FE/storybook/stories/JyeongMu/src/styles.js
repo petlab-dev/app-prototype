@@ -17,19 +17,24 @@ const {
   // COLOR_SECONDARY,
   // COLOR_LIGHT,
   COLOR_LIGHTER,
-  // COLOR_LIGHTEST,
+  COLOR_LIGHTEST,
   FONTSIZE_BIGGEST,
   FONTSIZE_BIGGER,
   FONTSIZE_BIG,
   FONTSIZE_SMALL,
   FONTSIZE_SMALLER,
-  // FONTSIZE_SAMALLEST,
+  // FONTSIZE_SMALLEST,
 } = constants;
 
 export const Container = styled.View({
   flex: 1,
   alignItems: 'center',
   flexDirection: 'column',
+});
+
+export const CenterView = styled.View({
+  justifyContent: 'center',
+  alignItems: 'center',
 });
 
 export const Header = styled.View({
@@ -79,12 +84,21 @@ export const SelectButton = styled.View({
 });
 
 export const SelectButtonColor = styled.Text(({ active }) => ({
-  fontSize: FONTSIZE_BIG,
+  fontSize: FONTSIZE_BIGGER,
   fontWeight: 'bold',
   color: active ? '#1e90ff' : '#87cefa',
 }));
 
 export const TextWrap = styled.Text({
+  fontSize: FONTSIZE_SMALLER,
+});
+
+export const TextWrapBig = styled.Text({
+  fontSize: FONTSIZE_BIG,
+});
+
+export const TextWrapBold = styled.Text({
+  fontWeight: 'bold',
   fontSize: FONTSIZE_SMALLER,
 });
 
@@ -110,6 +124,12 @@ export const SearchBoxContainer = styled.View({
 export const AnimalEnrollImage = styled.Image({
   width: 150,
   height: 150,
+  margin: 20,
+});
+
+export const TermsContentsImage = styled.Image({
+  width: 300,
+  height: 170,
   margin: 20,
 });
 
@@ -150,4 +170,56 @@ export const HospitalInfoView = styled.View({
   borderRadius: 10,
   borderWidth: 2,
   borderColor: '#aaaaaa',
+});
+
+export const TermsButtonContainer = styled.View({
+  flexDirection: 'row',
+  padding: '2%',
+});
+
+export const TermsContentsContainer = styled.View({
+  borderWidth: 2,
+  borderTopColor: COLOR_LIGHTER,
+  borderLeftColor: COLOR_LIGHTEST,
+  borderBottomColor: COLOR_LIGHTEST,
+  borderRightWidth: 0,
+  flexDirection: 'column',
+  padding: '4%',
+});
+
+export const TermsHeaderContainer = styled.View({
+  paddingTop: '5%',
+  margin: '2%',
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
+export const ConsentButtonContainer = styled.View({
+  flexDirection: 'row',
+  padding: '2%',
+});
+
+export const CosentButton = styled.Text({
+  fontSize: FONTSIZE_SMALLER,
+  textDecorationLine: 'underline',
+});
+
+export const TermsBottomButtonContainer = styled.View({
+  justifyContent: 'flex-end',
+  flex: 1,
+});
+
+export const RowView = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-betwenn',
+});
+
+export const CancelButton = styled.Text({
+  flex: 1,
+  margin: 20,
+  fontSize: FONTSIZE_SMALL,
+});
+
+export const ConsentBotton = styled(CancelButton)({
+  color: 'red',
 });
