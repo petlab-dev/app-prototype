@@ -37,6 +37,10 @@ export const CenterView = styled.View({
   alignItems: 'center',
 });
 
+export const RowView = styled.View({
+  flexDirection: 'row',
+});
+
 export const Header = styled.View({
   flex: 1,
   alignItems: 'center',
@@ -170,8 +174,7 @@ export const HospitalInfoView = styled.View({
   borderColor: '#aaaaaa',
 });
 
-export const TermsButtonContainer = styled.View({
-  flexDirection: 'row',
+export const TermsButtonContainer = styled(RowView)({
   padding: '2%',
 });
 
@@ -203,11 +206,6 @@ export const CosentButton = styled.Text({
 export const TermsBottomButtonContainer = styled.View({
   justifyContent: 'flex-end',
   flex: 1,
-});
-
-export const RowView = styled.View({
-  flexDirection: 'row',
-  justifyContent: 'space-betwenn',
 });
 
 export const CancelButton = styled.Text({
