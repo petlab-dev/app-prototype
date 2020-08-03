@@ -110,12 +110,10 @@ export const Title = styled.Text({
   letterSpacing: 2,
 });
 
-export const SearchBoxContainer = styled.View({
+export const SearchBoxContainer = styled(CenterView)({
   borderColor: '#4169e1',
   borderWidth: 2,
   flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'center',
   margin: 20,
   width: 350,
   height: 70,
@@ -187,11 +185,9 @@ export const TermsContentsContainer = styled.View({
   padding: '4%',
 });
 
-export const TermsHeaderContainer = styled.View({
+export const TermsHeaderContainer = styled(CenterView)({
   paddingTop: '5%',
   margin: '2%',
-  justifyContent: 'center',
-  alignItems: 'center',
 });
 
 export const ConsentButtonContainer = styled.View({
