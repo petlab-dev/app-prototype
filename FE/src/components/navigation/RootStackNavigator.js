@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { AuthContext } from '../../contexts';
+
 import SharedStatusBar from '../shared/StatusBar';
 import MainStackNavigator from './MainStackNavigator';
 import PreSignUp from '../screens/PreSignUp';
@@ -14,36 +16,36 @@ export default function RootStackNavigator() {
 
   function toggleAuth() {
     setAuth(!auth);
-    console.log(auth);
   }
   return (
-    <NavigationContainer>
-      <SharedStatusBar />
-      <Stack.Navigator>
-        {auth ? (
-          <Stack.Screen
-            name="Main"
-            component={MainStackNavigator}
-            options={{
-              headerShown: false,
-              headerTitle: '',
-              headerBackTitle: '',
-            }}
-          />
-        ) : (
-          <Stack.Screen
-            name="PreSignUp"
-            component={PreSignUp}
-            options={{
-              headerShown: true,
-              headerTitle: '',
-              headerBackTitle: '',
-            }}
-            onClick={() => toggleAuth}
-          />
-        )}
-        <Stack.Screen name="Main" component={MainStackNavigator} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthContext.Provider value={{ auth, toggleAuth }}>
+      <NavigationContainer>
+        <SharedStatusBar />
+        <Stack.Navigator>
+          {auth ? (
+            <Stack.Screen
+              name="Main"
+              component={MainStackNavigator}
+              options={{
+                headerShown: false,
+                headerTitle: '',
+                headerBackTitle: '',
+              }}
+            />
+          ) : (
+            <Stack.Screen
+              name="PreSignUp"
+              component={PreSignUp}
+              options={{
+                headerShown: true,
+                headerTitle: '',
+                headerBackTitle: '',
+              }}
+            />
+          )}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthContext.Provider>
+
   );
 }

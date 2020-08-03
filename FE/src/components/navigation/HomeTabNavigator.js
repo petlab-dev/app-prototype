@@ -1,30 +1,13 @@
 import React from 'react';
 
-import { View, Text } from 'react-native';
-
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import MainScreen from '../screens/MainScreen';
+import HomeScreen from '../screens/HomeScreen';
+import TestScreen from '../screens/TestScreen';
 
 const Tab = createBottomTabNavigator();
-
-function Something() {
-  return (
-    <View>
-      <Text>abc</Text>
-    </View>
-  );
-}
-
-function Main2() {
-  return (
-    <View>
-      <Text>뒤로</Text>
-    </View>
-  );
-}
 
 function TabBarIcon({ name, size, color }) {
   return <Icon name={name} size={size} color={color} style={{ marginBottom: -3 }} />;
@@ -42,28 +25,27 @@ export default function HomeTabNavigator() {
       }}
     >
       <Tab.Screen
-        name="Main"
-        component={MainScreen}
+        name="HomeScreen"
+        component={HomeScreen}
         options={{
-          headerTitle: 'Main',
-          tabBarLabel: 'Main',
+          headerTitle: 'Home',
+          tabBarLabel: 'Home',
           tabBarIcon: ({ focused }) => (focused ? (
-            <TabBarIcon name="rocket" size={20} color="#ffffff" />
+            <TabBarIcon name="home" size={20} color="#ffffff" />
           ) : (
-            <TabBarIcon name="rocket" size={20} color="#7FC0C4" />
+            <TabBarIcon name="home" size={20} color="#7FC0C4" />
           )),
         }}
       />
       <Tab.Screen
-        name="Something"
-        component={Something}
+        name="TestScreen"
+        component={TestScreen}
         options={{
-          headerTitle: 'else',
-          tabBarLabel: 'Something',
+          tabBarLabel: 'Test',
           tabBarIcon: ({ focused }) => (focused ? (
-            <TabBarIcon name="space-shuttle" size={20} color="#ffffff" />
+            <TabBarIcon name="adjust" size={20} color="#ffffff" />
           ) : (
-            <TabBarIcon name="space-shuttle" size={20} color="#7FC0C4" />
+            <TabBarIcon name="adjust" size={20} color="#7FC0C4" />
           )),
         }}
       />
