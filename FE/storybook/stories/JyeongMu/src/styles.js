@@ -32,6 +32,11 @@ export const Container = styled.View({
   flexDirection: 'column',
 });
 
+export const CenterView = styled.View({
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
 export const Header = styled.View({
   flex: 1,
   alignItems: 'center',
