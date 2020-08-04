@@ -1,11 +1,12 @@
 import React from 'react';
+
 import { render } from '@testing-library/react-native';
 
-import Main from './Main';
+import TestScreen from './TestScreen';
 
 describe('Main', () => {
   it('renders without exploding', () => {
-    const { queryByText } = render(<Main />);
+    const { queryByText } = render(<TestScreen />);
 
     expect(queryByText('Open up App.js to start working on your app!')).toBeTruthy();
   });
