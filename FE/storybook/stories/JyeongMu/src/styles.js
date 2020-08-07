@@ -6,7 +6,7 @@ export const constants = {
   COLOR_LIGHTER: '#EEEEEE',
   COLOR_LIGHTEST: '#FFF',
   FONTSIZE_BIGGEST: 35,
-  FONTSIZE_BIGGER: 30,
+  FONTSIZE_BIGGER: 25,
   FONTSIZE_BIG: 22,
   FONTSIZE_SMALL: 17,
   FONTSIZE_SMALLER: 15,
@@ -15,7 +15,7 @@ export const constants = {
 
 const {
   // COLOR_SECONDARY,
-  // COLOR_LIGHT,
+  COLOR_LIGHT,
   COLOR_LIGHTER,
   COLOR_LIGHTEST,
   FONTSIZE_BIGGEST,
@@ -23,7 +23,7 @@ const {
   FONTSIZE_BIG,
   FONTSIZE_SMALL,
   FONTSIZE_SMALLER,
-  // FONTSIZE_SMALLEST,
+  FONTSIZE_SMALLEST,
 } = constants;
 
 export const Container = styled.View({
@@ -40,8 +40,7 @@ export const CenterView = styled.View({
 export const Header = styled.View({
   flex: 1,
   alignItems: 'center',
-  height: '7%',
-  padding: '10%',
+  paddingTop: '10%',
 });
 
 export const HomeHeaderContainer = styled.View({
@@ -62,35 +61,42 @@ export const Body = styled.View({
 
 export const Select = styled.View({
   flexDirection: 'row',
-  margin: '5%',
-  justifyContent: 'space-around',
+  paddingTop: '5%',
+  width: '100%',
 });
 
 export const TextInputWrap = styled.View({
-  padding: '2%',
-  margin: '5%',
-  borderRadius: 10,
+  padding: '7%',
+  margin: '7%',
+  borderWidth: 1,
+  borderColor: COLOR_LIGHT,
   backgroundColor: COLOR_LIGHTER,
-  width: '80%',
+  width: '100%',
 });
 
 export const ButtonContainer = styled.View({
-  width: '80%',
+  width: '100%',
 });
 
-export const SelectButton = styled.View({
+export const SelectButton = styled.View(({ active }) => ({
   flex: 1,
   alignItems: 'center',
-});
+  borderWidth: 2,
+  borderBottomColor: active ? 'black' : COLOR_LIGHT,
+  borderTopColor: COLOR_LIGHTEST,
+  borderLeftColor: COLOR_LIGHTEST,
+  borderRightWidth: 0,
+}));
 
 export const SelectButtonColor = styled.Text(({ active }) => ({
-  fontSize: FONTSIZE_BIGGER,
-  fontWeight: 'bold',
-  color: active ? '#1e90ff' : '#87cefa',
+  fontSize: FONTSIZE_BIG,
+  fontWeight: 700,
+  color: active ? 'black' : COLOR_LIGHT,
+  paddingBottom: '10%',
 }));
 
 export const TextWrap = styled.Text({
-  fontSize: FONTSIZE_SMALLER,
+  fontSize: FONTSIZE_SMALLEST,
 });
 
 export const TextWrapBig = styled.Text({
@@ -100,6 +106,10 @@ export const TextWrapBig = styled.Text({
 export const TextWrapBold = styled.Text({
   fontWeight: 'bold',
   fontSize: FONTSIZE_SMALLER,
+});
+
+export const TextWrapContainer = styled.View({
+  marginTop: '7%',
 });
 
 export const Title = styled.Text({
