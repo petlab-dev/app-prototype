@@ -18,7 +18,7 @@ const {
   COLOR_LIGHT,
   COLOR_LIGHTER,
   COLOR_LIGHTEST,
-  FONTSIZE_BIGGEST,
+  // FONTSIZE_BIGGEST,
   FONTSIZE_BIGGER,
   FONTSIZE_BIG,
   FONTSIZE_SMALL,
@@ -28,7 +28,6 @@ const {
 
 export const Container = styled.View({
   flex: 1,
-  alignItems: 'center',
   flexDirection: 'column',
 });
 
@@ -45,7 +44,7 @@ export const Header = styled.View({
 
 export const HomeHeaderContainer = styled.View({
   alignItems: 'center',
-  paddingTop: 80,
+  paddingTop: '10%',
 });
 
 export const HeaderText = styled.Text({
@@ -62,7 +61,7 @@ export const Body = styled.View({
 export const Select = styled.View({
   flexDirection: 'row',
   paddingTop: '5%',
-  width: '100%',
+  width: '80%',
 });
 
 export const TextInputWrap = styled.View({
@@ -71,11 +70,11 @@ export const TextInputWrap = styled.View({
   borderWidth: 1,
   borderColor: COLOR_LIGHT,
   backgroundColor: COLOR_LIGHTER,
-  width: '100%',
+  width: '80%',
 });
 
 export const ButtonContainer = styled.View({
-  width: '100%',
+  width: '80%',
 });
 
 export const SelectButton = styled.View(({ active }) => ({
@@ -105,7 +104,8 @@ export const TextWrapBig = styled.Text({
 
 export const TextWrapBold = styled.Text({
   fontWeight: 'bold',
-  fontSize: FONTSIZE_SMALLER,
+  fontSize: FONTSIZE_SMALL,
+  marginBottom: '5%',
 });
 
 export const TextWrapContainer = styled.View({
@@ -113,28 +113,33 @@ export const TextWrapContainer = styled.View({
 });
 
 export const Title = styled.Text({
-  fontSize: FONTSIZE_BIGGEST,
-  fontWeight: 'bold',
-  color: '#4169e1',
-  textShadowColor: 'black',
-  letterSpacing: 2,
+  fontSize: FONTSIZE_BIG,
+  fontWeight: 900,
+  color: '#f44336',
+  letterSpacing: 1,
 });
 
 export const SearchBoxContainer = styled.View({
-  borderColor: '#4169e1',
-  borderWidth: 2,
+  borderColor: '#f44336',
+  borderWidth: 1.5,
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  margin: 20,
-  width: 350,
-  height: 70,
+  margin: 15,
+  width: '85%',
+  height: '10%',
+});
+
+export const SearchImage = styled.Image({
+  margin: 10,
+  width: 30,
+  height: 30,
 });
 
 export const AnimalEnrollImage = styled.Image({
-  width: 150,
-  height: 150,
-  margin: 20,
+  width: 110,
+  height: 110,
+  margin: 15,
 });
 
 export const TermsContentsImage = styled.Image({
@@ -157,11 +162,25 @@ export const SearchBox = styled.TextInput({
 
 export const AnimalEnrollmentContainter = styled.View({
   flexDirection: 'row',
-  padding: '2%',
+  paddingTop: '2%',
+  justifyContent: 'flex-start',
 });
 
 export const HomeHospitalContainer = styled.View({
-  padding: '2%',
+  marginTop: '4%',
+});
+
+export const Beta = styled.Image({
+  width: 50,
+  height: 20,
+  marginLeft: '10%',
+});
+
+export const HomeHospitalText = styled.Text({
+  fontSize: 22,
+  fontWeight: 800,
+  marginLeft: '10%',
+  paddingTop: '2%',
 });
 
 export const EnrollmentTextContainer = styled.View({
@@ -170,21 +189,28 @@ export const EnrollmentTextContainer = styled.View({
 });
 
 export const HospitalInformationContainer = styled.ScrollView({
-  padding: '2%',
+  margin: '2%',
 });
 
 export const HospitalInfoView = styled.View({
   flexDirection: 'column',
-  margin: 20,
-  backgroundColor: '#eeeeee',
+  width: 250,
+  height: 200,
+  margin: 10,
   borderRadius: 10,
-  borderWidth: 2,
-  borderColor: '#aaaaaa',
+  borderWidth: 1,
+  borderColor: COLOR_LIGHTER,
 });
 
 export const TermsButtonContainer = styled.View({
   flexDirection: 'row',
   padding: '2%',
+  marginLeft: '10%',
+});
+
+export const TextWrapForHospitalInfo = styled.Text({
+  fontSize: FONTSIZE_SMALL,
+  padding: 15,
 });
 
 export const TermsContentsContainer = styled.View({
@@ -225,11 +251,20 @@ export const RowView = styled.View({
 });
 
 export const CancelButton = styled.Text({
-  flex: 1,
-  margin: 20,
+  margin: 15,
+  fontWeight: 500,
   fontSize: FONTSIZE_SMALL,
 });
 
 export const ConsentBotton = styled(CancelButton)({
   color: 'red',
+});
+
+export const BottomButtonContainer = styled.TouchableOpacity({
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderWidth: 1,
+  borderColor: COLOR_LIGHTER,
+  borderBottomColor: COLOR_LIGHTEST,
 });

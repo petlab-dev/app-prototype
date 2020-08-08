@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import React, { useState } from 'react';
 
 import HomeAnimalEnrollment from '../components/HomeAnimalEnrollment';
@@ -7,6 +8,8 @@ import HomeSearch from '../components/HomeSearch';
 
 import {
   Container,
+  HomeHospitalText,
+  Beta,
 } from '../styles';
 
 export default function Home() {
@@ -59,6 +62,10 @@ export default function Home() {
         onChangeText={handleOnChangeText}
       />
       <HomeAnimalEnrollment />
+      <Beta
+        source={require('../assets/Beta.png')}
+      />
+      <HomeHospitalText>가까운 동물병원</HomeHospitalText>
       <HomeHospital
         data={DataOfNearbyHospital}
       />

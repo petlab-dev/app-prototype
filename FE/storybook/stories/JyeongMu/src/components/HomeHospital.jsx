@@ -4,6 +4,7 @@ import {
   HospitalInformationContainer,
   TextWrapForEnroll,
   HospitalInfoView,
+  TextWrapForHospitalInfo,
 } from '../styles';
 
 export default function HomeHospital({ data }) {
@@ -22,15 +23,15 @@ export default function HomeHospital({ data }) {
                 {item.name}
                 {' '}
               </TextWrapForEnroll>
-              <TextWrapForEnroll>
+              <TextWrapForHospitalInfo>
                 {' '}
                 {item.adress}
                 {' '}
-              </TextWrapForEnroll>
-              <TextWrapForEnroll>
+              </TextWrapForHospitalInfo>
+              <TextWrapForHospitalInfo>
                 {' '}
                 {item.phone}
-              </TextWrapForEnroll>
+              </TextWrapForHospitalInfo>
             </HospitalInfoView>
           ))
         }
