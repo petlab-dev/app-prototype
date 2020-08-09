@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { AuthContext } from '../../../contexts';
+// import { AuthContext } from '../../../contexts';
 
 import {
   TermsBottomButtonContainer,
@@ -10,16 +10,16 @@ import {
   BottomButtonContainer,
 } from './style';
 
-export default function TermsBottomButton({ navigation }) {
-  const { toggleAuth } = useContext(AuthContext);
+export default function TermsBottomButton() {
+  // const { toggleAuth } = useContext(AuthContext);
 
   return (
     <TermsBottomButtonContainer>
       <RowView>
-        <BottomButtonContainer onPress={() => navigation.popToTop()}>
+        <BottomButtonContainer>
           <CancelButton> 취소 </CancelButton>
         </BottomButtonContainer>
-        <BottomButtonContainer onPress={() => toggleAuth()}>
+        <BottomButtonContainer>
           <ConsentBotton> 동의 </ConsentBotton>
         </BottomButtonContainer>
       </RowView>

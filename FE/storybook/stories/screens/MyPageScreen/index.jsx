@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { AuthContext } from '../../../contexts';
+// import { AuthContext } from '../../../contexts';
 
 import FollowButton from './FollowButton';
 import TextButton from './TextButton';
@@ -26,7 +26,7 @@ import {
 } from './style';
 
 export default function MyPageScreen() {
-  const { toggleAuth } = useContext(AuthContext);
+  // const { toggleAuth } = useContext(AuthContext);
 
   const value = {
     email: '',
@@ -41,9 +41,9 @@ export default function MyPageScreen() {
   return (
     <Container>
       <TitleBar>
-        <TitleCancel onPress={() => toggleAuth()} />
+        <TitleCancel />
         <TitleText>마이홈</TitleText>
-        <TitleSetting onPress={() => toggleAuth()} />
+        <TitleSetting />
       </TitleBar>
       <ProfileView>
         <ProfilImg source={require('../../assets/ProfileCover.png')} />

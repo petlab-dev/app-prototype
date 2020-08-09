@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 
 import { TouchableOpacity } from 'react-native';
 
-import { AuthContext } from '../../../contexts';
+// import { AuthContext } from '../../../contexts';
 
 import {
   AnimalEnrollmentContainter,
@@ -14,11 +14,11 @@ import {
 } from './style';
 
 export default function HomeAnimalEnrollment() {
-  const { toggleAuth } = useContext(AuthContext);
+  // const { toggleAuth } = useContext(AuthContext);
 
   return (
     <AnimalEnrollmentContainter>
-      <TouchableOpacity onPress={() => toggleAuth()}>
+      <TouchableOpacity>
         <AnimalEnrollImage source={require('../../assets/PetEnroll.png')} />
       </TouchableOpacity>
       <EnrollmentTextContainer>

@@ -13,7 +13,7 @@ import {
   ButtonContainer,
 } from './style';
 
-export default function AuthCheckScreen({ navigation }) {
+export default function AuthCheckScreen() {
   const [value, setValue] = useState('');
   const [state, setState] = useState({
     nextButton: true,
@@ -66,7 +66,7 @@ export default function AuthCheckScreen({ navigation }) {
         </TextInputWrap>
         <ButtonContainer>
           <TouchableOpacity
-            onPress={() => navigation.navigate('TermsScreen')}
+            // onPress={}
             disabled={nextButton}
           >
             <Text>Next</Text>

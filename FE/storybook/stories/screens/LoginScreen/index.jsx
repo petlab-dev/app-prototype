@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import {
   Text,
 } from 'react-native';
 
-import { AuthContext } from '../../../contexts';
+// import { AuthContext } from '../../../contexts';
 
 import IconButton from './IconButton';
 import TopText from './TopText';
@@ -25,8 +25,8 @@ import {
   TopInput,
 } from './style';
 
-export default function LoginScreen({ navigation }) {
-  const { toggleAuth } = useContext(AuthContext);
+export default function LoginScreen() {
+  // const { toggleAuth } = useContext(AuthContext);
 
   const [value, setValue] = useState({
     email: '',
@@ -49,18 +49,18 @@ export default function LoginScreen({ navigation }) {
         <InputBox secureTextEntry placeholder="Password" onChangeText={(password) => setValue({ ...value, password })} />
       </InputData>
       <LoginButtonView>
-        <LoginButton onPress={() => toggleAuth()}>
+        <LoginButton>
           <LoginButtonText>로그인</LoginButtonText>
         </LoginButton>
       </LoginButtonView>
       <ViewSet>
-        <SubButton SubButton onPress={() => navigation.navigate('AuthCheckScreen')}>
+        <SubButton SubButton>
           <SubButtonTextLeft>
             {' 아이디/비밀번호 찾기 '}
           </SubButtonTextLeft>
         </SubButton>
         <Text>|</Text>
-        <SubButton onPress={() => navigation.navigate('AuthCheckScreen')}>
+        <SubButton>
           <SubButtonTextRight>
             {' 이메일로 회원가입 '}
           </SubButtonTextRight>
