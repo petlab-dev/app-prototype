@@ -5,9 +5,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { AuthContext } from '../../contexts';
 
-import SharedStatusBar from '../shared/StatusBar';
+import SharedStatusBar from '../shared/SharedStatusBar';
 import MainStackNavigator from './MainStackNavigator';
-import PreSignUp from '../screens/PreSignUp';
+import LoginScreen from '../screens/LoginScreen';
+import AuthCheckScreen from '../screens/AuthCheckScreen';
+import TermsScreen from '../screens/TermsScreen';
 
 const Stack = createStackNavigator();
 
@@ -21,7 +23,12 @@ export default function RootStackNavigator() {
     <AuthContext.Provider value={{ auth, toggleAuth }}>
       <NavigationContainer>
         <SharedStatusBar />
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            animationEnabled: false,
+            headerShown: false,
+          }}
+        >
           {auth ? (
             <Stack.Screen
               name="Main"
@@ -30,19 +37,33 @@ export default function RootStackNavigator() {
                 headerShown: false,
                 headerTitle: '',
                 headerBackTitle: '',
+                headerStatusBarHeight: 0,
               }}
             />
           ) : (
-            <Stack.Screen
-              name="PreSignUp"
-              component={PreSignUp}
-              options={{
-                headerShown: true,
-                headerTitle: '',
-                headerBackTitle: '',
-              }}
-            />
+            <>
+              <Stack.Screen
+                name="LoginScreen"
+                component={LoginScreen}
+                options={{
+                  headerShown: false,
+                  headerTitle: '',
+                  headerBackTitle: '',
+                  headerStatusBarHeight: 0,
+
+                }}
+              />
+              <Stack.Screen
+                name="AuthCheckScreen"
+                component={AuthCheckScreen}
+              />
+              <Stack.Screen
+                name="TermsScreen"
+                component={TermsScreen}
+              />
+            </>
           )}
+
         </Stack.Navigator>
       </NavigationContainer>
     </AuthContext.Provider>

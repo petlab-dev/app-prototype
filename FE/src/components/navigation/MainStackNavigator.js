@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Button } from 'react-native';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Tab from './HomeTabNavigator';
+import HomeTabNavigator from './HomeTabNavigator';
 
 const Stack = createStackNavigator();
 
@@ -11,15 +11,6 @@ function Main2({ navigation }) {
   return (
     <View>
       <Button title="pop" onPress={() => navigation.pop()} />
-
-    </View>
-  );
-}
-
-function Something() {
-  return (
-    <View>
-      <Text>abc</Text>
     </View>
   );
 }
@@ -28,11 +19,19 @@ export default function MainStackNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
-        component={Tab}
+        name="HomeTabNavigator"
+        component={HomeTabNavigator}
+        options={{
+          headerShown: false,
+        }}
       />
-      <Stack.Screen name="Main2" component={Main2} />
-      <Stack.Screen name="Something" component={Something} />
+      <Stack.Screen
+        name="Main2"
+        component={Main2}
+        options={{
+          animationEnabled: false,
+        }}
+      />
     </Stack.Navigator>
   );
 }
