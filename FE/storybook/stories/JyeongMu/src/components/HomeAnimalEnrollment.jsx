@@ -5,7 +5,8 @@ import {
   AnimalEnrollmentContainter,
   EnrollmentTextContainer,
   AnimalEnrollImage,
-  TextWrapForEnroll,
+  TextWrap,
+  TextWrapBold,
 } from '../styles';
 
 export default function HomeAnimalEnrollment() {
@@ -15,9 +16,9 @@ export default function HomeAnimalEnrollment() {
         <AnimalEnrollImage source={require('../assets/PetEnroll.png')} />
       </TouchableOpacity>
       <EnrollmentTextContainer>
-        <TextWrapForEnroll>반려동물 등록</TextWrapForEnroll>
-        <TextWrapForEnroll>보호자님의 사랑스러운</TextWrapForEnroll>
-        <TextWrapForEnroll>반려동물을 등록해주세요!</TextWrapForEnroll>
+        <TextWrapBold>반려동물 등록</TextWrapBold>
+        <TextWrap>보호자님의 사랑스러운</TextWrap>
+        <TextWrap>반려동물을 등록해주세요!</TextWrap>
       </EnrollmentTextContainer>
     </AnimalEnrollmentContainter>
   );

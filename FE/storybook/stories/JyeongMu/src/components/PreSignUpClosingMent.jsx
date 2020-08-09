@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Container, TextWrap } from '../styles';
+import { TextWrapContainer, TextWrap } from '../styles';
 
 export default function PreSignUpClosingMent() {
   return (
-    <Container>
+    <TextWrapContainer>
       <TextWrap> You may receive SMS updates from</TextWrap>
       <TextWrap>Instagram and can opt out at any time. </TextWrap>
-    </Container>
+    </TextWrapContainer>
   );
 }
