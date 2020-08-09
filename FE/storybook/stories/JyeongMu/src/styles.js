@@ -36,6 +36,10 @@ export const CenterView = styled.View({
   alignItems: 'center',
 });
 
+export const HomeCenterView = styled(CenterView)({
+  height: 50,
+});
+
 export const Header = styled.View({
   flex: 1,
   alignItems: 'center',
@@ -124,10 +128,9 @@ export const SearchBoxContainer = styled.View({
   borderWidth: 1.5,
   flexDirection: 'row',
   alignItems: 'center',
+  marginTop: 24,
   justifyContent: 'center',
-  margin: 15,
   width: '85%',
-  height: '10%',
 });
 
 export const SearchImage = styled.Image({
