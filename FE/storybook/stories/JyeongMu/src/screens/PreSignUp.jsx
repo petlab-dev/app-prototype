@@ -18,7 +18,7 @@ export default function SignUpFirst() {
   const [state, setState] = useState({
     nextButton: true,
     toggleButton: true,
-    defualtMessage: 'Phone Number ex)01011112222',
+    defualtMessage: 'Phone Number 01011112222',
   });
 
   const { nextButton, toggleButton, defualtMessage } = state;
@@ -33,11 +33,11 @@ export default function SignUpFirst() {
   }
 
   function handleChangeToPhoneButton() {
-    setState({ ...state, toggleButton: !toggleButton, defualtMessage: 'Phone Number ex)01011112222' });
+    setState({ ...state, toggleButton: !toggleButton, defualtMessage: 'Phone Number 01011112222' });
   }
 
   function handleChangeToEmailButton() {
-    setState({ ...state, toggleButton: !toggleButton, defualtMessage: 'Email Adrress ex)email@adress.com' });
+    setState({ ...state, toggleButton: !toggleButton, defualtMessage: 'Email Adrress email@adress.com' });
   }
 
   return (

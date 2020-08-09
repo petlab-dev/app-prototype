@@ -1,24 +1,23 @@
 import React from 'react';
 
-import { TouchableOpacity } from 'react-native';
-
 import {
   TermsBottomButtonContainer,
   CancelButton,
   ConsentBotton,
   RowView,
+  BottomButtonContainer,
 } from '../styles';
 
 export default function TermsBottomButton() {
   return (
     <TermsBottomButtonContainer>
       <RowView>
-        <TouchableOpacity onPress={() => {}}>
+        <BottomButtonContainer onPress={() => {}}>
           <CancelButton> 취소 </CancelButton>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
-          <ConsentBotton> 확인</ConsentBotton>
-        </TouchableOpacity>
+        </BottomButtonContainer>
+        <BottomButtonContainer onPress={() => {}}>
+          <ConsentBotton> 동의 </ConsentBotton>
+        </BottomButtonContainer>
       </RowView>
     </TermsBottomButtonContainer>
   );
