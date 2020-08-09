@@ -3,7 +3,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { linkTo } from '@storybook/addon-links';
 import Login from './Login';
-// import Second from './Second';
+import Second from './MinHyeokSecond';
+
 
 import PreSignUp from './JyeongMu/src/screens/PreSignUp';
 import Home from './JyeongMu/src/screens/Home';
