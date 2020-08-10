@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, TextInput } from 'react-native';
+
+import { AuthContext } from '../../contexts';
 
 import PreSignUpClosingMent from '../PreSignUpClosingMent';
 import PreSignUpHeader from '../PreSignUpHeader';
@@ -13,7 +15,9 @@ import {
   ButtonContainer,
 } from '../../styles';
 
-export default function SignUpFirst() {
+export default function PreSignUp() {
+  const { toggleAuth } = useContext(AuthContext);
+
   const [value, setValue] = useState('');
   const [state, setState] = useState({
     nextButton: true,
@@ -68,6 +72,7 @@ export default function SignUpFirst() {
           <Button
             title="Next"
             disabled={nextButton}
+            onPress={() => toggleAuth()}
           />
         </ButtonContainer>
         <PreSignUpClosingMent />
