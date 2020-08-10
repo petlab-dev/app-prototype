@@ -38,11 +38,6 @@ export default function Login() {
   });
   return (
     <Container>
-      <TitleBar>
-        <TitleCancle />
-        <TitleText>마이홈</TitleText>
-        <TitleSetting />
-      </TitleBar>
       <ProfileView>
         <ProfilImg source={require('./profile_cover.png')} />
         <GradeButton>
