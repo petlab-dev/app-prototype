@@ -26,7 +26,7 @@ const {
   // FONTSIZE_SMALLEST,
 } = constants;
 
-export const Container = styled.View({
+export const Container = styled.SafeAreaView({
   flex: 1,
   alignItems: 'center',
   flexDirection: 'column',

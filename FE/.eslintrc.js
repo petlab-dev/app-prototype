@@ -7,6 +7,7 @@ module.exports = {
     },
   },
   env: {
+    amd: true,
     browser: true,
     es2020: true,
     jest: true,
