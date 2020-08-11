@@ -15,10 +15,6 @@ import {
   GradeButtonText,
   GradeImgContainer,
   Container,
-  TitleBar,
-  TitleCancel,
-  TitleText,
-  TitleSetting,
   ProfileView,
   FolowButtonContainer,
   PetImageContainerText,
@@ -40,11 +36,6 @@ export default function MyPageScreen() {
   };
   return (
     <Container>
-      <TitleBar>
-        <TitleCancel onPress={() => toggleAuth()} />
-        <TitleText>마이홈</TitleText>
-        <TitleSetting onPress={() => toggleAuth()} />
-      </TitleBar>
       <ProfileView>
         <ProfilImg source={require('../../assets/ProfileCover.png')} />
         <GradeButton>

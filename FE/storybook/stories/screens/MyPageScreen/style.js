@@ -24,55 +24,31 @@ export const PetImgBox = styled.View({
   borderColor: '#bbbbbb',
 });
 export const PetImgText = styled.Text({
-  marginTop: 80,
+  marginTop: 75,
   textAlign: 'center',
   fontSize: 14,
 });
 
-export const Container = styled.SafeAreaView({
+export const Container = styled.View({
   display: 'flex',
   height: '100%',
   width: '100%',
   flexDirection: 'column',
   alignItems: 'center',
-  backgroundColor: '#FFFFFF',
+  backgroundColor: '#eeeeee',
   paddingBottom: 20,
-});
-export const TitleBar = styled.View({
-  flex: 1,
-  width: '100%',
-  maxWidth: size.maxWidth,
-  minHeight: 20,
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  backgroundColor: 'white',
-});
-export const TitleText = styled.Text({
-  textAlign: 'center',
-});
-export const TitleCancel = styled.TouchableOpacity({
-  width: 20,
-  height: 20,
-  marginLeft: 20,
-  backgroundColor: 'blue',
-});
-export const TitleSetting = styled.TouchableOpacity({
-  width: 20,
-  height: 20,
-  marginRight: 20,
-  backgroundColor: 'red',
 });
 export const ProfileView = styled.View({
   flex: 6,
   width: '100%',
   maxWidth: size.maxWidth,
-  minHeight: 160,
+  minHeight: 200,
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  background: 'linear-gradient(to bottom, #38ef7d, #11998e 50%, white 50% )',
-  margin: 'auto',
+  //background: 'linear-gradient(to bottom, #38ef7d, #11998e 50%, white 50% )',
+  backgroundColor: 'white',
+  paddingBottom: 10,
 
 });
 export const GradeButton = styled.TouchableOpacity({
@@ -104,16 +80,16 @@ export const GradeImgContainer = styled.View({
 export const ProfileButton = styled.TouchableOpacity({
   width: 150,
   maxWidth: size.maxWidth,
-  height: 20,
+  height: 25,
   backgroundColor: 'white',
   marginTop: 10,
 });
 export const ProfileTextBox = styled.View({
   flex: 1,
   width: '100%',
+  minHeight: 40,
   flexDirection: 'row',
   justifyContent: 'center',
-  margin: 0,
 });
 export const ProfileText = styled.Text({
   flex: 1,
@@ -141,9 +117,11 @@ export const FolowButton = styled.TouchableOpacity({
   height: 65,
   borderWidth: 1,
   borderColor: '#bbbbbb',
-  textAlign: 'center',
   background: 'white',
   margin: 0,
+  backgroundColor: 'white',
+  flexDirection: 'column',
+  alignItems: 'center',
 
 });
 export const FolowButtonCount = styled.Text({
@@ -163,7 +141,7 @@ export const PetImageContainerText = styled.Text({
   width: '100%',
   maxWidth: size.maxWidth,
   textAlign: 'left',
-  marginLeft: 3,
+  marginLeft: 10,
 });
 export const PetImageContainer = styled.View({
   flex: 4,
@@ -181,9 +159,6 @@ export const PetImageTextbar = styled.View({
   flex: 1,
   width: '100%',
   maxWidth: size.maxWidth,
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
   margin: 0,
   borderWidth: size.testBorderWidth,
 });
@@ -197,6 +172,8 @@ export const Textbutton = styled.TouchableOpacity({
   textAlign: 'center',
   background: 'white',
   marginTop: 2,
+  paddingLeft: 5,
+  backgroundColor: 'white',
 });
 export const TextbuttonText = styled.Text({
   flex: 18,

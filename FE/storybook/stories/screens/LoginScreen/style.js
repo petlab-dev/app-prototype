@@ -1,22 +1,21 @@
 import styled from '@emotion/native';
 
-export const LoginView = styled.SafeAreaView({
+export const LoginView = styled.View({
   display: 'flex',
   flex: 1,
   height: '100%',
   width: '100%',
   flexDirection: 'column',
   alignItems: 'center',
-});
-export const CloseButtonView = styled.View({
-  alignSelf: 'flex-start',
-  border: 1,
+  paddingTop: 50,
+  paddingBottom: 30,
 });
 export const Header = styled.View({
   flex: 1,
   width: '50%',
   maxWidth: 300,
   marginBottom: 50,
+  minHeight: 90,
 });
 export const HeaderText = styled.Text({
   fontSize: 25,
@@ -26,6 +25,7 @@ export const ViewSet = styled.View({
   flexDirection: 'row',
   justifyContent: 'center',
   width: '90%',
+  minHeight: 30,
 });
 export const SubButtonView = styled.View({
   flex: 1,
@@ -37,6 +37,7 @@ export const InputData = styled.View({
   maxWidth: 300,
   marginBottom: '10%',
   flex: 1,
+  minHeight: 100,
 });
 export const TopInput = styled.Text({
   fontSize: 18,
@@ -50,9 +51,6 @@ export const InputBox = styled.TextInput({
   borderBottomWidth: 1,
   flex: 1,
 });
-export const LoginButtonView = styled.View({
-  marginBottom: 20,
-});
 export const LoginButton = styled.TouchableOpacity({
   width: 200,
   height: 50,
@@ -60,24 +58,20 @@ export const LoginButton = styled.TouchableOpacity({
   border: 0,
   borderRadius: 30,
   paddingTop: 15,
-  textAlign: 'center',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  marginBottom: 20,
 });
 export const SubButton = styled.TouchableOpacity({
   height: 20,
   margin: 0,
-  textAlign: 'center',
+  flexDirection: 'row',
+  justifyContent: 'center',
 });
-export const SubButtonTextRight = styled.Text({
+export const SubButtonText = styled.Text({
   height: 50,
-  width: 150,
+  width: 125,
   fontSize: 12,
-  textAlign: 'left',
-});
-export const SubButtonTextLeft = styled.Text({
-  height: 50,
-  width: 150,
-  fontSize: 12,
-  textAlign: 'right',
 });
 export const IconButtonStyle = styled.TouchableOpacity({
   width: 60,
@@ -86,7 +80,8 @@ export const IconButtonStyle = styled.TouchableOpacity({
   backgroundColor: 'powderblue',
   margin: 4,
   paddingTop: 15,
-  textAlign: 'center',
+  flexDirection: 'row',
+  justifyContent: 'center',
 });
 export const LoginButtonText = styled.Text({
   fontSize: 12,
