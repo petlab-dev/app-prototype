@@ -35,7 +35,7 @@ export const ConsentBotton = styled(CancelButton)({
 
 export const RowView = styled.View({
   flexDirection: 'row',
-  justifyContent: 'space-betwenn',
+  justifyContent: 'space-between',
 });
 
 export const BottomButtonContainer = styled.TouchableOpacity({

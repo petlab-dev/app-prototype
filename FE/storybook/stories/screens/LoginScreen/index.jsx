@@ -11,17 +11,13 @@ import TopText from './TopText';
 import {
   InputBox,
   LoginView,
-  IconButtonStyle,
-  CloseButtonView,
   Header,
   InputData,
   ViewSet,
-  LoginButtonView,
   LoginButton,
   LoginButtonText,
   SubButton,
-  SubButtonTextLeft,
-  SubButtonTextRight,
+  SubButtonText,
   TopInput,
 } from './style';
 
@@ -34,11 +30,6 @@ export default function LoginScreen() {
   });
   return (
     <LoginView>
-      <CloseButtonView>
-        <IconButtonStyle>
-          <Text>닫기</Text>
-        </IconButtonStyle>
-      </CloseButtonView>
       <Header>
         <TopText />
       </Header>
@@ -48,22 +39,20 @@ export default function LoginScreen() {
         <TopInput>Password</TopInput>
         <InputBox secureTextEntry placeholder="Password" onChangeText={(password) => setValue({ ...value, password })} />
       </InputData>
-      <LoginButtonView>
-        <LoginButton>
-          <LoginButtonText>로그인</LoginButtonText>
-        </LoginButton>
-      </LoginButtonView>
+      <LoginButton onPress={() => alert(`${value.email}\n${value.password}`)}>
+        <LoginButtonText>로그인</LoginButtonText>
+      </LoginButton>
       <ViewSet>
-        <SubButton SubButton>
-          <SubButtonTextLeft>
+        <SubButton SubButton onPress={() => alert('아이디/비밀번호찾기')}>
+          <SubButtonText>
             {' 아이디/비밀번호 찾기 '}
-          </SubButtonTextLeft>
+          </SubButtonText>
         </SubButton>
         <Text>|</Text>
-        <SubButton>
-          <SubButtonTextRight>
+        <SubButton onPress={() => alert('이메일로 회원가입')}>
+          <SubButtonText>
             {' 이메일로 회원가입 '}
-          </SubButtonTextRight>
+          </SubButtonText>
         </SubButton>
       </ViewSet>
       <ViewSet>

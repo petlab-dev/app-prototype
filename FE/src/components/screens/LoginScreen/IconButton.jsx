@@ -2,9 +2,9 @@ import React from 'react';
 import { Text } from 'react-native';
 import { IconButtonStyle } from './style';
 
-export default function TopText({ plattform }) {
+export default function TopText({ plattform, onPressAsync }) {
   return (
-    <IconButtonStyle onPress={() => alert("클릭")}>
+    <IconButtonStyle onPress={() => onPressAsync()}>
       <Text>{plattform}</Text>
     </IconButtonStyle>
   );
