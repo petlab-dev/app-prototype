@@ -45,7 +45,7 @@ export const ProfileView = styled.View({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  //background: 'linear-gradient(to bottom, #38ef7d, #11998e 50%, white 50% )',
+  // background: 'linear-gradient(to bottom, #38ef7d, #11998e 50%, white 50% )',
   backgroundColor: 'white',
   paddingBottom: 10,
 

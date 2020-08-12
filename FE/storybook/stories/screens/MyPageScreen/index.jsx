@@ -104,6 +104,5 @@ export default function MyPageScreen() {
         <TextButton data={textButtonContent} />
       </BottomContainer>
     </Container>
-
   );
 }

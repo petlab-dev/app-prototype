@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "FE",
-    "slug": "FE",
+    "name": "fe",
+    "slug": "fe",
+    "scheme": "fe",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
