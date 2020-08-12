@@ -9,14 +9,16 @@ import {
   TextbuttonContainer,
 } from './style';
 
-export default function TextButton({ textType, count }) {
+export default function TextButton({ data }) {
   return (
-    <Textbutton onPress={() => alert('클릭')}>
-      <TextbuttonContainer>
-        <TextbuttonText>{ textType }</TextbuttonText>
-        <TextbuttonCount>{count}</TextbuttonCount>
-        <TextbuttonImg source={require('../../assets/RightArrow.png')} />
-      </TextbuttonContainer>
-    </Textbutton>
+    data.map((content) => (
+      <Textbutton onPress={() => alert('클릭')}>
+        <TextbuttonContainer>
+          <TextbuttonText>{ content.textType }</TextbuttonText>
+          <TextbuttonCount>{content.count}</TextbuttonCount>
+          <TextbuttonImg source={require('../../assets/RightArrow.png')} />
+        </TextbuttonContainer>
+      </Textbutton>
+    ))
   );
 }

@@ -31,11 +31,10 @@ export const PetImgText = styled.Text({
 
 export const Container = styled.View({
   display: 'flex',
-  height: '100%',
+  height: '90%',
   width: '100%',
   flexDirection: 'column',
   alignItems: 'center',
-  backgroundColor: '#eeeeee',
   paddingBottom: 20,
 });
 export const ProfileView = styled.View({
@@ -136,6 +135,13 @@ export const FolowButtonText = styled.Text({
   fontWeight: 'bold',
   fontSize: 18,
 
+});
+export const BottomContainer = styled.View({
+  width: '100%',
+  maxWidth: size.maxWidth,
+  backgroundColor: '#eeeeee',
+  borderWidth: 1,
+  borderColor: '#eeeeee',
 });
 export const PetImageContainerText = styled.Text({
   width: '100%',
