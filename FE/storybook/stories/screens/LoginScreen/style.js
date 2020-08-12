@@ -7,7 +7,6 @@ export const LoginView = styled.View({
   width: '100%',
   flexDirection: 'column',
   alignItems: 'center',
-  paddingTop: 50,
   paddingBottom: 30,
 });
 export const Header = styled.View({

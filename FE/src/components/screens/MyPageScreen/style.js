@@ -137,6 +137,13 @@ export const FolowButtonText = styled.Text({
   fontSize: 18,
 
 });
+export const BottomContainer = styled.View({
+  width: '100%',
+  maxWidth: size.maxWidth,
+  backgroundColor: '#eeeeee',
+  borderWidth: 1,
+  borderColor: '#eeeeee',
+});
 export const PetImageContainerText = styled.Text({
   width: '100%',
   maxWidth: size.maxWidth,

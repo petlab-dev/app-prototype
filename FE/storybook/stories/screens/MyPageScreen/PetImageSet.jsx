@@ -7,12 +7,14 @@ import {
   PetImgText,
 } from './style';
 
-export default function PetImageSet({ petName }) {
+export default function PetImageSet({ data }) {
   return (
-    <PetImgBox>
-      <PetImg source={require('../../assets/ProfileCover.png')} resizeMode="cover">
-        <PetImgText>{petName}</PetImgText>
-      </PetImg>
-    </PetImgBox>
+    data.map((petStatus) => (
+      <PetImgBox>
+        <PetImg source={require('../../assets/ProfileCover.png')} resizeMode="cover">
+          <PetImgText>{petStatus.petName}</PetImgText>
+        </PetImg>
+      </PetImgBox>
+    ))
   );
 }

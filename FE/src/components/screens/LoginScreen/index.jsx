@@ -28,8 +28,29 @@ export default function LoginScreen({ navigation }) {
     email: '',
     password: '',
   });
+  const platformData = [
+    {
+      platform: '카카오톡',
+      link: '카카오톡연동',
+    },
+    {
+      platform: '페이스북',
+      link: '페북연동',
+    },
+    {
+      platform: '네이버',
+      link: '네이버연동',
+    },
+    {
+      platform: '구글',
+      link: '구글연동',
+    },
+  ];
   return (
     <LoginView>
+      <HomeHeader
+        text="Pet Mate"
+      />
       <Header>
         <TopText />
       </Header>
@@ -56,10 +77,7 @@ export default function LoginScreen({ navigation }) {
         </SubButton>
       </ViewSet>
       <ViewSet>
-        <IconButton plattform="카카오" />
-        <IconButton plattform="페이스북" />
-        <IconButton plattform="네이버" />
-        <IconButton plattform="구글" />
+        <IconButton data={platformData} />
       </ViewSet>
     </LoginView>
   );
