@@ -10,7 +10,7 @@ import {
 export default function PetImageSet({ data }) {
   return (
     data.map((petStatus) => (
-      <PetImgBox>
+      <PetImgBox key={petStatus.key}>
         <PetImg source={require('../../assets/ProfileCover.png')} resizeMode="cover">
           <PetImgText>{petStatus.petName}</PetImgText>
         </PetImg>

@@ -77,25 +77,26 @@ export default function LoginScreen({ navigation }) {
     {
       platform: '카카오톡',
       link: '카카오톡연동',
+      key: 1,
     },
     {
       platform: '페이스북',
       link: '페북연동',
+      key: 2,
     },
     {
       platform: '네이버',
       link: '네이버연동',
+      key: 3,
     },
     {
       platform: '구글',
       link: '구글연동',
+      key: 4,
     },
   ];
   return (
     <LoginView>
-      <HomeHeader
-        text="Pet Mate"
-      />
       <Header>
         <TopText />
       </Header>
