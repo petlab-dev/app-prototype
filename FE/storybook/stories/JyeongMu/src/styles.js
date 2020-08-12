@@ -31,6 +31,10 @@ export const Container = styled.View({
   flexDirection: 'column',
 });
 
+export const HomeContainer = styled(Container)({
+  justifyContent: 'space-between',
+});
+
 export const CenterView = styled.View({
   justifyContent: 'center',
   alignItems: 'center',
@@ -43,12 +47,12 @@ export const HomeCenterView = styled(CenterView)({
 export const Header = styled.View({
   flex: 1,
   alignItems: 'center',
-  paddingTop: '10%',
+  paddingTop: '6%',
 });
 
 export const HomeHeaderContainer = styled.View({
   alignItems: 'center',
-  paddingTop: '10%',
+  paddingTop: '6%',
 });
 
 export const HeaderText = styled.Text({
@@ -93,7 +97,7 @@ export const SelectButton = styled.View(({ active }) => ({
 
 export const SelectButtonColor = styled.Text(({ active }) => ({
   fontSize: FONTSIZE_BIG,
-  fontWeight: 700,
+  fontWeight: 'bold',
   color: active ? 'black' : COLOR_LIGHT,
   paddingBottom: '10%',
 }));
@@ -118,7 +122,7 @@ export const TextWrapContainer = styled.View({
 
 export const Title = styled.Text({
   fontSize: FONTSIZE_BIG,
-  fontWeight: 900,
+  fontWeight: 'bold',
   color: '#f44336',
   letterSpacing: 1,
 });
@@ -165,7 +169,6 @@ export const SearchBox = styled.TextInput({
 
 export const AnimalEnrollmentContainter = styled.View({
   flexDirection: 'row',
-  paddingTop: '2%',
   justifyContent: 'flex-start',
 });
 
@@ -181,7 +184,7 @@ export const Beta = styled.Image({
 
 export const HomeHospitalText = styled.Text({
   fontSize: 22,
-  fontWeight: 800,
+  fontWeight: 'bold',
   marginLeft: '10%',
   paddingTop: '2%',
 });
@@ -200,6 +203,21 @@ export const HospitalInfoView = styled.View({
   width: 250,
   height: 200,
   margin: 10,
+  borderRadius: 10,
+  borderWidth: 1,
+  borderColor: COLOR_LIGHTER,
+});
+
+export const HomeBannerContainer = styled.ScrollView({
+  marginLeft: 15,
+  marginTop: '5%',
+});
+
+export const HomeBannerView = styled.View({
+  flexDirection: 'column',
+  width: 340,
+  height: 150,
+  margin: 3,
   borderRadius: 10,
   borderWidth: 1,
   borderColor: COLOR_LIGHTER,
@@ -250,12 +268,12 @@ export const TermsBottomButtonContainer = styled.View({
 
 export const RowView = styled.View({
   flexDirection: 'row',
-  justifyContent: 'space-betwenn',
+  justifyContent: 'space-between',
 });
 
 export const CancelButton = styled.Text({
   margin: 15,
-  fontWeight: 500,
+  fontWeight: 'bold',
   fontSize: FONTSIZE_SMALL,
 });
 

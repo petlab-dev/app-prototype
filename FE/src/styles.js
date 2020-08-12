@@ -6,7 +6,7 @@ export const constants = {
   COLOR_LIGHTER: '#EEEEEE',
   COLOR_LIGHTEST: '#FFF',
   FONTSIZE_BIGGEST: 35,
-  FONTSIZE_BIGGER: 30,
+  FONTSIZE_BIGGER: 25,
   FONTSIZE_BIG: 22,
   FONTSIZE_SMALL: 17,
   FONTSIZE_SMALLER: 15,
@@ -15,21 +15,24 @@ export const constants = {
 
 const {
   // COLOR_SECONDARY,
-  // COLOR_LIGHT,
+  COLOR_LIGHT,
   COLOR_LIGHTER,
   COLOR_LIGHTEST,
-  FONTSIZE_BIGGEST,
+  // FONTSIZE_BIGGEST,
   FONTSIZE_BIGGER,
   FONTSIZE_BIG,
   FONTSIZE_SMALL,
   FONTSIZE_SMALLER,
-  // FONTSIZE_SMALLEST,
+  FONTSIZE_SMALLEST,
 } = constants;
 
 export const Container = styled.View({
   flex: 1,
-  alignItems: 'center',
   flexDirection: 'column',
+});
+
+export const HomeContainer = styled(Container)({
+  justifyContent: 'space-between',
 });
 
 export const CenterView = styled.View({
@@ -37,16 +40,19 @@ export const CenterView = styled.View({
   alignItems: 'center',
 });
 
+export const HomeCenterView = styled(CenterView)({
+  height: 50,
+});
+
 export const Header = styled.View({
   flex: 1,
   alignItems: 'center',
-  height: '7%',
-  padding: '10%',
+  paddingTop: '6%',
 });
 
 export const HomeHeaderContainer = styled.View({
   alignItems: 'center',
-  paddingTop: 80,
+  paddingTop: '6%',
 });
 
 export const HeaderText = styled.Text({
@@ -62,14 +68,15 @@ export const Body = styled.View({
 
 export const Select = styled.View({
   flexDirection: 'row',
-  margin: '5%',
-  justifyContent: 'space-around',
+  paddingTop: '5%',
+  width: '80%',
 });
 
 export const TextInputWrap = styled.View({
-  padding: '2%',
-  margin: '5%',
-  borderRadius: 10,
+  padding: '7%',
+  margin: '7%',
+  borderWidth: 1,
+  borderColor: COLOR_LIGHT,
   backgroundColor: COLOR_LIGHTER,
   width: '80%',
 });
@@ -78,19 +85,25 @@ export const ButtonContainer = styled.View({
   width: '80%',
 });
 
-export const SelectButton = styled.View({
+export const SelectButton = styled.View(({ active }) => ({
   flex: 1,
   alignItems: 'center',
-});
+  borderWidth: 2,
+  borderBottomColor: active ? 'black' : COLOR_LIGHT,
+  borderTopColor: COLOR_LIGHTEST,
+  borderLeftColor: COLOR_LIGHTEST,
+  borderRightWidth: 0,
+}));
 
 export const SelectButtonColor = styled.Text(({ active }) => ({
-  fontSize: FONTSIZE_BIGGER,
+  fontSize: FONTSIZE_BIG,
   fontWeight: 'bold',
-  color: active ? '#1e90ff' : '#87cefa',
+  color: active ? 'black' : COLOR_LIGHT,
+  paddingBottom: '10%',
 }));
 
 export const TextWrap = styled.Text({
-  fontSize: FONTSIZE_SMALLER,
+  fontSize: FONTSIZE_SMALLEST,
 });
 
 export const TextWrapBig = styled.Text({
@@ -99,32 +112,41 @@ export const TextWrapBig = styled.Text({
 
 export const TextWrapBold = styled.Text({
   fontWeight: 'bold',
-  fontSize: FONTSIZE_SMALLER,
+  fontSize: FONTSIZE_SMALL,
+  marginBottom: '5%',
+});
+
+export const TextWrapContainer = styled.View({
+  marginTop: '7%',
 });
 
 export const Title = styled.Text({
-  fontSize: FONTSIZE_BIGGEST,
+  fontSize: FONTSIZE_BIG,
   fontWeight: 'bold',
-  color: '#4169e1',
-  textShadowColor: 'black',
-  letterSpacing: 2,
+  color: '#f44336',
+  letterSpacing: 1,
 });
 
 export const SearchBoxContainer = styled.View({
-  borderColor: '#4169e1',
-  borderWidth: 2,
+  borderColor: '#f44336',
+  borderWidth: 1.5,
   flexDirection: 'row',
   alignItems: 'center',
+  marginTop: 24,
   justifyContent: 'center',
-  margin: 20,
-  width: 350,
-  height: 70,
+  width: '85%',
+});
+
+export const SearchImage = styled.Image({
+  margin: 10,
+  width: 30,
+  height: 30,
 });
 
 export const AnimalEnrollImage = styled.Image({
-  width: 150,
-  height: 150,
-  margin: 20,
+  width: 110,
+  height: 110,
+  margin: 15,
 });
 
 export const TermsContentsImage = styled.Image({
@@ -147,11 +169,24 @@ export const SearchBox = styled.TextInput({
 
 export const AnimalEnrollmentContainter = styled.View({
   flexDirection: 'row',
-  padding: '2%',
+  justifyContent: 'flex-start',
 });
 
 export const HomeHospitalContainer = styled.View({
-  padding: '2%',
+  marginTop: '4%',
+});
+
+export const Beta = styled.Image({
+  width: 50,
+  height: 20,
+  marginLeft: '10%',
+});
+
+export const HomeHospitalText = styled.Text({
+  fontSize: 22,
+  fontWeight: 'bold',
+  marginLeft: '10%',
+  paddingTop: '2%',
 });
 
 export const EnrollmentTextContainer = styled.View({
@@ -160,21 +195,43 @@ export const EnrollmentTextContainer = styled.View({
 });
 
 export const HospitalInformationContainer = styled.ScrollView({
-  padding: '2%',
+  margin: '2%',
 });
 
 export const HospitalInfoView = styled.View({
   flexDirection: 'column',
-  margin: 20,
-  backgroundColor: '#eeeeee',
+  width: 250,
+  height: 200,
+  margin: 10,
   borderRadius: 10,
-  borderWidth: 2,
-  borderColor: '#aaaaaa',
+  borderWidth: 1,
+  borderColor: COLOR_LIGHTER,
+});
+
+export const HomeBannerContainer = styled.ScrollView({
+  marginLeft: 15,
+  marginTop: '5%',
+});
+
+export const HomeBannerView = styled.View({
+  flexDirection: 'column',
+  width: 340,
+  height: 150,
+  margin: 3,
+  borderRadius: 10,
+  borderWidth: 1,
+  borderColor: COLOR_LIGHTER,
 });
 
 export const TermsButtonContainer = styled.View({
   flexDirection: 'row',
   padding: '2%',
+  marginLeft: '10%',
+});
+
+export const TextWrapForHospitalInfo = styled.Text({
+  fontSize: FONTSIZE_SMALL,
+  padding: 15,
 });
 
 export const TermsContentsContainer = styled.View({
@@ -211,15 +268,24 @@ export const TermsBottomButtonContainer = styled.View({
 
 export const RowView = styled.View({
   flexDirection: 'row',
-  justifyContent: 'space-betwenn',
+  justifyContent: 'space-between',
 });
 
 export const CancelButton = styled.Text({
-  flex: 1,
-  margin: 20,
+  margin: 15,
+  fontWeight: 'bold',
   fontSize: FONTSIZE_SMALL,
 });
 
 export const ConsentBotton = styled(CancelButton)({
   color: 'red',
+});
+
+export const BottomButtonContainer = styled.TouchableOpacity({
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderWidth: 1,
+  borderColor: COLOR_LIGHTER,
+  borderBottomColor: COLOR_LIGHTEST,
 });

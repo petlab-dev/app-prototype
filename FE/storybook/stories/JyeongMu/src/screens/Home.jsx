@@ -1,13 +1,15 @@
 /* eslint-disable global-require */
 import React, { useState } from 'react';
 
+import { ScrollView } from 'react-native';
 import HomeAnimalEnrollment from '../components/HomeAnimalEnrollment';
 import HomeHeader from '../components/HomeHeader';
 import HomeHospital from '../components/HomeHospital';
 import HomeSearch from '../components/HomeSearch';
+import HomeBanner from '../components/HomeBanner';
 
 import {
-  Container,
+  HomeContainer,
   HomeHospitalText,
   Beta,
 } from '../styles';
@@ -54,21 +56,24 @@ export default function Home() {
   }
 
   return (
-    <Container>
+    <HomeContainer>
       <HomeHeader
-        text="Pet Mate"
+        text="Pet Some"
       />
       <HomeSearch
         onChangeText={handleOnChangeText}
       />
-      <HomeAnimalEnrollment />
-      <Beta
-        source={require('../assets/Beta.png')}
-      />
-      <HomeHospitalText>가까운 동물병원</HomeHospitalText>
-      <HomeHospital
-        data={DataOfNearbyHospital}
-      />
-    </Container>
+      <ScrollView>
+        <HomeBanner />
+        <HomeAnimalEnrollment />
+        <Beta
+          source={require('../assets/Beta.png')}
+        />
+        <HomeHospitalText>가까운 동물병원</HomeHospitalText>
+        <HomeHospital
+          data={DataOfNearbyHospital}
+        />
+      </ScrollView>
+    </HomeContainer>
   );
 }
