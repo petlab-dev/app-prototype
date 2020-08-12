@@ -2,10 +2,12 @@ import React from 'react';
 import { Text } from 'react-native';
 import { IconButtonStyle } from './style';
 
-export default function TopText({ plattform, onPressAsync }) {
+export default function TopText({ data }) {
   return (
-    <IconButtonStyle onPress={() => onPressAsync()}>
-      <Text>{plattform}</Text>
-    </IconButtonStyle>
+    data.map((platformData) => (
+      <IconButtonStyle onPress={() => alert(platformData.link)}>
+        <Text>{platformData.platform}</Text>
+      </IconButtonStyle>
+    ))
   );
 }

@@ -19,6 +19,7 @@ import {
   FolowButtonContainer,
   PetImageContainerText,
   PetImageContainer,
+  BottomContainer,
 } from './style';
 
 export default function MyPageScreen() {
@@ -34,6 +35,45 @@ export default function MyPageScreen() {
     expertTextCount: 2,
     likeTextCount: 4,
   };
+  const textButtonContent = [
+    {
+      textType: '내 게시글',
+      count: value.myTextCount,
+      key: 1,
+    },
+    {
+      textType: '댓글단 글',
+      count: value.commentTextCount,
+      key: 2,
+    },
+    {
+      textType: '전문가 상담 글',
+      count: value.expertTextCount,
+      key: 3,
+    },
+    {
+      textType: "'좋아요'한 글",
+      count: value.likeTextCount,
+      key: 4,
+    },
+  ];
+  const petStatus = [
+    {
+      petName: '꿀딱이',
+      years: '2',
+      key: 1,
+    },
+    {
+      petName: '누렁이',
+      years: '5',
+      key: 2,
+    },
+    {
+      petName: '설이',
+      years: '1',
+      key: 3,
+    },
+  ];
   return (
     <Container>
       <ProfileView>
@@ -52,16 +92,13 @@ export default function MyPageScreen() {
         <FollowButton folowState="팔로워" count={value.folowerCount} />
         <FollowButton folowState="팔로잉" count={value.folowingCount} />
       </FolowButtonContainer>
-      <PetImageContainerText>나의 반려동물</PetImageContainerText>
-      <PetImageContainer>
-        <PetImageSet petName="꿀딱이" />
-        <PetImageSet petName="누렁이" />
-        <PetImageSet petName="설이" />
-      </PetImageContainer>
-      <TextButton textType="내 게시글" count={value.myTextCount} />
-      <TextButton textType="댓글단 글" count={value.commentTextCount} />
-      <TextButton textType="전문가 상담 글" count={value.expertTextCount} />
-      <TextButton textType="'좋아요'한 글" count={value.likeTextCount} />
+      <BottomContainer>
+        <PetImageContainerText>나의 반려동물</PetImageContainerText>
+        <PetImageContainer>
+          <PetImageSet data={petStatus} />
+        </PetImageContainer>
+        <TextButton data={textButtonContent} />
+      </BottomContainer>
     </Container>
 
   );

@@ -7,6 +7,7 @@ import {
 
 import IconButton from './IconButton';
 import TopText from './TopText';
+import HomeHeader from '../HomeScreen/HomeHeader';
 
 import {
   InputBox,
@@ -28,8 +29,33 @@ export default function LoginScreen() {
     email: '',
     password: '',
   });
+  const platformData = [
+    {
+      platform: '카카오톡',
+      link: '카카오톡연동',
+      key: 1,
+    },
+    {
+      platform: '페이스북',
+      link: '페북연동',
+      key: 2,
+    },
+    {
+      platform: '네이버',
+      link: '네이버연동',
+      key: 3,
+    },
+    {
+      platform: '구글',
+      link: '구글연동',
+      key: 4,
+    },
+  ];
   return (
     <LoginView>
+      <HomeHeader
+        text="Pet Mate"
+      />
       <Header>
         <TopText />
       </Header>
@@ -56,10 +82,7 @@ export default function LoginScreen() {
         </SubButton>
       </ViewSet>
       <ViewSet>
-        <IconButton plattform="카카오" />
-        <IconButton plattform="페이스북" />
-        <IconButton plattform="네이버" />
-        <IconButton plattform="구글" />
+        <IconButton data={platformData} />
       </ViewSet>
     </LoginView>
   );
