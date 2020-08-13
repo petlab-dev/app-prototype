@@ -31,6 +31,10 @@ export const Container = styled.View({
   flexDirection: 'column',
 });
 
+export const RowView = styled.View({
+  flexDirection: 'row',
+});
+
 export const HomeContainer = styled(Container)({
   justifyContent: 'space-between',
 });
@@ -269,11 +273,6 @@ export const TermsBottomButtonContainer = styled.View({
   flex: 1,
 });
 
-export const RowView = styled.View({
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-});
-
 export const CancelButton = styled.Text({
   margin: 15,
   fontWeight: 'bold',
@@ -294,4 +293,24 @@ export const BottomButtonContainer = styled.TouchableOpacity({
   borderWidth: 1,
   borderColor: COLOR_LIGHTER,
   borderBottomColor: COLOR_LIGHTEST,
+});
+
+export const SignupInfoContainer = styled.View({
+  height: '50%',
+});
+
+export const SingupInfoView = styled.View({
+  flex: 1,
+  margin: 10,
+  borderBottomWidth: 1,
+  borderBottomColor: COLOR_LIGHTER,
+});
+
+export const SignupInfoImage = styled.Image({
+  width: 40,
+  height: 40,
+});
+
+export const SignupTextInput = styled.TextInput({
+  width: '100%',
 });

@@ -1,11 +1,38 @@
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable global-require */
 import React from 'react';
 
-import { TermsHeaderContainer, TextWrapBold } from '../styles';
+import {
+  Text,
+} from 'react-native';
 
-export default function SignupInfo() {
+import {
+  SignupInfoContainer,
+  SingupInfoView,
+  RowView,
+  SearchImage,
+  SignupTextInput,
+} from '../styles';
+
+export default function SignupInfo({ signupLayout }) {
   return (
-    <TermsHeaderContainer>
-      <TextWrapBold> 약관동의 </TextWrapBold>
-    </TermsHeaderContainer>
+    <SignupInfoContainer>
+      {
+        signupLayout.map((item) => (
+          <SingupInfoView
+            key={item.key}
+          >
+            <Text>
+              {item.title}
+            </Text>
+            <RowView>
+              {/* <SearchImage source={require(item.require)} /> */}
+              <SearchImage source={require('../assets/Email.png')} />
+              <SignupTextInput placeholder={item.textInput} />
+            </RowView>
+          </SingupInfoView>
+        ))
+      }
+    </SignupInfoContainer>
   );
 }

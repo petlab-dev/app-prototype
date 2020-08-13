@@ -31,6 +31,10 @@ export const Container = styled.View({
   flexDirection: 'column',
 });
 
+export const RowView = styled.View({
+  flexDirection: 'row',
+});
+
 export const HomeContainer = styled(Container)({
   justifyContent: 'space-between',
 });
@@ -38,6 +42,10 @@ export const HomeContainer = styled(Container)({
 export const CenterView = styled.View({
   justifyContent: 'center',
   alignItems: 'center',
+});
+
+export const MarginCenterView = styled(CenterView)({
+  margin: 24,
 });
 
 export const HomeCenterView = styled(CenterView)({
@@ -113,7 +121,7 @@ export const TextWrapBig = styled.Text({
 export const TextWrapBold = styled.Text({
   fontWeight: 'bold',
   fontSize: FONTSIZE_SMALL,
-  marginBottom: '5%',
+  marginBottom: '3%',
 });
 
 export const TextWrapContainer = styled.View({
@@ -246,7 +254,6 @@ export const TermsContentsContainer = styled.View({
 
 export const TermsHeaderContainer = styled.View({
   paddingTop: '5%',
-  margin: '2%',
   justifyContent: 'center',
   alignItems: 'center',
 });
@@ -266,15 +273,13 @@ export const TermsBottomButtonContainer = styled.View({
   flex: 1,
 });
 
-export const RowView = styled.View({
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-});
-
 export const CancelButton = styled.Text({
   margin: 15,
   fontWeight: 'bold',
   fontSize: FONTSIZE_SMALL,
+});
+
+export const SignpupCancelButton = styled.Button({
 });
 
 export const ConsentBotton = styled(CancelButton)({
@@ -288,4 +293,24 @@ export const BottomButtonContainer = styled.TouchableOpacity({
   borderWidth: 1,
   borderColor: COLOR_LIGHTER,
   borderBottomColor: COLOR_LIGHTEST,
+});
+
+export const SignupInfoContainer = styled.View({
+  height: '50%',
+});
+
+export const SingupInfoView = styled.View({
+  flex: 1,
+  margin: 10,
+  borderBottomWidth: 1,
+  borderBottomColor: COLOR_LIGHTER,
+});
+
+export const SignupInfoImage = styled.Image({
+  width: 40,
+  height: 40,
+});
+
+export const SignupTextInput = styled.TextInput({
+  width: '100%',
 });
