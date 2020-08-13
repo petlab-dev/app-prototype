@@ -1,0 +1,48 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: FE
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm ci
+        # working-directory: frontend
+      # - name: Test
+      #   run: npm test
+      #   env:
+      #     HEADLESS: true
+      - name: Lint
+        run: npm run lint
+      - name: Build
+        run: |
+          npm run build
+        # working-directory: frontend
+      - name: Deploy to netlify
+        run: npx netlify-cli deploy --dir=.
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.MY_TOKEN_SECRET }}
+          NETLIFY_SITE_ID: ${{ secrets.MY_TOKEN_SITE_ID }}
+        working-directory: frontend/dist
+      - name: Deploy Heroku
+        uses: akhileshns/heroku-deploy@v3.4.6 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "pair-with" #Must be unique in Heroku
+          heroku_email: "201704147@cs-cnu.org"
+          appdir: "backend"
