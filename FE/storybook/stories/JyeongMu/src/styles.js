@@ -40,6 +40,10 @@ export const CenterView = styled.View({
   alignItems: 'center',
 });
 
+export const MarginCenterView = styled(CenterView)({
+  margin: 24,
+});
+
 export const HomeCenterView = styled(CenterView)({
   height: 50,
 });
@@ -113,7 +117,7 @@ export const TextWrapBig = styled.Text({
 export const TextWrapBold = styled.Text({
   fontWeight: 'bold',
   fontSize: FONTSIZE_SMALL,
-  marginBottom: '5%',
+  marginBottom: '3%',
 });
 
 export const TextWrapContainer = styled.View({
@@ -246,7 +250,6 @@ export const TermsContentsContainer = styled.View({
 
 export const TermsHeaderContainer = styled.View({
   paddingTop: '5%',
-  margin: '2%',
   justifyContent: 'center',
   alignItems: 'center',
 });
@@ -275,6 +278,9 @@ export const CancelButton = styled.Text({
   margin: 15,
   fontWeight: 'bold',
   fontSize: FONTSIZE_SMALL,
+});
+
+export const SignpupCancelButton = styled.Button({
 });
 
 export const ConsentBotton = styled(CancelButton)({
