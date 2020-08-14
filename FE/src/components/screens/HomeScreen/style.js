@@ -19,6 +19,7 @@ const {
 // HomeScreen
 export const HomeContainer = styled(Container)({
   justifyContent: 'space-between',
+  userSelect: 'none',
 });
 
 export const HomeHospitalText = styled.Text({
