@@ -37,6 +37,7 @@ export const Container = styled.View({
   alignItems: 'center',
   backgroundColor: '#eeeeee',
   paddingBottom: 20,
+  userSelect: 'none',
 });
 export const ProfileView = styled.View({
   flex: 6,
