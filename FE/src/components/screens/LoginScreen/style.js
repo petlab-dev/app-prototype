@@ -1,5 +1,9 @@
 import styled from '@emotion/native';
 
+import { constantsValue } from '../../constants';
+
+const { COLOR_PRIMARY } = constantsValue;
+
 export const LoginView = styled.View({
   display: 'flex',
   flex: 1,
@@ -10,16 +14,25 @@ export const LoginView = styled.View({
   paddingTop: 50,
   paddingBottom: 30,
 });
+
+export const Logo = styled.Text({
+  color: COLOR_PRIMARY,
+  fontSize: 30,
+  fontWeight: 'bold',
+});
+
 export const Header = styled.View({
   flex: 1,
   width: '50%',
   maxWidth: 300,
-  marginBottom: 50,
+  marginTop: 45,
   minHeight: 90,
 });
+
 export const HeaderText = styled.Text({
-  fontSize: 25,
+  fontSize: 15,
 });
+
 export const ViewSet = styled.View({
   flex: 1,
   flexDirection: 'row',
@@ -27,11 +40,13 @@ export const ViewSet = styled.View({
   width: '90%',
   minHeight: 30,
 });
+
 export const SubButtonView = styled.View({
   flex: 1,
   flexDirection: 'column',
   justifyContent: 'flex-end',
 });
+
 export const InputData = styled.View({
   width: '50%',
   maxWidth: 300,
@@ -39,11 +54,13 @@ export const InputData = styled.View({
   flex: 1,
   minHeight: 100,
 });
+
 export const TopInput = styled.Text({
   fontSize: 18,
   marginTop: 18,
   color: 'grey',
 });
+
 export const InputBox = styled.TextInput({
   height: 30,
   width: '100%',
@@ -51,6 +68,7 @@ export const InputBox = styled.TextInput({
   borderBottomWidth: 1,
   flex: 1,
 });
+
 export const LoginButton = styled.TouchableOpacity({
   width: 170,
   height: 40,
@@ -62,6 +80,7 @@ export const LoginButton = styled.TouchableOpacity({
   alignItems: 'center',
   marginBottom: 20,
 });
+
 export const LoginButtonText = styled.Text({
   fontSize: 15,
   color: '#FFFFFF',
@@ -74,10 +93,12 @@ export const SubButton = styled.TouchableOpacity({
   flexDirection: 'row',
   justifyContent: 'center',
 });
+
 export const SubButtonText = styled.Text({
   height: 50,
   fontSize: 12,
 });
+
 export const IconButtonStyle = styled.TouchableOpacity({
   width: 60,
   height: 60,
@@ -86,6 +107,7 @@ export const IconButtonStyle = styled.TouchableOpacity({
   flexDirection: 'row',
   justifyContent: 'center',
 });
+
 export const IonButtonImage = styled.Image({
   width: 60,
   height: 60,

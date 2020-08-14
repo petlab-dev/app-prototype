@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -14,24 +15,22 @@ const { COLOR_PRIMARY, COLOR_LIGHT } = constantsValue;
 
 const Tab = createBottomTabNavigator();
 
+const ICON_SIZE = 21;
+
 function TabBarIcon({ name, size, color }) {
   return <Icon name={name} size={size} color={color} />;
 }
-
-const ICON_SIZE = 21;
 
 export default function HomeTabNavigator() {
   return (
     <Tab.Navigator
       tabBarOptions={{
         activeTintColor: COLOR_PRIMARY,
-        // inactiveTintColor: constant.inactive,
         style: {
-          height: 65,
-          // backgroundColor: constant.background,
+          height: Platform.OS === 'web' ? 65 : 85,
         },
         tabStyle: {
-          padding: 10,
+          padding: 5,
         },
         labelStyle: {
           fontSize: 11,
@@ -44,12 +43,13 @@ export default function HomeTabNavigator() {
         component={HomeScreen}
         options={{
           tabBarLabel: 'HOME',
-          tabBarIcon: ({ focused }) =>
+          tabBarIcon: ({ focused }) => (
             focused ? (
               <TabBarIcon name="home" size={ICON_SIZE} color={COLOR_PRIMARY} />
             ) : (
               <TabBarIcon name="home" size={ICON_SIZE} color={COLOR_LIGHT} />
-            ),
+            )
+          ),
         }}
       />
       <Tab.Screen
@@ -57,7 +57,7 @@ export default function HomeTabNavigator() {
         component={ColorPickerScreen}
         options={{
           tabBarLabel: 'CHECK',
-          tabBarIcon: ({ focused }) =>
+          tabBarIcon: ({ focused }) => (
             focused ? (
               <TabBarIcon
                 name="stethoscope"
@@ -70,7 +70,8 @@ export default function HomeTabNavigator() {
                 size={ICON_SIZE}
                 color={COLOR_LIGHT}
               />
-            ),
+            )
+          ),
         }}
       />
       <Tab.Screen
@@ -78,12 +79,13 @@ export default function HomeTabNavigator() {
         component={MyPageScreen}
         options={{
           tabBarLabel: 'SETTINGS',
-          tabBarIcon: ({ focused }) =>
+          tabBarIcon: ({ focused }) => (
             focused ? (
               <TabBarIcon name="cog" size={ICON_SIZE} color={COLOR_PRIMARY} />
             ) : (
               <TabBarIcon name="cog" size={ICON_SIZE} color={COLOR_LIGHT} />
-            ),
+            )
+          ),
         }}
       />
     </Tab.Navigator>

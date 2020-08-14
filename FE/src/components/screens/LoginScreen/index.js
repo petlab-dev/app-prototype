@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import React, { useState, useContext } from 'react';
 
 import { AuthContext } from '../../../contexts';
@@ -8,6 +9,7 @@ import TopText from './TopText';
 import {
   InputBox,
   LoginView,
+  Logo,
   Header,
   InputData,
   ViewSet,
@@ -55,6 +57,7 @@ export default function LoginScreen({ navigation }) {
   ];
   return (
     <LoginView>
+      <Logo>Petsome</Logo>
       <Header>
         <TopText />
       </Header>
@@ -83,10 +86,9 @@ export default function LoginScreen({ navigation }) {
         </SubButton>
       </ViewSet>
       <ViewSet>
-        {platformData.map((val) => (
-          <IconButton
-            value={val}
-          />
+        {platformData.map((val, key) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <IconButton key={`icb-${key}`} value={val} />
         ))}
       </ViewSet>
     </LoginView>

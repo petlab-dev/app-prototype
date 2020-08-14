@@ -3,11 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 
 import { VictoryPie } from 'victory';
+import { constantsValue } from '../../constants';
+
+const { COLOR_RED, COLOR_GREEN } = constantsValue;
 
 const screenWidth = (window.innerWidth * 4) / 5;
-const screenHeight = (window.innerHeight * 4) / 5 - 160;
+const screenHeight = (window.innerHeight * 4) / 5 - 100;
 
-export default function VictoryPieChartWeb({ colors }) {
+export default function VictoryPieChartWeb({ colors, detect, none }) {
   const [size, setSize] = useState();
 
   useEffect(() => {
@@ -24,7 +27,7 @@ export default function VictoryPieChartWeb({ colors }) {
           cx={size / 2}
           cy={size / 2}
           r={size / 2}
-          fill="#c43a31"
+          fill={!none ? COLOR_RED : COLOR_GREEN}
         />
         <VictoryPie
           style={{
@@ -33,18 +36,7 @@ export default function VictoryPieChartWeb({ colors }) {
           standalone={false}
           width={size}
           height={size}
-          data={[
-            { x: 1, y: 1 },
-            { x: 1, y: 1 },
-            { x: 1, y: 1 },
-            { x: 1, y: 1 },
-            { x: 1, y: 1 },
-            { x: 1, y: 1 },
-            { x: 2, y: 1 },
-            { x: 1, y: 1 },
-            { x: 2, y: 1 },
-            { x: 1, y: 1 },
-          ]}
+          data={detect}
           radius={({ datum }) => datum.x * (size / 4.5)}
           labels={() => null}
           colorScale={colors}

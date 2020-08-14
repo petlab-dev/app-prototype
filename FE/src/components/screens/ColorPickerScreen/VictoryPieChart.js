@@ -3,10 +3,13 @@ import React from 'react';
 import { View, Dimensions } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import { VictoryPie } from 'victory-native';
+import { constantsValue } from '../../constants';
+
+const { COLOR_RED, COLOR_GREEN } = constantsValue;
 
 const screenWidth = (Dimensions.get('window').width * 2) / 3;
 
-export default function VictoryPieChart({ colors }) {
+export default function VictoryPieChart({ colors, detect, none }) {
   return (
     <View>
       <Svg width={screenWidth} height={screenWidth}>
@@ -14,7 +17,7 @@ export default function VictoryPieChart({ colors }) {
           cx={screenWidth / 2}
           cy={screenWidth / 2}
           r={screenWidth / 2}
-          fill="#c43a31"
+          fill={!none ? COLOR_RED : COLOR_GREEN}
         />
         <VictoryPie
           style={{
@@ -23,18 +26,7 @@ export default function VictoryPieChart({ colors }) {
           standalone={false}
           width={screenWidth}
           height={screenWidth}
-          data={[
-            { x: 1, y: 1 },
-            { x: 1, y: 1 },
-            { x: 1, y: 1 },
-            { x: 1, y: 1 },
-            { x: 1, y: 1 },
-            { x: 1, y: 1 },
-            { x: 2, y: 1 },
-            { x: 1, y: 1 },
-            { x: 2, y: 1 },
-            { x: 1, y: 1 },
-          ]}
+          data={detect}
           radius={({ datum }) => datum.x * (screenWidth / 4.5)}
           labels={() => null}
           colorScale={colors}

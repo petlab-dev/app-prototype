@@ -1,46 +1,33 @@
 import React, { useState, useEffect, useRef } from 'react';
+
 import {
   Text,
   View,
   TouchableOpacity,
   ActivityIndicator,
   Platform,
-  // Dimensions,
 } from 'react-native';
+
 import { Camera } from 'expo-camera';
 
 import VictoryPieChart from './VictoryPieChart';
 import VictoryPieChartWeb from './VictoryPieChart.web';
 
-import { Environment } from '../../../../environment';
 import firebase from '../../../../firebase';
-import { Container } from '../../constants';
+import { Environment } from '../../../../environment';
+
+import { Container, CameraContainer, CameraButton } from './style';
 
 const CAMERA_SCREEN = 0;
 const LOADING_SCREEN = 1;
 const FINAL_SCREEN = 2;
 
-// white: R > 217, G > 217, B > 217
-// black: R + G + B <= 64
-// red: 0 <= H <= 9 || 151 < H < 180
-// orange: 10 <= H <= 15
-// yellow: 16 <= H <= 45
-// Green: 46 <= H <= 100
-// Blue: 101 <= H <= 150
-
-// const COLOR_RANGE = {
-//   black: [
-//     [undefined, 0, 20],
-//     [undefined, 230, 255],
-//   ],
-//   white: [[]],
-//   orange: [],
-// };
-
 export default function ColorPickerScreen() {
   const [hasPermission, setHasPermission] = useState(null);
   const [screen, setScreen] = useState(0);
   const [color, setColors] = useState([]);
+  const [detect, setDetect] = useState([]);
+  const [none, setNone] = useState(true);
 
   const cameraRef = useRef();
 
@@ -53,16 +40,6 @@ export default function ColorPickerScreen() {
       return setHasPermission(status === 'granted');
     })();
   }, []);
-
-  useEffect(() => {
-    console.log('effectColor: ', color);
-  }, [color]);
-
-  useEffect(() => {
-    if (screen === CAMERA_SCREEN) {
-      setColors([]);
-    }
-  }, [screen]);
 
   function rgb2hsv(r, g, b) {
     const constants = {
@@ -101,12 +78,23 @@ export default function ColorPickerScreen() {
         constants.h -= 1;
       }
     }
-    // return Math.round(h * 360);
-    return {
-      h: Math.round(constants.h * 360),
-      s: percentRoundFn(constants.s * 100),
-      v: percentRoundFn(constants.v * 100),
-    };
+    const h = Math.round(constants.h * 360);
+    const s = percentRoundFn(constants.s * 100);
+    const v = percentRoundFn(constants.v * 100);
+
+    if (s < 20 || v < 20) {
+      return 1;
+    }
+
+    // 330 < Red, Orange, Yellow < 60 | 60 < Green < 150 | 150 < Blue < 270 | 270 < PurPle < 330
+    // white: R > 217, G > 217, B > 217
+    // black: R + G + B <= 64
+    if (h > 330 || h < 30) {
+      setNone(false);
+      return 2;
+    }
+
+    return 1;
   }
 
   function componentToHex(c) {
@@ -118,15 +106,23 @@ export default function ColorPickerScreen() {
     return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
   }
 
+  function reset() {
+    setColors([]);
+    setDetect([]);
+    setScreen(0);
+    setNone(true);
+  }
+
   async function uploadImage(uri) {
     const response = await fetch(uri);
-    await console.log(response);
     const blob = await response.blob();
     const ref = await firebase.storage().ref().child('my-image');
     const snapshot = await ref.put(blob);
+
     if (Platform.OS !== 'web') {
       await blob.close();
     }
+
     return snapshot.ref.getDownloadURL();
   }
 
@@ -144,7 +140,7 @@ export default function ColorPickerScreen() {
           },
         ],
       });
-      await console.log('key', Environment.GOOGLE_CLOUD_VISION_API_KEY);
+
       const response = await fetch(
         `https://vision.googleapis.com/v1/images:annotate?key=${Environment.GOOGLE_CLOUD_VISION_API_KEY}`,
         {
@@ -154,32 +150,40 @@ export default function ColorPickerScreen() {
           },
           method: 'POST',
           body,
-        }
+        },
       );
+
       const responseJson = await response.json();
-      await console.log(
-        'response',
-        responseJson.responses[0].imagePropertiesAnnotation.dominantColors
-      );
+
       await setColors(
         responseJson.responses[0].imagePropertiesAnnotation.dominantColors.colors.map(
           (value) => {
-            console.log(
-              rgb2hsv(value.color.red, value.color.green, value.color.blue)
-            );
+            setDetect((detectVal) => [
+              ...detectVal,
+              {
+                x: rgb2hsv(
+                  value.color.red,
+                  value.color.green,
+                  value.color.blue,
+                ),
+                y: 1,
+              },
+            ]);
+
             return rgbToHex(
               value.color.red,
               value.color.green,
-              value.color.blue
+              value.color.blue,
             );
-          }
-        )
+          },
+        ),
       );
+
       console.log('Upload Done\n\n');
     } catch (error) {
-      console.log('url: ', imageUri);
-      console.log('error: ', error);
-      setScreen(0);
+      console.log('url: ', imageUri, '\nerror: ', error);
+
+      reset();
     }
   }
 
@@ -191,7 +195,9 @@ export default function ColorPickerScreen() {
       if (sourceFrom) {
         await cameraRef.current.pausePreview();
         await setScreen(LOADING_SCREEN);
+
         const downloadUri = await uploadImage(sourceFrom);
+
         await submitToGoogle(downloadUri);
         await setScreen(FINAL_SCREEN);
       }
@@ -201,63 +207,40 @@ export default function ColorPickerScreen() {
   if (hasPermission === null) {
     return <View />;
   }
+
   if (hasPermission === false) {
     return <Text>No access to camera</Text>;
   }
+
   return (
     <View style={{ flex: 1 }}>
       {
         {
           [CAMERA_SCREEN]: (
-            <Camera
-              ref={cameraRef}
-              style={{ flex: 1 }}
-              // type={type}
-            >
-              <View
-                style={{
-                  flex: 1,
-                  backgroundColor: 'transparent',
-                  flexDirection: 'row',
-                }}
-              >
-                <TouchableOpacity
-                  style={{
-                    flex: 0.1,
-                    alignSelf: 'flex-end',
-                    alignItems: 'center',
-                  }}
-                  onPress={() => takePicture()}
-                >
-                  <Text
-                    style={{ fontSize: 18, marginBottom: 10, color: 'white' }}
-                  >
-                    Shutter
-                  </Text>
-                </TouchableOpacity>
-              </View>
+            <Camera ref={cameraRef} style={{ flex: 1 }}>
+              <CameraContainer>
+                <CameraButton onPress={() => takePicture()} />
+              </CameraContainer>
             </Camera>
           ),
           [LOADING_SCREEN]: (
-            <Container
-              style={{
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
+            <Container>
               <ActivityIndicator color="black" size="large" />
             </Container>
           ),
           [FINAL_SCREEN]: (
-            <Container
-              style={{ justifyContent: 'center', alignItems: 'center' }}
-            >
-              {Platform.OS === 'web' ? (
-                <VictoryPieChartWeb colors={color} />
-              ) : (
-                <VictoryPieChart colors={color} />
-              )}
+            <Container>
+              <TouchableOpacity onPress={() => reset()}>
+                {Platform.OS === 'web' ? (
+                  <VictoryPieChartWeb
+                    colors={color}
+                    detect={detect}
+                    none={none}
+                  />
+                ) : (
+                  <VictoryPieChart colors={color} detect={detect} none={none} />
+                )}
+              </TouchableOpacity>
             </Container>
           ),
         }[screen]

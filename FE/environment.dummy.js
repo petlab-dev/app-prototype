@@ -18,6 +18,7 @@ const environments = {
 function getEnvironment(env) {
   return environments[env];
 }
+
 export const Environment = getEnvironment('staging');
 
 export const NAVER_APP_ID = '';

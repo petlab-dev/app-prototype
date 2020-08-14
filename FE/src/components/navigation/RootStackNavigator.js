@@ -19,54 +19,31 @@ export default function RootStackNavigator() {
   function toggleAuth() {
     setAuth(!auth);
   }
+
   return (
     <AuthContext.Provider value={{ auth, toggleAuth }}>
       <NavigationContainer>
         <SharedStatusBar />
         <Stack.Navigator
           screenOptions={{
-            animationEnabled: false,
+            animationEnabled: true,
             headerShown: false,
           }}
         >
           {auth ? (
-            <Stack.Screen
-              name="Main"
-              component={MainStackNavigator}
-              options={{
-                headerShown: false,
-                headerTitle: '',
-                headerBackTitle: '',
-                headerStatusBarHeight: 0,
-              }}
-            />
+            <Stack.Screen name="Main" component={MainStackNavigator} />
           ) : (
             <>
-              <Stack.Screen
-                name="LoginScreen"
-                component={LoginScreen}
-                options={{
-                  headerShown: false,
-                  headerTitle: '',
-                  headerBackTitle: '',
-                  headerStatusBarHeight: 0,
-
-                }}
-              />
+              <Stack.Screen name="LoginScreen" component={LoginScreen} />
               <Stack.Screen
                 name="AuthCheckScreen"
                 component={AuthCheckScreen}
               />
-              <Stack.Screen
-                name="TermsScreen"
-                component={TermsScreen}
-              />
+              <Stack.Screen name="TermsScreen" component={TermsScreen} />
             </>
           )}
-
         </Stack.Navigator>
       </NavigationContainer>
     </AuthContext.Provider>
-
   );
 }

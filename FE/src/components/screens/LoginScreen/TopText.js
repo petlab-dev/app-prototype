@@ -4,9 +4,9 @@ import { HeaderText } from './style';
 export default function TopText() {
   return (
     <HeaderText>
-      안녕하세요 고객님,
+      안녕하세요,
       {'\n'}
-      내 손안에 수의사 펫닥입니다.
+      건강지킴이 Petsome 입니다.
     </HeaderText>
   );
 }
