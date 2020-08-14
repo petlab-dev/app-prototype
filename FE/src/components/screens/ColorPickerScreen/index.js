@@ -4,16 +4,38 @@ import {
   View,
   TouchableOpacity,
   ActivityIndicator,
+  Platform,
+  // Dimensions,
 } from 'react-native';
 import { Camera } from 'expo-camera';
 
-import Environment from '../../../environment';
-import firebase from '../../../firebase';
-import { Container } from '../constants';
+import VictoryPieChart from './VictoryPieChart';
+import VictoryPieChartWeb from './VictoryPieChart.web';
+
+import { Environment } from '../../../../environment';
+import firebase from '../../../../firebase';
+import { Container } from '../../constants';
 
 const CAMERA_SCREEN = 0;
 const LOADING_SCREEN = 1;
 const FINAL_SCREEN = 2;
+
+// white: R > 217, G > 217, B > 217
+// black: R + G + B <= 64
+// red: 0 <= H <= 9 || 151 < H < 180
+// orange: 10 <= H <= 15
+// yellow: 16 <= H <= 45
+// Green: 46 <= H <= 100
+// Blue: 101 <= H <= 150
+
+// const COLOR_RANGE = {
+//   black: [
+//     [undefined, 0, 20],
+//     [undefined, 230, 255],
+//   ],
+//   white: [[]],
+//   orange: [],
+// };
 
 export default function ColorPickerScreen() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -24,10 +46,23 @@ export default function ColorPickerScreen() {
 
   useEffect(() => {
     (async () => {
+      if (Platform.OS === 'web') {
+        return setHasPermission(true);
+      }
       const { status } = await Camera.requestPermissionsAsync();
-      setHasPermission(status === 'granted');
+      return setHasPermission(status === 'granted');
     })();
   }, []);
+
+  useEffect(() => {
+    console.log('effectColor: ', color);
+  }, [color]);
+
+  useEffect(() => {
+    if (screen === CAMERA_SCREEN) {
+      setColors([]);
+    }
+  }, [screen]);
 
   function rgb2hsv(r, g, b) {
     const constants = {
@@ -85,10 +120,13 @@ export default function ColorPickerScreen() {
 
   async function uploadImage(uri) {
     const response = await fetch(uri);
+    await console.log(response);
     const blob = await response.blob();
     const ref = await firebase.storage().ref().child('my-image');
     const snapshot = await ref.put(blob);
-    await blob.close();
+    if (Platform.OS !== 'web') {
+      await blob.close();
+    }
     return snapshot.ref.getDownloadURL();
   }
 
@@ -106,8 +144,9 @@ export default function ColorPickerScreen() {
           },
         ],
       });
+      await console.log('key', Environment.GOOGLE_CLOUD_VISION_API_KEY);
       const response = await fetch(
-        `https://vision.googleapis.com/v1/images:annotate?key=${Environment['GOOGLE_CLOUD_VISION_API_KEY']}`,
+        `https://vision.googleapis.com/v1/images:annotate?key=${Environment.GOOGLE_CLOUD_VISION_API_KEY}`,
         {
           headers: {
             Accept: 'application/json',
@@ -115,14 +154,13 @@ export default function ColorPickerScreen() {
           },
           method: 'POST',
           body,
-        },
+        }
       );
       const responseJson = await response.json();
-      // await console.log(
-      //   'response',
-      //   responseJson.responses[0].imagePropertiesAnnotation.dominantColors
-      //     .colors,
-      // );
+      await console.log(
+        'response',
+        responseJson.responses[0].imagePropertiesAnnotation.dominantColors
+      );
       await setColors(
         responseJson.responses[0].imagePropertiesAnnotation.dominantColors.colors.map(
           (value) => {
@@ -132,12 +170,12 @@ export default function ColorPickerScreen() {
             return rgbToHex(
               value.color.red,
               value.color.green,
-              value.color.blue,
+              value.color.blue
             );
-          },
-        ),
+          }
+        )
       );
-      console.log('Upload Done');
+      console.log('Upload Done\n\n');
     } catch (error) {
       console.log('url: ', imageUri);
       console.log('error: ', error);
@@ -201,26 +239,26 @@ export default function ColorPickerScreen() {
             </Camera>
           ),
           [LOADING_SCREEN]: (
-            <Container>
+            <Container
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
               <ActivityIndicator color="black" size="large" />
             </Container>
           ),
           [FINAL_SCREEN]: (
-            <View>
-              {color.map((value) => (
-                <View
-                  key={`k-${value}`}
-                  style={{
-                    height: '9%',
-                    width: '100%',
-                    backgroundColor: value,
-                  }}
-                />
-              ))}
-              <TouchableOpacity onPress={() => setScreen(CAMERA_SCREEN)}>
-                <Text>back to camera</Text>
-              </TouchableOpacity>
-            </View>
+            <Container
+              style={{ justifyContent: 'center', alignItems: 'center' }}
+            >
+              {Platform.OS === 'web' ? (
+                <VictoryPieChartWeb colors={color} />
+              ) : (
+                <VictoryPieChart colors={color} />
+              )}
+            </Container>
           ),
         }[screen]
       }

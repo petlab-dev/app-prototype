@@ -10,23 +10,32 @@ import MyPageScreen from '../screens/MyPageScreen';
 
 import { constantsValue } from '../constants';
 
+const { COLOR_PRIMARY, COLOR_LIGHT } = constantsValue;
+
 const Tab = createBottomTabNavigator();
 
 function TabBarIcon({ name, size, color }) {
-  return <Icon name={name} size={size} color={color} style={{ marginBottom: -3 }} />;
+  return <Icon name={name} size={size} color={color} />;
 }
+
+const ICON_SIZE = 21;
 
 export default function HomeTabNavigator() {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        activeTintColor: constantsValue.COLOR_PRIMARY,
+        activeTintColor: COLOR_PRIMARY,
         // inactiveTintColor: constant.inactive,
         style: {
+          height: 65,
           // backgroundColor: constant.background,
         },
+        tabStyle: {
+          padding: 10,
+        },
         labelStyle: {
-          marginBottom: 5,
+          fontSize: 11,
+          padding: 5,
         },
       }}
     >
@@ -34,37 +43,47 @@ export default function HomeTabNavigator() {
         name="HomeScreen"
         component={HomeScreen}
         options={{
-          tabBarLabel: '홈',
-          tabBarIcon: ({ focused }) => (focused ? (
-            <TabBarIcon name="home" size={20} color={constantsValue.COLOR_PRIMARY} />
-          ) : (
-            <TabBarIcon name="home" size={20} />
-          )),
+          tabBarLabel: 'HOME',
+          tabBarIcon: ({ focused }) =>
+            focused ? (
+              <TabBarIcon name="home" size={ICON_SIZE} color={COLOR_PRIMARY} />
+            ) : (
+              <TabBarIcon name="home" size={ICON_SIZE} color={COLOR_LIGHT} />
+            ),
         }}
       />
       <Tab.Screen
         name="ColorPickerScreen"
         component={ColorPickerScreen}
         options={{
-          // headerTitle: '피커',
-          tabBarLabel: '피커',
-          tabBarIcon: ({ focused }) => (focused ? (
-            <TabBarIcon name="adjust" size={20} color={constantsValue.COLOR_PRIMARY} />
-          ) : (
-            <TabBarIcon name="adjust" size={20} />
-          )),
+          tabBarLabel: 'CHECK',
+          tabBarIcon: ({ focused }) =>
+            focused ? (
+              <TabBarIcon
+                name="stethoscope"
+                size={ICON_SIZE}
+                color={COLOR_PRIMARY}
+              />
+            ) : (
+              <TabBarIcon
+                name="stethoscope"
+                size={ICON_SIZE}
+                color={COLOR_LIGHT}
+              />
+            ),
         }}
       />
       <Tab.Screen
         name="MyPageScreen"
         component={MyPageScreen}
         options={{
-          tabBarLabel: '설정',
-          tabBarIcon: ({ focused }) => (focused ? (
-            <TabBarIcon name="cog" size={20} color={constantsValue.COLOR_PRIMARY} />
-          ) : (
-            <TabBarIcon name="cog" size={20} />
-          )),
+          tabBarLabel: 'SETTINGS',
+          tabBarIcon: ({ focused }) =>
+            focused ? (
+              <TabBarIcon name="cog" size={ICON_SIZE} color={COLOR_PRIMARY} />
+            ) : (
+              <TabBarIcon name="cog" size={ICON_SIZE} color={COLOR_LIGHT} />
+            ),
         }}
       />
     </Tab.Navigator>

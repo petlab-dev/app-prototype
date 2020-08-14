@@ -1,6 +1,6 @@
 import styled from '@emotion/native';
 
-import { constantsValue } from '../../constants';
+import { Container, constantsValue } from '../../constants';
 
 const {
   // COLOR_SECONDARY,
@@ -17,6 +17,10 @@ const {
 } = constantsValue;
 
 // HomeScreen
+export const HomeContainer = styled(Container)({
+  justifyContent: 'space-between',
+});
+
 export const HomeHospitalText = styled.Text({
   fontSize: 22,
   // fontWeight: 800,
@@ -28,6 +32,22 @@ export const Beta = styled.Image({
   width: 50,
   height: 20,
   marginLeft: '10%',
+});
+
+// HomeBanner
+export const HomeBannerContainer = styled.ScrollView({
+  marginLeft: 15,
+  marginTop: '5%',
+});
+
+export const HomeBannerView = styled.View({
+  flexDirection: 'column',
+  width: 340,
+  height: 150,
+  margin: 3,
+  borderRadius: 10,
+  borderWidth: 1,
+  borderColor: COLOR_LIGHTER,
 });
 
 // HomeAnimalEnrollment
