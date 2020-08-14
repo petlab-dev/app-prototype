@@ -23,7 +23,7 @@ import {
   TopInput,
 } from './style';
 
-import { NV_APP_ID, NV_APP_SECRET, STATE_STRING } from '../../../../api_constants'
+import { NV_APP_ID, NV_APP_SECRET, STATE_STRING } from '../../../../api_constants';
 
 export default function LoginScreen({ navigation }) {
   const { toggleAuth } = useContext(AuthContext);
@@ -113,7 +113,7 @@ export default function LoginScreen({ navigation }) {
           onChangeText={(password) => setValue({ ...value, password })}
         />
       </InputData>
-      <LoginButton onPress={() => alert(`${value.email}\n${value.password}`)}>
+      <LoginButton onPress={toggleAuth}>
         <LoginButtonText>로그인</LoginButtonText>
       </LoginButton>
       <ViewSet>

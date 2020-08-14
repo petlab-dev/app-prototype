@@ -16,3 +16,5 @@ web-build/
 coverage
 
 FE/api_constants.js
+FE/firebase.js
+FE/environment.js
