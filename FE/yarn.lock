@@ -2824,6 +2824,14 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
+"@types/react@^16.8.22":
+  version "16.9.46"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.46.tgz#f0326cd7adceda74148baa9bff6e918632f5069e"
+  integrity sha512-dbHzO3aAq1lB3jRQuNpuZ/mnu+CdD3H0WVaaBQA8LTT3S33xhVBUj232T8M3tAhSWJs/D/UqORYUlJNl/8VQZg==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^3.0.2"
+
 "@types/source-list-map@*":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@types/source-list-map/-/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
@@ -7182,6 +7190,14 @@ firebase@7.9.0:
     "@firebase/remote-config" "0.1.13"
     "@firebase/storage" "0.3.26"
     "@firebase/util" "0.2.40"
+
+fireworks@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/fireworks/-/fireworks-2.2.6.tgz#69adb50ea3bee17fbca2d1c4107508bde623e2b1"
+  integrity sha512-V6fM1BpwMgdw30vABV9XxfVlAOl1qU9/dWRO6Yk0BHXnOb3MAYy474jnPP3K63jy4SZUE+4ituTvTGlDvzz0dA==
+  optionalDependencies:
+    "@types/react" "^16.8.22"
+    react "^16.8.6"
 
 flat-cache@^2.0.1:
   version "2.0.1"
@@ -12330,7 +12346,7 @@ react-timer-mixin@^0.13.4:
   resolved "https://registry.yarnpkg.com/react-timer-mixin/-/react-timer-mixin-0.13.4.tgz#75a00c3c94c13abe29b43d63b4c65a88fc8264d3"
   integrity sha512-4+ow23tp/Tv7hBM5Az5/Be/eKKF7DIvJ09voz5LyHGQaqqz9WV8YMs31eFvcYQs7d451LSg7kDJV70XYN/Ug/Q==
 
-react@^16.6.0, react@^16.8.3:
+react@^16.6.0, react@^16.8.3, react@^16.8.6:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
