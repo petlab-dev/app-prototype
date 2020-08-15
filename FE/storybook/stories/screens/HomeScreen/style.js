@@ -132,3 +132,18 @@ export const CenterView = styled.View({
 export const HomeCenterView = styled(CenterView)({
   height: 50,
 });
+
+export const HomeBannerContainer = styled.ScrollView({
+  marginLeft: 15,
+  marginTop: '5%',
+});
+
+export const HomeBannerView = styled.View({
+  flexDirection: 'column',
+  width: 340,
+  height: 150,
+  margin: 3,
+  borderRadius: 10,
+  borderWidth: 1,
+  borderColor: COLOR_LIGHTER,
+});

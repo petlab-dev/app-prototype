@@ -53,7 +53,7 @@ export default function HomeScreen() {
   return (
     <Container>
       <HomeHeader
-        text="Pet Mate"
+        text="Pet Some"
       />
       <HomeSearch
         onChangeText={handleOnChangeText}

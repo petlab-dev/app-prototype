@@ -22,9 +22,7 @@ import {
   BottomContainer,
 } from './style';
 
-export default function MyPageScreen() {
-  const { toggleAuth } = useContext(AuthContext);
-
+export default function MyPageScreen({ navigation }) {
   const value = {
     email: '',
     password: '',
@@ -86,7 +84,7 @@ export default function MyPageScreen() {
             </GradeButtonText>
           </GradeImgContainer>
         </GradeButton>
-        <MyPageProfileButton name="옐로우오믈렛" />
+        <MyPageProfileButton name="옐로우오믈렛" navigation={navigation} />
       </ProfileView>
       <FolowButtonContainer>
         <FollowButton folowState="팔로워" count={value.folowerCount} />

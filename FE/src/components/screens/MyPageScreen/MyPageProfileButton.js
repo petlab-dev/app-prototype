@@ -8,9 +8,9 @@ import {
   ProfileTextImage,
 } from './style';
 
-export default function MyPageProfileButton({ name }) {
+export default function MyPageProfileButton({ name, navigation }) {
   return (
-    <ProfileButton>
+    <ProfileButton onPress={() => navigation.push('Main2')}>
       <ProfileTextBox>
         <ProfileText>{name}</ProfileText>
         <ProfileTextImage source={require('../../assets/RightArrow.png')} />

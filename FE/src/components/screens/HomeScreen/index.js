@@ -1,13 +1,14 @@
 /* eslint-disable global-require */
 import React, { useState } from 'react';
 
+import { ScrollView } from 'react-native';
 import HomeAnimalEnrollment from './HomeAnimalEnrollment';
 import HomeHeader from './HomeHeader';
 import HomeHospital from './HomeHospital';
 import HomeSearch from './HomeSearch';
+import HomeBanner from './HomeBanner';
 
-import { Container } from '../../constants';
-import { HomeHospitalText, Beta } from './style';
+import { HomeContainer, HomeHospitalText, Beta } from './style';
 
 export default function HomeScreen() {
   // eslint-disable-next-line no-unused-vars
@@ -51,21 +52,21 @@ export default function HomeScreen() {
   }
 
   return (
-    <Container>
-      <HomeHeader
-        text="Pet Mate"
-      />
+    <HomeContainer>
       <HomeSearch
         onChangeText={handleOnChangeText}
       />
-      <HomeAnimalEnrollment />
-      <Beta
-        source={require('../../assets/Beta.png')}
-      />
-      <HomeHospitalText>가까운 동물병원</HomeHospitalText>
-      <HomeHospital
-        data={DataOfNearbyHospital}
-      />
-    </Container>
+      <ScrollView>
+        <HomeBanner />
+        <HomeAnimalEnrollment />
+        <Beta
+          source={require('../../../assets/Beta.png')}
+        />
+        <HomeHospitalText>가까운 동물병원</HomeHospitalText>
+        <HomeHospital
+          data={DataOfNearbyHospital}
+        />
+      </ScrollView>
+    </HomeContainer>
   );
 }

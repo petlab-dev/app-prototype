@@ -52,16 +52,22 @@ export const InputBox = styled.TextInput({
   flex: 1,
 });
 export const LoginButton = styled.TouchableOpacity({
-  width: 200,
-  height: 50,
+  width: 170,
+  height: 40,
   backgroundColor: '#FF7F50',
   border: 0,
   borderRadius: 30,
-  paddingTop: 15,
   flexDirection: 'row',
   justifyContent: 'center',
+  alignItems: 'center',
   marginBottom: 20,
 });
+export const LoginButtonText = styled.Text({
+  fontSize: 15,
+  color: '#FFFFFF',
+  fontWeight: 'bold',
+});
+
 export const SubButton = styled.TouchableOpacity({
   height: 20,
   margin: 0,
@@ -70,21 +76,21 @@ export const SubButton = styled.TouchableOpacity({
 });
 export const SubButtonText = styled.Text({
   height: 50,
-  width: 125,
   fontSize: 12,
 });
 export const IconButtonStyle = styled.TouchableOpacity({
   width: 60,
   height: 60,
-  borderRadius: 45,
-  backgroundColor: 'powderblue',
-  margin: 4,
-  paddingTop: 15,
+  borderRadius: 60,
+  margin: 6,
   flexDirection: 'row',
   justifyContent: 'center',
 });
-export const LoginButtonText = styled.Text({
-  fontSize: 12,
-  color: '#FFFFFF',
-  fontWeight: 'bold',
+export const IonButtonImage = styled.Image({
+  width: 60,
+  height: 60,
+  borderRadius: 60,
+  margin: 6,
+  flexDirection: 'row',
+  justifyContent: 'center',
 });
