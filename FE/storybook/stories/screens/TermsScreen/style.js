@@ -25,7 +25,7 @@ export const TermsBottomButtonContainer = styled.View({
 
 export const CancelButton = styled.Text({
   margin: 15,
-  // fontWeight: 500,
+  fontWeight: 'bold',
   fontSize: FONTSIZE_SMALL,
 });
 
@@ -61,11 +61,7 @@ export const CosentButton = styled.Text({
 
 // TermsContents
 export const TermsContentsContainer = styled.View({
-  borderWidth: 2,
-  borderTopColor: COLOR_LIGHTER,
-  borderLeftColor: COLOR_LIGHTEST,
-  borderBottomColor: COLOR_LIGHTEST,
-  borderRightWidth: 0,
+  borderBottomWidth: 1,
   flexDirection: 'column',
   padding: '4%',
 });

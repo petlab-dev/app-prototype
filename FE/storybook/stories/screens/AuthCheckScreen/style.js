@@ -66,7 +66,7 @@ export const SelectButton = styled.View(({ active }) => ({
 
 export const SelectButtonColor = styled.Text(({ active }) => ({
   fontSize: FONTSIZE_BIG,
-  // fontWeight: 700,
+  fontWeight: 'bold',
   color: active ? 'black' : COLOR_LIGHT,
   paddingBottom: '10%',
 }));

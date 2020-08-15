@@ -19,7 +19,7 @@ const {
 // HomeScreen
 export const HomeHospitalText = styled.Text({
   fontSize: 22,
-  // fontWeight: 800,
+  fontWeight: 'bold',
   marginLeft: '10%',
   paddingTop: '2%',
 });
@@ -66,7 +66,7 @@ export const HomeHeaderContainer = styled.View({
 
 export const Title = styled.Text({
   fontSize: FONTSIZE_BIG,
-  // fontWeight: 900,
+  fontWeight: 'bold',
   color: COLOR_PRIMARY,
   letterSpacing: 1,
 });
