@@ -65,7 +65,7 @@ export const ProfileView = styled.View({
   alignItems: 'center',
   justifyContent: 'center',
   backgroundColor: 'white',
-  paddingBottom: 10,
+  padding: 20,
 });
 
 export const GradeButton = styled.TouchableOpacity({

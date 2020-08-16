@@ -1,6 +1,9 @@
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext, useEffect, useState } from 'react';
 import { View, Button, Platform } from 'react-native';
+
+import { WebView } from 'react-native-webview';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -29,7 +32,7 @@ function Test({ navigation }) {
 }
 
 export default function MainStackNavigator({ navigation }) {
-  const { toggleAuth } = useContext(AuthContext);
+  const { toggleAuth, location } = useContext(AuthContext);
 
   const [fireworks, setFireworks] = useState(false);
 
@@ -53,6 +56,14 @@ export default function MainStackNavigator({ navigation }) {
     fireFireworks(500);
   }, []);
 
+  const Web = () => (
+    <WebView
+      source={{
+        uri: `https://www.google.com/maps/search/%EB%8F%99%EB%AC%BC%EB%B3%91%EC%9B%90/@${location.y},${location.x},13z`,
+      }}
+      style={{ width: '100%', height: '100%' }}
+    />
+  );
   const headerLeft = () => (
     <HeaderSide onPress={() => navigation.pop()}>
       <Icon name="arrow-left" size={20} color={COLOR_PRIMARY} />
@@ -60,7 +71,7 @@ export default function MainStackNavigator({ navigation }) {
   );
 
   const headerLeftMock = () => (
-    <HeaderSide disabled="true">
+    <HeaderSide disabled={true}>
       <Icon name="arrow-left" size={20} color="transparent" />
     </HeaderSide>
   );
@@ -82,7 +93,6 @@ export default function MainStackNavigator({ navigation }) {
     <Stack.Navigator
       screenOptions={{
         headerShown: true,
-
       }}
     >
       <Stack.Screen
@@ -97,6 +107,15 @@ export default function MainStackNavigator({ navigation }) {
       <Stack.Screen
         name="Test"
         component={Test}
+        options={{
+          headerTitle,
+          headerLeft,
+          headerRight,
+        }}
+      />
+      <Stack.Screen
+        name="Web"
+        component={Web}
         options={{
           headerTitle,
           headerLeft,

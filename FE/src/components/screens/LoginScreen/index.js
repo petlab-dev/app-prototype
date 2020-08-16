@@ -55,6 +55,7 @@ export default function LoginScreen({ navigation }) {
       source: require('../../assets/LoginIcons/google.png'),
     },
   ];
+
   return (
     <LoginView>
       <Logo>Petsome</Logo>

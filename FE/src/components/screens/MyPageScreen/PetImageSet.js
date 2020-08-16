@@ -11,7 +11,7 @@ export default function PetImageSet({ data }) {
   return (
     data.map((value) => (
       <PetImgBox key={value.key}>
-        <PetImg source={value.source} resizeMode="filled" />
+        <PetImg source={value.source} resizeMode="contain" />
       </PetImgBox>
     ))
   );

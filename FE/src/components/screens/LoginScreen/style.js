@@ -75,7 +75,7 @@ export const LoginButton = styled.TouchableOpacity({
   width: 170,
   height: 40,
   backgroundColor: COLOR_PRIMARY,
-  border: 0,
+  // border: 0,
   borderRadius: 30,
   flexDirection: 'row',
   justifyContent: 'center',
