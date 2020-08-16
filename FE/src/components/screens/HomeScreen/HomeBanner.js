@@ -1,25 +1,123 @@
-import React from 'react';
+/* eslint-disable global-require */
+import React, { useState, useEffect, useRef } from 'react';
 
-import { Text } from 'react-native';
-import { HomeBannerView, HomeBannerContainer } from './style';
+// import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Dimensions } from 'react-native';
+
+import * as WebBrowser from 'expo-web-browser';
+
+// import Icon from 'react-native-vector-icons/FontAwesome';
+
+import { HomeBannerButton, HomeBannerContainer, BannerImage } from './style';
+
+const adData = [
+  {
+    key: 1,
+    url: 'https://www.seoulpetshow.co.kr/',
+    source: require('../../assets/Ad/1.png'),
+  },
+  {
+    key: 2,
+    url: 'https://www.suwonpetshow.co.kr/',
+    source: require('../../assets/Ad/2.png'),
+  },
+  {
+    key: 3,
+    url: 'https://gdppcat.com/index.html',
+    source: require('../../assets/Ad/3.png'),
+  },
+];
 
 export default function HomeBanner() {
+  const scrollRef = useRef();
+
+  const [scroll, setScroll] = useState(0);
+  const [width, setWidth] = useState(Dimensions.get('window').width);
+  const [seconds, setSeconds] = useState(0);
+
+  function moveScroll(direction) {
+    if (scroll < 0 || scroll > width) {
+      scrollRef.current?.scrollTo({
+        x: 0,
+        animated: true,
+      });
+      setScroll(0);
+    } else {
+      scrollRef.current?.scrollTo({
+        x: scroll + direction,
+        animated: true,
+      });
+      setScroll(scroll + direction);
+    }
+  }
+
+  const handleUrlPressButtonAsync = async (
+    url = 'https://gdppcat.com/index.html',
+  ) => {
+    await WebBrowser.openBrowserAsync(url);
+  };
+
+  useEffect(() => {
+    if (Dimensions.get('window').width > 512) {
+      setWidth(512);
+    }
+
+    const interval = setInterval(() => {
+      if (width > 512) {
+        moveScroll(512);
+        return setSeconds(seconds + 1);
+      }
+      moveScroll(width);
+      return setSeconds(seconds + 1);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [seconds]);
+
   return (
-    <HomeBannerContainer
-      horizontal
+    <View
+      style={{
+        width,
+        justifyContent: 'center',
+        alignItems: 'cneter',
+        paddingTop: 10,
+      }}
     >
-      <HomeBannerView>
-        <Text>firstbaner</Text>
-      </HomeBannerView>
-      <HomeBannerView>
-        <Text>secondbaner</Text>
-      </HomeBannerView>
-      <HomeBannerView>
-        <Text>secondbaner</Text>
-      </HomeBannerView>
-      <HomeBannerView>
-        <Text>secondbaner</Text>
-      </HomeBannerView>
-    </HomeBannerContainer>
+      {/* <View
+        style={{
+          zIndex: 1,
+          width,
+          height: 0,
+          position: 'absolute',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexDirection: 'row',
+          padding: 20,
+        }}
+      >
+        <TouchableOpacity onPress={() => moveScroll(-width)}>
+          <Icon name="angle-left" size={50} color="#f44336" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => moveScroll(width)}>
+          <Icon name="angle-right" size={50} color="#f44336" />
+        </TouchableOpacity>
+      </View> */}
+      <HomeBannerContainer
+        ref={scrollRef}
+        screenWidth={width}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      >
+        {adData.map((value) => (
+          <HomeBannerButton
+            key={`s-${value.key}`}
+            onPress={() => handleUrlPressButtonAsync(value.url)}
+            screenWidth={width}
+            resizeMode="filled"
+          >
+            <BannerImage screenWidth={width} source={value.source} />
+          </HomeBannerButton>
+        ))}
+      </HomeBannerContainer>
+    </View>
   );
 }

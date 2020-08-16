@@ -42,15 +42,15 @@ export default function MainStackNavigator({ navigation }) {
     y: 5,
   };
 
-  function fireFireworks() {
+  function fireFireworks(duration = 300) {
     setFireworks(true);
     setTimeout(() => {
       setFireworks(false);
-    }, 500);
+    }, duration);
   }
 
   useEffect(() => {
-    fireFireworks();
+    fireFireworks(500);
   }, []);
 
   const headerLeft = () => (
@@ -82,6 +82,7 @@ export default function MainStackNavigator({ navigation }) {
     <Stack.Navigator
       screenOptions={{
         headerShown: true,
+
       }}
     >
       <Stack.Screen

@@ -18,7 +18,11 @@ const {
 
 // HomeScreen
 export const HomeContainer = styled(Container)({
-  justifyContent: 'space-between',
+  display: 'flex',
+  flex: 1,
+  height: '100%',
+  width: '100%',
+  alignItems: 'center',
   userSelect: 'none',
 });
 
@@ -36,26 +40,30 @@ export const Beta = styled.Image({
 });
 
 // HomeBanner
-export const HomeBannerContainer = styled.ScrollView({
-  marginLeft: 15,
-  marginTop: '5%',
-});
+export const HomeBannerContainer = styled.ScrollView(({ screenWidth }) => ({
+  width: screenWidth,
+}));
 
-export const HomeBannerView = styled.View({
+export const HomeBannerButton = styled.TouchableOpacity(({ screenWidth }) => ({
   flexDirection: 'column',
-  width: 340,
-  height: 150,
-  margin: 3,
+  width: screenWidth - 20,
+  height: screenWidth === 512 ? 204.8 : (screenWidth * 2) / 5,
+  marginLeft: 10,
+  marginRight: 10,
   borderRadius: 10,
-  borderWidth: 1,
-  borderColor: COLOR_LIGHTER,
-});
+  backgroundColor: COLOR_LIGHTER,
+}));
+
+export const BannerImage = styled.Image(({ screenWidth }) => ({
+  width: screenWidth - 20,
+  height: screenWidth === 512 ? 204.8 : (screenWidth * 2) / 5,
+  borderRadius: 10,
+}));
 
 // HomeAnimalEnrollment
 export const AnimalEnrollmentContainter = styled.View({
   flexDirection: 'row',
-  paddingTop: '2%',
-  justifyContent: 'flex-start',
+  justifyContent: 'space-between',
 });
 
 export const EnrollmentTextContainer = styled.View({
@@ -66,7 +74,6 @@ export const EnrollmentTextContainer = styled.View({
 export const AnimalEnrollImage = styled.Image({
   width: 110,
   height: 110,
-  margin: 15,
 });
 
 export const TextWrap = styled.Text({
@@ -124,19 +131,19 @@ export const TextWrapForHospitalInfo = styled.Text({
 
 // HomeSearch
 export const SearchBoxContainer = styled.View({
+  maxWidth: 492,
   borderColor: COLOR_PRIMARY,
-  borderWidth: 1.5,
+  borderWidth: 5,
   flexDirection: 'row',
   alignItems: 'center',
-  marginTop: 24,
-  justifyContent: 'center',
-  width: '85%',
+  justifyContent: 'space-between',
+  width: '100%',
 });
 
 export const SearchBox = styled.TextInput({
-  padding: '2%',
-  width: 250,
-  height: 5,
+  padding: 10,
+  width: '80%',
+  height: '100%',
 });
 
 export const SearchImage = styled.Image({
@@ -148,8 +155,4 @@ export const SearchImage = styled.Image({
 export const CenterView = styled.View({
   justifyContent: 'center',
   alignItems: 'center',
-});
-
-export const HomeCenterView = styled(CenterView)({
-  height: 50,
 });

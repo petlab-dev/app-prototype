@@ -14,6 +14,8 @@ export const constantsValue = {
   FONTSIZE_SMALL: 17,
   FONTSIZE_SMALLER: 15,
   FONTSIZE_SAMALLEST: 12,
+  MAX_HEIGHT: 768,
+  MAX_WIDTH: 512,
 };
 
 const {
@@ -34,6 +36,7 @@ export const Container = styled.SafeAreaView({
   flex: 1,
   flexDirection: 'column',
   backgroundColor: COLOR_LIGHTEST,
+  userSelect: 'none',
 });
 
 export const TextWrap = styled.Text({

@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { Platform } from 'react-native';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -28,6 +28,7 @@ export default function HomeTabNavigator() {
         activeTintColor: COLOR_PRIMARY,
         style: {
           height: Platform.OS === 'web' ? 65 : 85,
+          userSelect: 'none',
         },
         tabStyle: {
           padding: 5,
@@ -35,6 +36,9 @@ export default function HomeTabNavigator() {
         labelStyle: {
           fontSize: 11,
           padding: 5,
+        },
+        safeAreaInsets: {
+          bottom: 20,
         },
       }}
     >

@@ -5,7 +5,7 @@ import {
   ProfileButton,
   ProfileTextBox,
   ProfileText,
-  ProfileTextImage,
+  // ProfileTextImage,
 } from './style';
 
 export default function MyPageProfileButton({ name, navigation }) {
@@ -13,7 +13,6 @@ export default function MyPageProfileButton({ name, navigation }) {
     <ProfileButton onPress={() => navigation.push('Test')}>
       <ProfileTextBox>
         <ProfileText>{name}</ProfileText>
-        <ProfileTextImage source={require('../../assets/RightArrow.png')} />
       </ProfileTextBox>
     </ProfileButton>
   );

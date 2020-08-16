@@ -10,6 +10,8 @@ import {
 
 import { Camera } from 'expo-camera';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 import VictoryPieChart from './VictoryPieChart';
 import VictoryPieChartWeb from './VictoryPieChart.web';
 
@@ -34,8 +36,10 @@ export default function ColorPickerScreen() {
   useEffect(() => {
     (async () => {
       if (Platform.OS === 'web') {
-        return setHasPermission(true);
+        const permission = await Camera.isAvailableAsync();
+        return setHasPermission(permission);
       }
+
       const { status } = await Camera.requestPermissionsAsync();
       return setHasPermission(status === 'granted');
     })();
@@ -181,9 +185,9 @@ export default function ColorPickerScreen() {
 
       console.log('Upload Done\n\n');
     } catch (error) {
-      console.log('url: ', imageUri, '\nerror: ', error);
-
       reset();
+
+      console.log('url: ', imageUri, '\nerror: ', error);
     }
   }
 
@@ -209,7 +213,12 @@ export default function ColorPickerScreen() {
   }
 
   if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
+    return (
+      <Container>
+        <Icon name="exclamation-triangle" size={40} color="gray" />
+        <Text style={{ fontWeight: 'bold' }}>No access to camera</Text>
+      </Container>
+    );
   }
 
   return (
@@ -219,7 +228,11 @@ export default function ColorPickerScreen() {
           [CAMERA_SCREEN]: (
             <Camera ref={cameraRef} style={{ flex: 1 }}>
               <CameraContainer>
-                <CameraButton onPress={() => takePicture()} />
+                <CameraButton onPress={() => takePicture()}>
+                  <Container>
+                    <Icon name="stethoscope" size={50} color="#f44336" />
+                  </Container>
+                </CameraButton>
               </CameraContainer>
             </Camera>
           ),

@@ -17,7 +17,7 @@ import {
   LoginButtonText,
   SubButton,
   SubButtonText,
-  TopInput,
+  // TopInput,
 } from './style';
 
 export default function LoginScreen({ navigation }) {
@@ -62,12 +62,12 @@ export default function LoginScreen({ navigation }) {
         <TopText />
       </Header>
       <InputData>
-        <TopInput>E-mail</TopInput>
+        {/* <TopInput>E-mail</TopInput> */}
         <InputBox
           placeholder="E-mail"
           onChangeText={(email) => setValue({ ...value, email })}
         />
-        <TopInput>Password</TopInput>
+        {/* <TopInput>Password</TopInput> */}
         <InputBox
           secureTextEntry
           placeholder="Password"

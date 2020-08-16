@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import { AuthContext } from '../../contexts';
 
 import SharedStatusBar from '../shared/SharedStatusBar';
@@ -25,8 +24,9 @@ export default function RootStackNavigator() {
       <NavigationContainer>
         <SharedStatusBar />
         <Stack.Navigator
+          initialRouteName="LoginScreen"
           screenOptions={{
-            animationEnabled: true,
+            animationEnabled: false,
             headerShown: false,
           }}
         >

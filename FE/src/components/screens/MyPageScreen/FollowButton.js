@@ -7,7 +7,7 @@ import {
 
 export default function FollowButton({ folowState, count }) {
   return (
-    <FolowButton onPress={() => alert('클릭')}>
+    <FolowButton onPress={() => {}}>
       <FolowButtonCount>{count}</FolowButtonCount>
       <FolowButtonText>{folowState}</FolowButtonText>
     </FolowButton>
