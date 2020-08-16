@@ -7,7 +7,8 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "node_modules/.bin/jest --watchAll --coverage",
-    "lint": "eslint --ext js,jsx ."
+    "lint": "eslint --ext js,jsx .",
+    "build": "expo publish && expo build:web && netlify deploy -d web-build --prod"
   },
   "resolutions": {
     "styled-components": "^5"

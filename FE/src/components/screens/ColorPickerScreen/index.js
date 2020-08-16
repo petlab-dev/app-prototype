@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Platform,
+  Image,
 } from 'react-native';
 
 import { Camera } from 'expo-camera';
@@ -93,7 +94,7 @@ export default function ColorPickerScreen() {
     // 330 < Red, Orange, Yellow < 60 | 60 < Green < 150 | 150 < Blue < 270 | 270 < PurPle < 330
     // white: R > 217, G > 217, B > 217
     // black: R + G + B <= 64
-    if (h > 150 || h < 330) {
+    if (h > 200 && h < 300) {
       setNone(false);
       return 2;
     }
@@ -154,7 +155,7 @@ export default function ColorPickerScreen() {
           },
           method: 'POST',
           body,
-        },
+        }
       );
 
       const responseJson = await response.json();
@@ -168,7 +169,7 @@ export default function ColorPickerScreen() {
                 x: rgb2hsv(
                   value.color.red,
                   value.color.green,
-                  value.color.blue,
+                  value.color.blue
                 ),
                 y: 1,
               },
@@ -177,10 +178,10 @@ export default function ColorPickerScreen() {
             return rgbToHex(
               value.color.red,
               value.color.green,
-              value.color.blue,
+              value.color.blue
             );
-          },
-        ),
+          }
+        )
       );
 
       console.log('Upload Done\n\n');
@@ -238,7 +239,24 @@ export default function ColorPickerScreen() {
           ),
           [LOADING_SCREEN]: (
             <Container>
-              <ActivityIndicator color="black" size="large" />
+              <View
+                style={{ fles: 1}}
+              >
+                <ActivityIndicator
+                  style={{ zIndex: 1,top:165, relative: 'absolute' }}
+                  color="black"
+                  size="large"
+                />
+                <Image
+                  style={{
+                    relative: 'absolute',
+                    zIndex: 0,
+                    width: 300,
+                    height: 300,
+                  }}
+                  source={require('../../assets/catalog.png')}
+                />
+              </View>
             </Container>
           ),
           [FINAL_SCREEN]: (

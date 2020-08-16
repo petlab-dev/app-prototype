@@ -79,7 +79,7 @@ export default function MainStackNavigator({ navigation }) {
   const headerTitle = () => (
     <HeaderTitle onPress={() => fireFireworks()}>
       {Platform.OS === 'web' && fireworks ? <Fireworks {...fxProps} /> : <></>}
-      <HeaderTitleText>Petsome</HeaderTitleText>
+      <HeaderTitleText>Catmate</HeaderTitleText>
     </HeaderTitle>
   );
 
@@ -96,7 +96,7 @@ export default function MainStackNavigator({ navigation }) {
       }}
     >
       <Stack.Screen
-        name="Petsome"
+        name="Catmate"
         component={HomeTabNavigator}
         options={{
           headerLeft: headerLeftMock,

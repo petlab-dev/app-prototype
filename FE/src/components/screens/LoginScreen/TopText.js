@@ -6,7 +6,7 @@ export default function TopText() {
     <HeaderText>
       안녕하세요,
       {'\n'}
-      🐈 건강지킴이 Petsome 입니다.
+      🐈 건강지킴이 Catmate 입니다.
     </HeaderText>
   );
 }

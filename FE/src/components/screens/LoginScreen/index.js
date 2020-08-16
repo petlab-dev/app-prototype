@@ -58,7 +58,7 @@ export default function LoginScreen({ navigation }) {
 
   return (
     <LoginView>
-      <Logo>Petsome</Logo>
+      <Logo>Catmate</Logo>
       <Header>
         <TopText />
       </Header>
