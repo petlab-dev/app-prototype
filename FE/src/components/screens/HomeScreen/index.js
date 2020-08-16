@@ -98,7 +98,7 @@ export default function HomeScreen({ navigation }) {
   const handleUrlPressButtonAsync = async () => {
     console.log('abbabab');
     await WebBrowser.openBrowserAsync(
-      `https://www.google.com/maps/search/%EB%8F%99%EB%AC%BC%EB%B3%91%EC%9B%90/@${location.y},${location.x},13z`
+      `https://www.google.com/maps/search/%EB%8F%99%EB%AC%BC%EB%B3%91%EC%9B%90/@${location.y},${location.x},13z`,
     );
   };
 
@@ -152,7 +152,7 @@ export default function HomeScreen({ navigation }) {
           }}
         >
           <TouchableOpacity
-            onPress={() => abc()}
+            onPress={() => handleGetLocation()}
             style={{
               zIndex: 1,
               position: 'absolute',

@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { TouchableOpacity } from 'react-native';
 

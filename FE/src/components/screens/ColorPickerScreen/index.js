@@ -93,7 +93,7 @@ export default function ColorPickerScreen() {
     // 330 < Red, Orange, Yellow < 60 | 60 < Green < 150 | 150 < Blue < 270 | 270 < PurPle < 330
     // white: R > 217, G > 217, B > 217
     // black: R + G + B <= 64
-    if (h > 330 || h < 30) {
+    if (h > 150 || h < 330) {
       setNone(false);
       return 2;
     }

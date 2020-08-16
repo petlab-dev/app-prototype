@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Text } from 'react-native';
-import { HomeBannerView, HomeBannerContainer } from '../styles';
+import { HomeBannerView, HomeBannerContainer } from './style';
 
 export default function HomeBanner() {
   return (
