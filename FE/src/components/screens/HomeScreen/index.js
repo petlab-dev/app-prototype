@@ -1,15 +1,36 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable global-require */
 // import React, { useState } from 'react';
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
 // import { View, ScrollView } from 'react-native';
+import {
+  TouchableOpacity,
+  Image,
+  ScrollView,
+  View,
+  Platform,
+} from 'react-native';
+
+import * as WebBrowser from 'expo-web-browser';
+
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+import * as Location from 'expo-location';
+
+import { AuthContext } from '../../../contexts';
 
 import HomeAnimalEnrollment from './HomeAnimalEnrollment';
 // import HomeHospital from './HomeHospital';
 import HomeSearch from './HomeSearch';
 import HomeBanner from './HomeBanner';
 // import { HomeContainer, HomeHospitalText, Beta } from './style';
+
+import {
+  NAVER_MAP_API_ID,
+  NAVER_MAP_API_SECRECT,
+} from '../../../../environment';
+
 import { HomeContainer } from './style';
 
 // const DataOfNearbyHospital = [
@@ -45,17 +66,136 @@ import { HomeContainer } from './style';
 //   },
 // ];
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
+  const { location, setLocation } = useContext(AuthContext);
+
+  // const [location, setLocation] = useState({ x: 127.1054221, y: 37.3591614 });
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [level, setLevel] = useState(6);
+
+  async function handleGetLocation() {
+    const { status } = await Location.requestPermissionsAsync();
+    if (status !== 'granted') {
+      setErrorMsg(`Permission to access location was denied ${errorMsg}`);
+    }
+
+    const locationFrom = await Location.getCurrentPositionAsync({});
+    const x = JSON.stringify(locationFrom.coords.longitude);
+    const y = JSON.stringify(locationFrom.coords.latitude);
+    if (x && y) {
+      setLocation({
+        x,
+        y,
+      });
+    }
+    setLevel(13);
+  }
+
+  useEffect(() => {
+    handleGetLocation();
+  }, []);
+
+  const handleUrlPressButtonAsync = async () => {
+    console.log('abbabab');
+    await WebBrowser.openBrowserAsync(
+      `https://www.google.com/maps/search/%EB%8F%99%EB%AC%BC%EB%B3%91%EC%9B%90/@${location.y},${location.x},13z`
+    );
+  };
+
   return (
-    <HomeContainer>
-      <HomeSearch />
-      {/* <ScrollView showsVerticalScrollIndicator={true}> */}
-      <HomeBanner />
-      <HomeAnimalEnrollment />
-      {/* <Beta source={require('../../../assets/Beta.png')} />
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{ backgroundColor: 'white' }}
+    >
+      <HomeContainer>
+        <HomeSearch />
+        {/* <ScrollView showsVerticalScrollIndicator={true}> */}
+        <HomeBanner />
+        <HomeAnimalEnrollment />
+        {/* <Beta source={require('../../../assets/Beta.png')} />
       <HomeHospitalText>가까운 동물병원</HomeHospitalText>
       <HomeHospital data={DataOfNearbyHospital} /> */}
-      {/* </ScrollView> */}
-    </HomeContainer>
+        {/* </ScrollView> */}
+        <TouchableOpacity
+          onPress={() => {}}
+          style={{
+            shadowColor: '#000',
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+
+            elevation: 5,
+            borderRadius: 20,
+          }}
+        >
+          <Image
+            opacity={0.5}
+            style={{
+              width: 300,
+              height: 100,
+              borderRadius: 20,
+            }}
+            source={{
+              uri:
+                'https://i2.wp.com/millepet.com/wp-content/uploads/2016/05/ahm_cat_litter_4.png?w=1200',
+            }}
+          />
+        </TouchableOpacity>
+        <View
+          style={{
+            justifyContent: 'flex-start',
+            alignItems: 'flex-end',
+            paddingBottom: 20,
+          }}
+        >
+          <TouchableOpacity
+            onPress={() => abc()}
+            style={{
+              zIndex: 1,
+              position: 'absolute',
+              paddingTop: 30,
+              paddingRight: 20,
+            }}
+          >
+            <Icon name="map-marker" size={30} color="#f44336" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={
+              Platform.OS === 'web'
+                ? () => handleUrlPressButtonAsync()
+                : () => navigation.push('Web')
+            }
+            style={{
+              zIndex: 0,
+              marginTop: 20,
+              shadowColor: '#000',
+              shadowOffset: {
+                width: 0,
+                height: 2,
+              },
+              shadowOpacity: 0.25,
+              shadowRadius: 3.84,
+              elevation: 5,
+              borderRadius: 20,
+            }}
+          >
+            <Image
+              opacity={0.5}
+              style={{
+                width: 300,
+                height: 150,
+                borderRadius: 20,
+              }}
+              source={{
+                uri: `https://naveropenapi.apigw.ntruss.com/map-static/v2/raster?w=300&h=300&scale=2&center=${location.x},${location.y}&level=${level}&X-NCP-APIGW-API-KEY-ID=${NAVER_MAP_API_ID}&X-NCP-APIGW-API-KEY=${NAVER_MAP_API_SECRECT}`,
+              }}
+            />
+          </TouchableOpacity>
+        </View>
+      </HomeContainer>
+    </ScrollView>
   );
 }

@@ -78,7 +78,7 @@ export default function HomeBanner() {
       style={{
         width,
         justifyContent: 'center',
-        alignItems: 'cneter',
+        alignItems: 'center',
         paddingTop: 10,
       }}
     >

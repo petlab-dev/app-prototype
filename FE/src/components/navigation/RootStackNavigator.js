@@ -14,13 +14,21 @@ const Stack = createStackNavigator();
 
 export default function RootStackNavigator() {
   const [auth, setAuth] = useState(false);
+  const [location, setLocation] = useState({ x: 127.1054221, y: 37.3591614 });
 
   function toggleAuth() {
     setAuth(!auth);
   }
 
   return (
-    <AuthContext.Provider value={{ auth, toggleAuth }}>
+    <AuthContext.Provider
+      value={{
+        auth,
+        toggleAuth,
+        location,
+        setLocation,
+      }}
+    >
       <NavigationContainer>
         <SharedStatusBar />
         <Stack.Navigator
