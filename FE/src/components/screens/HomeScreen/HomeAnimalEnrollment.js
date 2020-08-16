@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 /* eslint-disable global-require */
 import React, { useContext } from 'react';
 
@@ -17,15 +18,15 @@ export default function HomeAnimalEnrollment() {
   const { toggleAuth } = useContext(AuthContext);
 
   return (
-    <AnimalEnrollmentContainter>
-      <TouchableOpacity onPress={() => toggleAuth()}>
+    <TouchableOpacity onPress={() => toggleAuth()}>
+      <AnimalEnrollmentContainter>
         <AnimalEnrollImage source={require('../../assets/PetEnroll.png')} />
-      </TouchableOpacity>
-      <EnrollmentTextContainer>
-        <TextWrapBold>반려동물 등록</TextWrapBold>
-        <TextWrap>보호자님의 사랑스러운</TextWrap>
-        <TextWrap>반려동물을 등록해주세요!</TextWrap>
-      </EnrollmentTextContainer>
-    </AnimalEnrollmentContainter>
+        <EnrollmentTextContainer>
+          <TextWrapBold>🐈 등록</TextWrapBold>
+          <TextWrap>보호자님의 사랑스러운</TextWrap>
+          <TextWrap>아이들을 등록해주세요!</TextWrap>
+        </EnrollmentTextContainer>
+      </AnimalEnrollmentContainter>
+    </TouchableOpacity>
   );
 }

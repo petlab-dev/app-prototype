@@ -4,33 +4,36 @@ import { constantsValue } from '../../constants';
 
 const { COLOR_PRIMARY } = constantsValue;
 
-export const LoginView = styled.View({
+export const LoginView = styled.SafeAreaView({
   display: 'flex',
   flex: 1,
+  maxHeight: 768,
   height: '100%',
   width: '100%',
   flexDirection: 'column',
   alignItems: 'center',
-  paddingTop: 50,
-  paddingBottom: 30,
+  justifyContent: 'space-between',
+  userSelect: 'none',
 });
 
 export const Logo = styled.Text({
+  paddingTop: 40,
   color: COLOR_PRIMARY,
-  fontSize: 30,
+  fontSize: 40,
   fontWeight: 'bold',
 });
 
 export const Header = styled.View({
-  flex: 1,
-  width: '50%',
+  width: '60%',
   maxWidth: 300,
-  marginTop: 45,
-  minHeight: 90,
+  marginTop: 65,
+  minHeight: 60,
 });
 
 export const HeaderText = styled.Text({
-  fontSize: 15,
+  fontSize: 13,
+  fontWeight: 'bold',
+  color: 'gray',
 });
 
 export const ViewSet = styled.View({
@@ -48,11 +51,10 @@ export const SubButtonView = styled.View({
 });
 
 export const InputData = styled.View({
-  width: '50%',
+  width: '60%',
   maxWidth: 300,
-  marginBottom: '10%',
   flex: 1,
-  minHeight: 100,
+  minHeight: 50,
 });
 
 export const TopInput = styled.Text({
@@ -62,23 +64,23 @@ export const TopInput = styled.Text({
 });
 
 export const InputBox = styled.TextInput({
-  height: 30,
+  height: 50,
   width: '100%',
+  padding: 10,
   borderColor: 'grey',
   borderBottomWidth: 1,
-  flex: 1,
 });
 
 export const LoginButton = styled.TouchableOpacity({
   width: 170,
   height: 40,
-  backgroundColor: '#FF7F50',
+  backgroundColor: COLOR_PRIMARY,
   border: 0,
   borderRadius: 30,
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
-  marginBottom: 20,
+  margin: 20,
 });
 
 export const LoginButtonText = styled.Text({

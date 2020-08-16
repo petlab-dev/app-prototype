@@ -4,16 +4,14 @@ import React from 'react';
 import {
   PetImgBox,
   PetImg,
-  PetImgText,
+  // PetImgText,
 } from './style';
 
 export default function PetImageSet({ data }) {
   return (
-    data.map((petStatus) => (
-      <PetImgBox key={petStatus.key}>
-        <PetImg source={require('../../assets/ProfileCover.png')} resizeMode="cover">
-          <PetImgText>{petStatus.petName}</PetImgText>
-        </PetImg>
+    data.map((value) => (
+      <PetImgBox key={value.key}>
+        <PetImg source={value.source} resizeMode="filled" />
       </PetImgBox>
     ))
   );

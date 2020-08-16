@@ -12,6 +12,7 @@ export default function HomeHospital({ data }) {
     <HomeHospitalContainer>
       <HospitalInformationContainer
         horizontal
+        showsHorizontalScrollIndicator={false}
       >
         {
           data.map((item) => (
