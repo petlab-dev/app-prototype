@@ -16,6 +16,12 @@ export default function RootStackNavigator() {
   const [auth, setAuth] = useState(false);
   const [location, setLocation] = useState({ x: 127.1054221, y: 37.3591614 });
 
+  const [profile, setProfile] = useState({
+    name: 'Yongjae Lee',
+    picture:
+      'https://avatars2.githubusercontent.com/u/16266103?s=460&u=46ab2774d38212f0d0050592ce02dbcf36a7a97a&v=4',
+  });
+
   function toggleAuth() {
     setAuth(!auth);
   }
@@ -27,6 +33,8 @@ export default function RootStackNavigator() {
         toggleAuth,
         location,
         setLocation,
+        profile,
+        setProfile,
       }}
     >
       <NavigationContainer>

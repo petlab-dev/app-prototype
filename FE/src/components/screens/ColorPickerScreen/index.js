@@ -250,7 +250,6 @@ export default function ColorPickerScreen() {
                 />
                 <Image
                   style={{
-                    relative: 'absolute',
                     zIndex: 0,
                     width: 300,
                     height: 300,

@@ -67,7 +67,7 @@ import { HomeContainer } from './style';
 // ];
 
 export default function HomeScreen({ navigation }) {
-  const { location, setLocation } = useContext(AuthContext);
+  const { location, setLocation, profile } = useContext(AuthContext);
 
   // const [location, setLocation] = useState({ x: 127.1054221, y: 37.3591614 });
   const [errorMsg, setErrorMsg] = useState(null);
@@ -93,6 +93,7 @@ export default function HomeScreen({ navigation }) {
 
   useEffect(() => {
     handleGetLocation();
+    console.log('profile', profile);
   }, []);
 
   const handleUrlPressButtonAsync = async () => {
