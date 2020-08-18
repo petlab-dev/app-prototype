@@ -82,7 +82,7 @@ export default function MyPageScreen({ navigation }) {
     <UpperContainer>
       <Container>
         <ProfileView>
-          <ProfilImg source={{ uri: profile.picture}} />
+          <ProfilImg source={{ uri: profile.picture }} />
           <GradeButton>
             <GradeImgContainer>
               <Icon

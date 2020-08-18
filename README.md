@@ -13,7 +13,7 @@
 
 ## Demo
 
-- [Deployed on Netlify](https://petlab.info)
+- [Deployed on Netlify](https://petlab.info) / [Deployed on Expo](https://exp.host/@dididy/fe)
 - [Poster](https://drive.google.com/file/d/1ql2pufYcAzhNZRWuFUrfHmj1LD_nYuE9/view?usp=sharing)
 - [Pitch/Demo Video](https://youtu.be/wO3wR9bV7Yo)
 
@@ -82,7 +82,7 @@
   - [x] Oauth로 로그인한 계정 정보(Profile, 닉네임)을 적용(Kakao, Naver로 로그인 한 경우만 동작)
     - [ ] 추후 Google, Facebook 계정도 연동할 수 있도록 할 예정
   - [ ] 등록한 아이들에 대한 프로필 열람 기능 추가
-- [ ] Edi Info
+- [ ] Edit Info
   - [ ] 회원정보를 수정할 수 있도록 함
 
 - **향후 계획**

@@ -25,6 +25,9 @@ export const NAVER_APP_ID = '';
 export const NAVER_APP_SECRET = '';
 export const NAVER_STATE_STRING = '';
 
+export const NAVER_MAP_API_ID = '';
+export const NAVER_MAP_API_SECRECT = '';
+
 export const GOOGLE_CLIENT_ID = '';
 export const GOOGLE_CLIENT_SECRET = '';
 

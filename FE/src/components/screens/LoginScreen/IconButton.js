@@ -138,7 +138,6 @@ export default function IconButton({ value }) {
         config,
       );
 
-
       await setProfile({
         name: data.response.name,
         picture: data.response.profile_image,

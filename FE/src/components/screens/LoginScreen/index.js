@@ -20,7 +20,7 @@ import {
   // TopInput,
 } from './style';
 
-export default function LoginScreen({ navigation }) {
+export default function LoginScreen() {
   const { toggleAuth } = useContext(AuthContext);
 
   const [value, setValue] = useState({
@@ -81,7 +81,7 @@ export default function LoginScreen({ navigation }) {
       <ViewSet>
         <SubButton
           SubButton
-          onPress={() => navigation.navigate('AuthCheckScreen')}
+          // onPress={() => navigation.navigate('AuthCheckScreen')}
         >
           <SubButtonText>비밀번호를 잊어버리셨나요?</SubButtonText>
         </SubButton>

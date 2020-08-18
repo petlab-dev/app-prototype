@@ -244,17 +244,17 @@ export default function ColorPickerScreen() {
                 style={{ fles: 1 }}
               >
                 <ActivityIndicator
-                  style={{ zIndex: 1, top: 165, relative: 'absolute' }}
+                  style={{ zIndex: 1, top: 0, relative: 'absolute' }}
                   color="black"
                   size="large"
                 />
                 <Image
                   style={{
                     zIndex: 0,
+                    height: 100,
                     width: 300,
-                    height: 300,
                   }}
-                  source={require('../../assets/catalog.png')}
+                  source={require('../../assets/hsv.png')}
                 />
               </View>
             </Container>

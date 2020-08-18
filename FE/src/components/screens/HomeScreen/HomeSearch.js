@@ -9,8 +9,10 @@ import { SearchBoxContainer, SearchBox, SearchImage } from './style';
 export default function HomeSearch() {
   const [search, setSearch] = useState('');
 
-  const handlePressButtonAsync = async () => {
-    await WebBrowser.openBrowserAsync(`https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query=${search}`);
+  const handlePressButtonAsync = async (
+    url = `https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query=${search}`,
+  ) => {
+    await WebBrowser.openBrowserAsync(url);
   };
 
   return (
