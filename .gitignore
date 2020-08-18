@@ -15,7 +15,6 @@ web-build/
 ## Jest
 coverage
 
-FE/api_constants.js
-FE/environment.js
+environment.js
 
 .netlify

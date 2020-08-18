@@ -6,9 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: FE
+    # defaults:
+    #   run:
+    #     working-directory: FE
 
     strategy:
       matrix:
