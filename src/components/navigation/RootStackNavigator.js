@@ -17,9 +17,9 @@ export default function RootStackNavigator() {
   const [location, setLocation] = useState({ x: 127.1054221, y: 37.3591614 });
 
   const [profile, setProfile] = useState({
-    name: 'Yongjae Lee',
+    name: 'Test',
     picture:
-      'https://avatars2.githubusercontent.com/u/16266103?s=460&u=46ab2774d38212f0d0050592ce02dbcf36a7a97a&v=4',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRqj_WvMmoHaetb38rMQlE2wgH5Kj5ATh8XaA&usqp=CAU',
   });
 
   function toggleAuth() {

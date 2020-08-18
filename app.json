@@ -6,7 +6,7 @@
     "scheme": "fe",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon2.png",
     "splash": {
       "resizeMode": "contain",
       "backgroundColor": "#FFFFFF"
@@ -18,9 +18,11 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.petlab.catsome",
       "supportsTablet": true
     },
     "web": {
+      "package": "com.petlab.catsome",
       "favicon": "./assets/icon.png"
     }
   }

@@ -82,12 +82,12 @@ export default function HomeTabNavigator() {
         name="MyPageScreen"
         component={MyPageScreen}
         options={{
-          tabBarLabel: 'SETTINGS',
+          tabBarLabel: 'My Page',
           tabBarIcon: ({ focused }) => (
             focused ? (
-              <TabBarIcon name="cog" size={ICON_SIZE} color={COLOR_PRIMARY} />
+              <TabBarIcon name="user" size={ICON_SIZE} color={COLOR_PRIMARY} />
             ) : (
-              <TabBarIcon name="cog" size={ICON_SIZE} color={COLOR_LIGHT} />
+              <TabBarIcon name="user" size={ICON_SIZE} color={COLOR_LIGHT} />
             )
           ),
         }}

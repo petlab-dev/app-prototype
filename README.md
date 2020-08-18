@@ -13,32 +13,42 @@
 
 ## Demo
 
-- [Deployed on Netlify](https://petlab.info) / [Deployed on Expo](https://exp.host/@dididy/fe)
+- Web: [**Deployed on Netlify**](https://petlab.info)
+- App: [Deployed on Expo](https://exp.host/@dididy/fe)
 - [Poster](https://drive.google.com/file/d/1ql2pufYcAzhNZRWuFUrfHmj1LD_nYuE9/view?usp=sharing)
 - [Pitch/Demo Video](https://youtu.be/wO3wR9bV7Yo)
 
 ## Showcase
 
 <p align="center">
-<img width="100%" alt="Screen Shot 2020-08-18 at 1 35 30 PM" src="https://user-images.githubusercontent.com/16266103/90470940-bdbe6f80-e157-11ea-8753-8615796aec64.png">
+<img width="28%" alt="showcase-1" src="https://raw.githubusercontent.com/petlab-dev/app-prototype/master/assets/README/showcase-1.gif">
+<img width="40%" alt="showcase-3" src="https://raw.githubusercontent.com/petlab-dev/app-prototype/master/assets/README/showcase-3.gif">
+<img width="28%" alt="showcase-2" src="https://raw.githubusercontent.com/petlab-dev/app-prototype/master/assets/README/showcase-2.gif">
+</p>
+
+<p align="center">
+<img width="95%" alt="showcase-4" src="https://raw.githubusercontent.com/petlab-dev/app-prototype/master/assets/README/showcase-4.png">
 </p>
 
 ## Raising a problem
 
-1. 반려동물의 건강상태를 육안만으로 확인하기 어렵기 때문에 질병이 악화되는 등의 문제가 발생
-2. 반려묘와 사람은 의사소통이 어렵기 때문에 조기진단이 어려워 병이 악화된 상황에서 진료비 부담이 높은 경우가 많음 
+1. 반려묘의 건강상태를 육안만으로 확인하기 어렵기 때문에 질병이 악화되는 등의 문제가 발생
+2. 반려묘와 사람은 의사소통이 어렵기 때문에 조기진단이 어려워 병이 악화된 상황에서 진료비 부담이 높은 경우가 많음
 3. 동물병원에서 받는 건강검진이 비용적으로 부담되기 때문에 반려인들이 건강검진을 하는 것에 보수적임
-   - 해당 아이템을 사용 할 경우 아이들의 건강상태 진단 진입장벽이 낮춤으로서 손쉽게 조기진단이 가능하도록 함	
+   - 해당 아이템을 사용 할 경우 아이들의 건강상태 진단 진입장벽이 낮춤으로서 손쉽게 조기진단이 가능하도록 함
 
 ## Solution
 
-- 고양이 모래에 pH 반응에 따라 아래와 같이 색상이 변화하는 시약이 포함된 고양이 모래 출시
-   - 출시를 위한 연구개발 진행 중
-- 고양이가 모래에 오줌을 쌀 경우 pH 농도에 따라 반응한 색변화로 건강이상 검출 가능
+- pH 반응에 따라 아래와 같이 색상이 변화하는 시약이 포함된 고양이 모래 출시
+   - 현재 출시를 위한 연구개발 진행 중(예비창업자 패키지 수혜)
+- 고양이가 특수처리를 한 모래에 오줌을 쌀 경우 pH 농도에 따라 반응한 색변화로 건강이상 검출 가능
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/16266103/90470101-8f3f9500-e155-11ea-8467-a17186901d3e.png" width="40%"></img>
-<img src="https://user-images.githubusercontent.com/16266103/90470136-a5e5ec00-e155-11ea-9d03-3e96ba304134.png" width="40%"></img>
+<img width="100%" src="https://raw.githubusercontent.com/petlab-dev/app-prototype/master/assets/README/core.png">
+</p>
+
+<p align="center">
+<img width="100%" src="https://raw.githubusercontent.com/petlab-dev/app-prototype/master/assets/README/ph-info.png">
 </p>
 
 - pH 산성도 검사
@@ -46,10 +56,11 @@
   - 노란색(정상) / 보라색(비정상)
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/16266103/90469919-12acb680-e155-11ea-9dca-6aa64b8cd4d4.png" width="60%"></img>
+<img src="https://raw.githubusercontent.com/petlab-dev/app-prototype/master/assets/README/hsv.png" width="60%"></img>
+<img src="https://raw.githubusercontent.com/petlab-dev/app-prototype/master/assets/README/hsv-cone.jpg" width="30%"></img>
 </P>
 
-- HSV의 h 범위에 따른 색상값 중 파란색에서 보라색 범위의 색상만 검출하도록 하면 됨
+- HSV의 H(hue) 범위에 따른 색상값 중 파란색에서 보라색 범위의 색상만 검출하도록 하면 됨
 - 진행 과정
   - 어플리케이션 카메라로 찍은 사진을 Firebase storage에 업로드
   - GCP Vision API로 주요 색상값(R,G,B) 10개를 어플리케이션에 반환
@@ -59,13 +70,14 @@
 
 - [x] Login Page
   - [x] Oauth 기능
-    - [x] Facebook, Google - iOS, Android 에서만 동작
-    - [x] Naver, Kakao - 모든 플랫폼에서 동작
+    - [x] Google - 모든 플랫폼에서 동작
+    - [ ] Facebook - 버그 발생(디버깅 중)
+    - [x] Naver, Kakao - iOS, Android 에서만 동작
 - [x] Main Page
   - [x] 로고 클릭시 폭죽 이벤트 - Web 에서만 동작
   - [x] 검색 => input에 입력된 내용에 대한 Naver 검색 결과 화면으로 이동
   - [x] 광고 Banner 제작 및 interval 효과
-  - [ ] Catmate 구매 페이지(제작 중)
+  - [ ] Catmate 구매 페이지(구현 중)
   - [ ] 반려동물 등록(구현 중)
   - [x] 현재 위치 기반으로 동물병원 목록
     - [x] 현재 위치 사용 권한 얻기
@@ -79,8 +91,7 @@
     - [x] 이상이 없을 경우 초록 배경에 일정한 반지름
     - [x] 이상이 있는 경우 빨간 배경에 이상있는 색상은 반지름 값을 2배로 하여 강조
 - [x] MyPage
-  - [x] Oauth로 로그인한 계정 정보(Profile, 닉네임)을 적용(Kakao, Naver로 로그인 한 경우만 동작)
-    - [ ] 추후 Google, Facebook 계정도 연동할 수 있도록 할 예정
+  - [x] Oauth로 로그인한 계정 정보(Profile, 닉네임)을 적용
   - [ ] 등록한 아이들에 대한 프로필 열람 기능 추가
 - [ ] Edit Info
   - [ ] 회원정보를 수정할 수 있도록 함
@@ -108,7 +119,7 @@
 ## Technical stack
 
 <p align="center">
-  <img width="764" alt="Screen Shot 2020-08-18 at 1 32 54 PM" src="https://user-images.githubusercontent.com/16266103/90470794-5b656f00-e157-11ea-8922-882f8c018b07.png">
+  <img width="100%" alt="tech-stack" src="https://raw.githubusercontent.com/petlab-dev/app-prototype/master/assets/README/tech-stack.png">
 </p>
 
 ## Teammate

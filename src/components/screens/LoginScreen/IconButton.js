@@ -84,8 +84,6 @@ export default function IconButton({ value }) {
         clientSecret: FACEBOOK_APP_SECRET,
         scopes: ['public_profile, email'],
         redirectUri: makeRedirectUri({
-          // For usage in bare and standalone
-          // native: 'you do not have this yet',
           useProxy,
         }),
         prompt: Prompt.SelectAccount,
@@ -100,8 +98,13 @@ export default function IconButton({ value }) {
   );
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((firebaseUser) => {
-      console.log('USER: ', firebaseUser);
+    firebase.auth().onAuthStateChanged((getUser) => {
+      if (getUser) {
+        setProfile({
+          name: firebase.auth().currentUser.displayName,
+          picture: firebase.auth().currentUser.photoURL,
+        });
+      }
     });
   }, []);
 
@@ -116,7 +119,6 @@ export default function IconButton({ value }) {
       firebase.auth().signInWithCredential(credential);
 
       toggleAuth();
-
       console.log('response', response);
 
       console.log('token: ', token, 'user: ', user);
