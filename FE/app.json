@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "fe",
+    "name": "Catsome",
+    "description": "고양이를 위한 모바일 건강 진단 서비스 - 테스트를 위해서는 expo를 설치하셔야 합니다.",
     "slug": "fe",
     "scheme": "fe",
     "version": "1.0.0",

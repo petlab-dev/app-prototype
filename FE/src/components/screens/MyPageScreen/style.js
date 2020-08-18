@@ -10,6 +10,7 @@ export const size = {
 };
 
 export const ProfilImg = styled.Image({
+  borderRadius: 100,
   height: 100,
   width: 100,
   marginBottom: 10,

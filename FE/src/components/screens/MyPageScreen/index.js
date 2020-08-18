@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 /* eslint-disable global-require */
-import React from 'react';
+import React, { useContext } from 'react';
 import { View } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -9,6 +9,8 @@ import FollowButton from './FollowButton';
 // import TextButton from './TextButton';
 import PetImageSet from './PetImageSet';
 import MyPageProfileButton from './MyPageProfileButton';
+
+import { AuthContext } from '../../../contexts';
 
 import {
   UpperContainer,
@@ -74,11 +76,13 @@ const petStatus = [
 ];
 
 export default function MyPageScreen({ navigation }) {
+  const { profile } = useContext(AuthContext);
+
   return (
     <UpperContainer>
       <Container>
         <ProfileView>
-          <ProfilImg source={require('../../assets/ProfileCover.png')} />
+          <ProfilImg source={{ uri: profile.picture }} />
           <GradeButton>
             <GradeImgContainer>
               <Icon
@@ -98,7 +102,7 @@ export default function MyPageScreen({ navigation }) {
               </View>
             </GradeImgContainer>
           </GradeButton>
-          <MyPageProfileButton name="옐로우오믈렛" navigation={navigation} />
+          <MyPageProfileButton name={profile.name} navigation={navigation} />
           <FolowButtonContainer>
             <FollowButton folowState="팔로워" count={value.folowerCount} />
             <FollowButton folowState="팔로잉" count={value.folowingCount} />

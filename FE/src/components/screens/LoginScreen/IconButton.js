@@ -47,7 +47,7 @@ if (!firebase.apps.length) {
 export default function IconButton({ value }) {
   const { platform } = value;
 
-  const { toggleAuth } = useContext(AuthContext);
+  const { toggleAuth, setProfile } = useContext(AuthContext);
   const [token, setToken] = useState();
   const [user, setUser] = useState({});
 
@@ -117,6 +117,8 @@ export default function IconButton({ value }) {
 
       toggleAuth();
 
+      console.log('response', response);
+
       console.log('token: ', token, 'user: ', user);
     }
   }, [response]);
@@ -131,10 +133,15 @@ export default function IconButton({ value }) {
         headers: { Authorization: `Bearer ${responseFrom.data.access_token}` },
       };
 
-      const { data } = axios.get(
+      const { data } = await axios.get(
         'https://openapi.naver.com/v1/nid/me',
         config,
       );
+
+      await setProfile({
+        name: data.response.name,
+        picture: data.response.profile_image,
+      });
 
       setToken(responseFrom.data.access_token);
       setUser(data);
@@ -156,6 +163,11 @@ export default function IconButton({ value }) {
         'https://kapi.kakao.com/v2/user/me',
         config,
       );
+
+      await setProfile({
+        name: data.properties.nickname,
+        picture: data.properties.profile_image,
+      });
 
       setToken(responseFrom.data.access_token);
       setUser(data);

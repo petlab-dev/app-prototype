@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import React, { useState, useEffect, useRef } from 'react';
 
 import {
@@ -155,7 +156,7 @@ export default function ColorPickerScreen() {
           },
           method: 'POST',
           body,
-        }
+        },
       );
 
       const responseJson = await response.json();
@@ -169,7 +170,7 @@ export default function ColorPickerScreen() {
                 x: rgb2hsv(
                   value.color.red,
                   value.color.green,
-                  value.color.blue
+                  value.color.blue,
                 ),
                 y: 1,
               },
@@ -178,10 +179,10 @@ export default function ColorPickerScreen() {
             return rgbToHex(
               value.color.red,
               value.color.green,
-              value.color.blue
+              value.color.blue,
             );
-          }
-        )
+          },
+        ),
       );
 
       console.log('Upload Done\n\n');
@@ -240,21 +241,20 @@ export default function ColorPickerScreen() {
           [LOADING_SCREEN]: (
             <Container>
               <View
-                style={{ fles: 1}}
+                style={{ fles: 1 }}
               >
                 <ActivityIndicator
-                  style={{ zIndex: 1,top:165, relative: 'absolute' }}
+                  style={{ zIndex: 1, top: 0, relative: 'absolute' }}
                   color="black"
                   size="large"
                 />
                 <Image
                   style={{
-                    relative: 'absolute',
                     zIndex: 0,
+                    height: 100,
                     width: 300,
-                    height: 300,
                   }}
-                  source={require('../../assets/catalog.png')}
+                  source={require('../../assets/hsv.png')}
                 />
               </View>
             </Container>

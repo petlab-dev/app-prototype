@@ -5,6 +5,7 @@ import React, { useEffect, useState, useContext } from 'react';
 
 // import { View, ScrollView } from 'react-native';
 import {
+  Text,
   TouchableOpacity,
   Image,
   ScrollView,
@@ -67,7 +68,7 @@ import { HomeContainer } from './style';
 // ];
 
 export default function HomeScreen({ navigation }) {
-  const { location, setLocation } = useContext(AuthContext);
+  const { location, setLocation, profile } = useContext(AuthContext);
 
   // const [location, setLocation] = useState({ x: 127.1054221, y: 37.3591614 });
   const [errorMsg, setErrorMsg] = useState(null);
@@ -93,13 +94,11 @@ export default function HomeScreen({ navigation }) {
 
   useEffect(() => {
     handleGetLocation();
+    console.log('profile', profile);
   }, []);
 
-  const handleUrlPressButtonAsync = async () => {
-    console.log('abbabab');
-    await WebBrowser.openBrowserAsync(
-      `https://www.google.com/maps/search/%EB%8F%99%EB%AC%BC%EB%B3%91%EC%9B%90/@${location.y},${location.x},13z`,
-    );
+  const handleUrlPressButtonAsync = async (url = 'https://www.naver.com') => {
+    await WebBrowser.openBrowserAsync(url);
   };
 
   return (
@@ -109,13 +108,8 @@ export default function HomeScreen({ navigation }) {
     >
       <HomeContainer>
         <HomeSearch />
-        {/* <ScrollView showsVerticalScrollIndicator={true}> */}
         <HomeBanner />
         <HomeAnimalEnrollment />
-        {/* <Beta source={require('../../../assets/Beta.png')} />
-      <HomeHospitalText>가까운 동물병원</HomeHospitalText>
-      <HomeHospital data={DataOfNearbyHospital} /> */}
-        {/* </ScrollView> */}
         <TouchableOpacity
           onPress={() => {}}
           style={{
@@ -165,7 +159,9 @@ export default function HomeScreen({ navigation }) {
           <TouchableOpacity
             onPress={
               Platform.OS === 'web'
-                ? () => handleUrlPressButtonAsync()
+                ? () => handleUrlPressButtonAsync(
+                  `https://www.google.com/maps/search/%EB%8F%99%EB%AC%BC%EB%B3%91%EC%9B%90/@${location.y},${location.x},13z`,
+                )
                 : () => navigation.push('Web')
             }
             style={{
@@ -194,6 +190,48 @@ export default function HomeScreen({ navigation }) {
               }}
             />
           </TouchableOpacity>
+          {Platform.OS === 'web' ? (
+            <TouchableOpacity
+              onPress={() => handleUrlPressButtonAsync('https://expo.io/@dididy/fe')}
+              style={{
+                width: 300,
+                height: 150,
+                zIndex: 0,
+                marginTop: 20,
+                shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 2,
+                },
+                shadowOpacity: 0.25,
+                shadowRadius: 3.84,
+                elevation: 5,
+                borderRadius: 20,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Image
+                opacity={0.5}
+                style={{
+                  width: 100,
+                  height: 100,
+                  borderRadius: 20,
+                }}
+                source={require('../../assets/expo-qr.png')}
+              />
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: 'bold',
+                }}
+              >
+                Mobile App(Expo) 실행
+              </Text>
+            </TouchableOpacity>
+          ) : (
+            <></>
+          )}
         </View>
       </HomeContainer>
     </ScrollView>
