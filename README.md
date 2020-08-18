@@ -13,7 +13,7 @@
 
 ## Demo
 
-- Web: [**Deployed on Netlify**](https://petlab.info)
+- **Web**: [**Deployed on Netlify**](https://petlab.info)
 - App: [Deployed on Expo](https://exp.host/@dididy/fe)
 - [Poster](https://drive.google.com/file/d/1ql2pufYcAzhNZRWuFUrfHmj1LD_nYuE9/view?usp=sharing)
 - [Pitch/Demo Video](https://youtu.be/wO3wR9bV7Yo)

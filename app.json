@@ -21,8 +21,10 @@
       "bundleIdentifier": "com.petlab.catsome",
       "supportsTablet": true
     },
+    "android": {
+      "package": "com.petlab.catsome"
+    },
     "web": {
-      "package": "com.petlab.catsome",
       "favicon": "./assets/icon.png"
     }
   }

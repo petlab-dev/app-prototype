@@ -6739,7 +6739,7 @@ expo-permissions@~9.0.1:
   resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-9.0.1.tgz#dc10b58654bbe39bbbed5827369942b01b08055e"
   integrity sha512-CosJgy8XQRN/OFG2JTQDcFxz3XTGi27coCMym/hVXWtQfk0z6PwdRG5IXHfLGuSckwIcgmirrwm2+Zc0X3MmNg==
 
-expo-random@^8.2.1:
+expo-random@^8.2.1, expo-random@~8.2.1:
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/expo-random/-/expo-random-8.2.1.tgz#dafb19b3dcc8c7a74939c5c33a769ff5371ab289"
   integrity sha512-5qcR00xMONKXy6QyNWOcslD0Ka6FYE+5wDLxeG6sZYakBMZ+7CZqXIHU56z2oY3ZjrA6sqy5mJcj1naNOweHMw==

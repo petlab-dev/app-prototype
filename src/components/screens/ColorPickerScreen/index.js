@@ -12,6 +12,8 @@ import {
 
 import { Camera } from 'expo-camera';
 
+import * as Random from 'expo-random';
+
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import VictoryPieChart from './VictoryPieChart';
@@ -122,7 +124,8 @@ export default function ColorPickerScreen() {
   async function uploadImage(uri) {
     const response = await fetch(uri);
     const blob = await response.blob();
-    const ref = await firebase.storage().ref().child('my-image');
+    const randomBytes = await Random.getRandomBytesAsync(6);
+    const ref = await firebase.storage().ref().child(Buffer.from(randomBytes).toString('utf-8'));
     const snapshot = await ref.put(blob);
 
     if (Platform.OS !== 'web') {
