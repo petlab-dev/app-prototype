@@ -14,7 +14,6 @@
 ## Demo
 
 - [Deployed on Netlify](https://petlab.info)
-
 - [Poster](https://drive.google.com/file/d/1ql2pufYcAzhNZRWuFUrfHmj1LD_nYuE9/view?usp=sharing)
 - [Pitch/Demo Video](https://youtu.be/wO3wR9bV7Yo)
 
@@ -95,7 +94,7 @@
 ## Motivation to participate
 
 - 올해 예비창업자 패키지에 선정된 후 창업팀 개발자들의 성장에 초점
-- 실제 회사에서 수행하는 것처럼 협업을 수행하면서 경험을 쌓기 위해
+- 실제 회사에서 수행하는 것처럼 협업을 진행하면서 경험을 쌓음
 
 ## Progress
 
