@@ -14,6 +14,8 @@ const { actions, reducer } = createSlice({
       picture:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRqj_WvMmoHaetb38rMQlE2wgH5Kj5ATh8XaA&usqp=CAU',
     },
+    followerCount: 0,
+    followingCount: 0,
   },
 
   reducers: {
@@ -47,6 +49,18 @@ const { actions, reducer } = createSlice({
         profile: { ...state.profile, picture },
       };
     },
+    setFollowerCount(state, { payload: { followerCount } }) {
+      return {
+        ...state,
+        followerCount,
+      };
+    },
+    setFollowingCount(state, { payload: { followingCount } }) {
+      return {
+        ...state,
+        followingCount,
+      };
+    },
   },
 });
 
@@ -56,6 +70,8 @@ export const {
   setLongtitude,
   setName,
   setPicture,
+  setFollowerCount,
+  setFollowingCount,
 } = actions;
 
 export const toggleAuth = () => (dispatch, getState) => {

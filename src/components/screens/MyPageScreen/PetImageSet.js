@@ -2,17 +2,16 @@
 import React from 'react';
 
 import {
-  PetImgBox,
-  PetImg,
-  // PetImgText,
+  PetImageBox,
+  PetImage,
 } from './style';
 
 export default function PetImageSet({ data }) {
   return (
     data.map((value) => (
-      <PetImgBox key={value.key}>
-        <PetImg source={value.source} resizeMode="contain" />
-      </PetImgBox>
+      <PetImageBox key={value.key}>
+        <PetImage source={value.source} resizeMode="contain" />
+      </PetImageBox>
     ))
   );
 }

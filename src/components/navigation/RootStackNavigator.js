@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 
 import { get } from '../../utils';
 
-import SharedStatusBar from '../shared/SharedStatusBar';
 import MainStackNavigator from './MainStackNavigator';
 import LoginScreen from '../screens/LoginScreen';
 import AuthCheckScreen from '../screens/AuthCheckScreen';
@@ -20,7 +19,6 @@ export default function RootStackNavigator() {
 
   return (
     <NavigationContainer>
-      <SharedStatusBar />
       <Stack.Navigator
         initialRouteName="LoginScreen"
         screenOptions={{

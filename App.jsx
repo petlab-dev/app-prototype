@@ -1,7 +1,7 @@
-import App from './src/App';
+import Index from './src/Index';
 
 const STORYBOOK_START = false;
 /* eslint-disable global-require */
 export default STORYBOOK_START ? require('./storybook').default
-  : App;
+  : Index;
 /* eslint-enable global-require */

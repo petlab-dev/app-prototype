@@ -5,17 +5,17 @@ import {
   Textbutton,
   TextbuttonText,
   TextbuttonCount,
-  TextbuttonImg,
+  TextbuttonImage,
   TextbuttonContainer,
 } from './style';
 
 export default function TextButton({ data }) {
   return data.map((content) => (
-    <Textbutton key={content.key} onPress={() => alert('클릭')}>
+    <Textbutton key={content.key}>
       <TextbuttonContainer>
         <TextbuttonText>{content.textType}</TextbuttonText>
         <TextbuttonCount>{content.count}</TextbuttonCount>
-        <TextbuttonImg source={require('../../assets/RightArrow.png')} />
+        <TextbuttonImage source={require('../../assets/RightArrow.png')} />
       </TextbuttonContainer>
     </Textbutton>
   ));

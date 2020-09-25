@@ -1,42 +1,40 @@
 import styled from '@emotion/native';
 
-import { Container, constantsValue } from '../../constants';
-
-const {
-  // COLOR_SECONDARY,
-  // COLOR_LIGHT,
+import {
+  Container,
   COLOR_LIGHTER,
-  // COLOR_LIGHTEST,
   COLOR_PRIMARY,
-  // FONTSIZE_BIGGEST,
-  // FONTSIZE_BIGGER,
   FONTSIZE_BIG,
   FONTSIZE_SMALL,
-  // FONTSIZE_SMALLER,
   FONTSIZE_SMALLEST,
-} = constantsValue;
+} from '../../constants';
 
-// HomeScreen
-export const HomeContainer = styled(Container)({
-  display: 'flex',
-  flex: 1,
-  height: '100%',
-  width: '100%',
-  alignItems: 'center',
-  userSelect: 'none',
+// HomeAnimalEnrollment
+export const AnimalEnrollmentContainter = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
 });
 
-export const HomeHospitalText = styled.Text({
-  fontSize: 22,
-  // fontWeight: 800,
-  marginLeft: '10%',
-  paddingTop: '2%',
+export const AnimalEnrollImage = styled.Image({
+  width: 110,
+  height: 110,
 });
 
-export const Beta = styled.Image({
-  width: 50,
-  height: 20,
-  marginLeft: '10%',
+export const EnrollmentTextContainer = styled.View({
+  flexDirection: 'column',
+  justifyContent: 'center',
+});
+
+export const TextWrapBold = styled.Text({
+  fontFamily: 'NanumGothicCoding_700Bold',
+  fontWeight: 'bold',
+  fontSize: FONTSIZE_SMALL,
+  marginBottom: '5%',
+});
+
+export const TextWrap = styled.Text({
+  fontFamily: 'NanumGothicCoding_700Bold',
+  fontSize: FONTSIZE_SMALLEST,
 });
 
 // HomeBanner
@@ -60,30 +58,23 @@ export const BannerImage = styled.Image(({ screenWidth }) => ({
   borderRadius: 10,
 }));
 
-// HomeAnimalEnrollment
-export const AnimalEnrollmentContainter = styled.View({
-  flexDirection: 'row',
-  justifyContent: 'space-between',
+// HomeBuyBanner
+export const BuyBannerButton = styled.TouchableOpacity({
+  shadowColor: '#000',
+  shadowOffset: {
+    width: 0,
+    height: 2,
+  },
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  elevation: 5,
+  borderRadius: 20,
 });
 
-export const EnrollmentTextContainer = styled.View({
-  flexDirection: 'column',
-  justifyContent: 'center',
-});
-
-export const AnimalEnrollImage = styled.Image({
-  width: 110,
-  height: 110,
-});
-
-export const TextWrap = styled.Text({
-  fontSize: FONTSIZE_SMALLEST,
-});
-
-export const TextWrapBold = styled.Text({
-  fontWeight: 'bold',
-  fontSize: FONTSIZE_SMALL,
-  marginBottom: '5%',
+export const BuyBannerImage = styled.Image({
+  width: 300,
+  height: 100,
+  borderRadius: 20,
 });
 
 // HomeHeader
@@ -93,8 +84,8 @@ export const HomeHeaderContainer = styled.View({
 });
 
 export const Title = styled.Text({
+  fontFamily: 'NanumGothicCoding_700Bold',
   fontSize: FONTSIZE_BIG,
-  // fontWeight: 900,
   color: COLOR_PRIMARY,
   letterSpacing: 1,
 });
@@ -108,12 +99,6 @@ export const HospitalInformationContainer = styled.ScrollView({
   margin: '2%',
 });
 
-export const TextWrapForEnroll = styled.Text({
-  fontSize: FONTSIZE_SMALL,
-  fontWeight: 'bold',
-  padding: 20,
-});
-
 export const HospitalInfoView = styled.View({
   flexDirection: 'column',
   width: 250,
@@ -124,9 +109,75 @@ export const HospitalInfoView = styled.View({
   borderColor: COLOR_LIGHTER,
 });
 
+export const TextWrapForEnroll = styled.Text({
+  fontFamily: 'NanumGothicCoding_700Bold',
+  fontSize: FONTSIZE_SMALL,
+  fontWeight: 'bold',
+  padding: 20,
+});
+
 export const TextWrapForHospitalInfo = styled.Text({
+  fontFamily: 'NanumGothicCoding_700Bold',
   fontSize: FONTSIZE_SMALL,
   padding: 15,
+});
+
+// HomeMap
+export const CompassIconButton = styled.TouchableOpacity({
+  zIndex: 1,
+  position: 'absolute',
+  paddingTop: 130,
+  paddingLeft: 10,
+});
+
+export const MapButton = styled.TouchableOpacity({
+  zIndex: 0,
+  marginTop: 20,
+  shadowColor: '#000',
+  shadowOffset: {
+    width: 0,
+    height: 2,
+  },
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  elevation: 5,
+  borderRadius: 20,
+});
+
+export const MapButtonImage = styled.Image({
+  width: 300,
+  height: 150,
+  borderRadius: 20,
+});
+
+// HomeQR
+export const QRButton = styled.TouchableOpacity({
+  width: 300,
+  height: 150,
+  zIndex: 0,
+  marginTop: 20,
+  shadowColor: '#000',
+  shadowOffset: {
+    width: 0,
+    height: 2,
+  },
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  elevation: 5,
+  borderRadius: 20,
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
+export const QRButtonImage = styled.Image({
+  width: 100,
+  height: 100,
+  borderRadius: 20,
+});
+
+export const QRButtonText = styled.Text({
+  fontSize: 15,
+  fontWeight: 'bold',
 });
 
 // HomeSearch
@@ -152,7 +203,19 @@ export const SearchImage = styled.Image({
   height: 30,
 });
 
-export const CenterView = styled.View({
-  justifyContent: 'center',
+// HomeScreen
+export const HomeContainer = styled(Container)({
+  display: 'flex',
+  flex: 1,
+  height: '100%',
+  width: '100%',
   alignItems: 'center',
+  userSelect: 'none',
+});
+
+export const ButtonContainer = styled.View({
+  position: 'relative',
+  justifyContent: 'flex-start',
+  alignItems: 'flex-end',
+  paddingBottom: 20,
 });

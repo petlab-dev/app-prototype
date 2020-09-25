@@ -19,8 +19,9 @@ import {
   LoginButtonText,
   SubButton,
   SubButtonText,
-  // TopInput,
 } from './style';
+
+import { Container } from '../../constants';
 
 export default function LoginScreen() {
   const dispatch = useDispatch();
@@ -49,7 +50,6 @@ export default function LoginScreen() {
       key: 3,
       source: require('../../assets/LoginIcons/facebook.png'),
     },
-
     {
       platform: 'google',
       link: '구글연동',
@@ -59,41 +59,41 @@ export default function LoginScreen() {
   ];
 
   return (
-    <LoginView>
-      <Logo>Catmate</Logo>
-      <Header>
-        <TopText />
-      </Header>
-      <InputData>
-        {/* <TopInput>E-mail</TopInput> */}
-        <InputBox
-          placeholder="E-mail"
-          onChangeText={(email) => setValue({ ...value, email })}
-        />
-        {/* <TopInput>Password</TopInput> */}
-        <InputBox
-          secureTextEntry
-          placeholder="Password"
-          onChangeText={(password) => setValue({ ...value, password })}
-        />
-      </InputData>
-      <LoginButton onPress={() => dispatch(toggleAuth())}>
-        <LoginButtonText>로그인</LoginButtonText>
-      </LoginButton>
-      <ViewSet>
-        <SubButton
-          SubButton
-          // onPress={() => navigation.navigate('AuthCheckScreen')}
-        >
-          <SubButtonText>비밀번호를 잊어버리셨나요?</SubButtonText>
-        </SubButton>
-      </ViewSet>
-      <ViewSet>
-        {platformData.map((val, key) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <IconButton key={`icb-${key}`} value={val} />
-        ))}
-      </ViewSet>
-    </LoginView>
+    <Container>
+      <LoginView>
+        <Logo>Catmate</Logo>
+        <Header>
+          <TopText />
+        </Header>
+        <InputData>
+          <InputBox
+            placeholder="E-mail"
+            onChangeText={(email) => setValue({ ...value, email })}
+          />
+          <InputBox
+            secureTextEntry
+            placeholder="Password"
+            onChangeText={(password) => setValue({ ...value, password })}
+          />
+        </InputData>
+        <LoginButton onPress={() => dispatch(toggleAuth())}>
+          <LoginButtonText>로그인</LoginButtonText>
+        </LoginButton>
+        <ViewSet>
+          <SubButton
+            SubButton
+            // onPress={() => navigation.navigate('AuthCheckScreen')}
+          >
+            <SubButtonText>비밀번호를 잊어버리셨나요?</SubButtonText>
+          </SubButton>
+        </ViewSet>
+        <ViewSet>
+          {platformData.map((val, key) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <IconButton key={`icb-${key}`} value={val} />
+          ))}
+        </ViewSet>
+      </LoginView>
+    </Container>
   );
 }

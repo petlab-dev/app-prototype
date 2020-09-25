@@ -19,10 +19,10 @@ export default function TermsBottomButton({ navigation }) {
     <TermsBottomButtonContainer>
       <RowView>
         <BottomButtonContainer onPress={() => navigation.popToTop()}>
-          <CancelButton> 취소 </CancelButton>
+          <CancelButton>취소</CancelButton>
         </BottomButtonContainer>
         <BottomButtonContainer onPress={() => dispatch(toggleAuth())}>
-          <ConsentBotton> 동의 </ConsentBotton>
+          <ConsentBotton>동의</ConsentBotton>
         </BottomButtonContainer>
       </RowView>
     </TermsBottomButtonContainer>

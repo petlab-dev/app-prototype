@@ -9,9 +9,7 @@ import HomeScreen from '../screens/HomeScreen';
 import ColorPickerScreen from '../screens/ColorPickerScreen';
 import MyPageScreen from '../screens/MyPageScreen';
 
-import { constantsValue } from '../constants';
-
-const { COLOR_PRIMARY, COLOR_LIGHT } = constantsValue;
+import { COLOR_PRIMARY, COLOR_LIGHT } from '../constants';
 
 const Tab = createBottomTabNavigator();
 

@@ -1,15 +1,8 @@
 import styled from '@emotion/native';
 
-import { constantsValue } from '../../constants';
+import { COLOR_PRIMARY } from '../../constants';
 
-const { COLOR_PRIMARY } = constantsValue;
-
-export const Container = styled.View({
-  flex: 1,
-  justifyContent: 'center',
-  alignItems: 'center',
-});
-
+// ColorPickerScreen
 export const CameraContainer = styled.View({
   flex: 1,
   backgroundColor: 'transparent',
@@ -28,4 +21,16 @@ export const CameraButton = styled.TouchableOpacity({
   alignSelf: 'flex-end',
   alignItems: 'center',
   marginBottom: 40,
+});
+
+export const Container = styled.View({
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
+export const HsvImage = styled.Image({
+  zIndex: 0,
+  height: 100,
+  width: 300,
 });
