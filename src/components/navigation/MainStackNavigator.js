@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-boolean-value */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Button, Platform } from 'react-native';
 
 import { WebView } from 'react-native-webview';
@@ -11,9 +11,13 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { Fireworks } from 'fireworks/lib/react';
 
-import HomeTabNavigator from './HomeTabNavigator';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { AuthContext } from '../../contexts';
+import { toggleAuth } from '../../slice';
+
+import { get } from '../../utils';
+
+import HomeTabNavigator from './HomeTabNavigator';
 
 import { HeaderSide, HeaderTitle, HeaderTitleText } from './style';
 
@@ -32,7 +36,8 @@ function Test({ navigation }) {
 }
 
 export default function MainStackNavigator({ navigation }) {
-  const { toggleAuth, location } = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const location = useSelector(get('location'));
 
   const [fireworks, setFireworks] = useState(false);
 
@@ -84,7 +89,7 @@ export default function MainStackNavigator({ navigation }) {
   );
 
   const headerRight = () => (
-    <HeaderSide onPress={() => toggleAuth()}>
+    <HeaderSide onPress={() => dispatch(toggleAuth())}>
       <Icon name="id-card" size={20} color={COLOR_PRIMARY} />
     </HeaderSide>
   );

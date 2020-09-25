@@ -1,7 +1,9 @@
 /* eslint-disable global-require */
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 
-import { AuthContext } from '../../../contexts';
+import { useDispatch } from 'react-redux';
+
+import { toggleAuth } from '../../../slice';
 
 import IconButton from './IconButton';
 import TopText from './TopText';
@@ -21,7 +23,7 @@ import {
 } from './style';
 
 export default function LoginScreen() {
-  const { toggleAuth } = useContext(AuthContext);
+  const dispatch = useDispatch();
 
   const [value, setValue] = useState({
     email: '',
@@ -75,7 +77,7 @@ export default function LoginScreen() {
           onChangeText={(password) => setValue({ ...value, password })}
         />
       </InputData>
-      <LoginButton onPress={toggleAuth}>
+      <LoginButton onPress={() => dispatch(toggleAuth())}>
         <LoginButtonText>로그인</LoginButtonText>
       </LoginButton>
       <ViewSet>

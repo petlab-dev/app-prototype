@@ -1,9 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable global-require */
-// import React, { useState } from 'react';
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 
-// import { View, ScrollView } from 'react-native';
 import {
   Text,
   TouchableOpacity,
@@ -19,13 +17,14 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import * as Location from 'expo-location';
 
-import { AuthContext } from '../../../contexts';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setLongtitude, setLatitude } from '../../../slice';
+import { get } from '../../../utils';
 
 import HomeAnimalEnrollment from './HomeAnimalEnrollment';
-// import HomeHospital from './HomeHospital';
 import HomeSearch from './HomeSearch';
 import HomeBanner from './HomeBanner';
-// import { HomeContainer, HomeHospitalText, Beta } from './style';
 
 import {
   NAVER_MAP_API_ID,
@@ -34,43 +33,11 @@ import {
 
 import { HomeContainer } from './style';
 
-// const DataOfNearbyHospital = [
-//   {
-//     name: '성심 동물 메디컬 센터',
-//     adress: '봉명동 548-11',
-//     phone: '042-719-7566',
-//     key: '1',
-//   },
-//   {
-//     name: '로얄 동물 펫병원',
-//     adress: '봉명동 669',
-//     phone: '042-823-7583',
-//     key: '2',
-//   },
-//   {
-//     name: '대전동물메디컬센터 숲',
-//     adress: '봉명동 664-3단지',
-//     phone: '042-826-7584',
-//     key: '3',
-//   },
-//   {
-//     name: '도안 ECO종합 동물 병원',
-//     adress: '11-13, 봉명서로',
-//     phone: '042-485-7582',
-//     key: '4',
-//   },
-//   {
-//     name: '피니펫 동물병원',
-//     adress: '어은동 105-7',
-//     phone: '042-862-7588',
-//     key: '5',
-//   },
-// ];
-
 export default function HomeScreen({ navigation }) {
-  const { location, setLocation, profile } = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const location = useSelector(get('location'));
+  const profile = useSelector(get('profile'));
 
-  // const [location, setLocation] = useState({ x: 127.1054221, y: 37.3591614 });
   const [errorMsg, setErrorMsg] = useState(null);
   const [level, setLevel] = useState(6);
 
@@ -84,10 +51,12 @@ export default function HomeScreen({ navigation }) {
     const x = JSON.stringify(locationFrom.coords.longitude);
     const y = JSON.stringify(locationFrom.coords.latitude);
     if (x && y) {
-      setLocation({
+      dispatch(setLatitude({
         x,
+      }));
+      dispatch(setLongtitude({
         y,
-      });
+      }));
     }
     setLevel(13);
   }
@@ -149,7 +118,7 @@ export default function HomeScreen({ navigation }) {
             onPress={() => handleGetLocation()}
             style={{
               zIndex: 1,
-              position: 'absolute',
+              // position: 'absolute',
               paddingTop: 30,
               paddingRight: 20,
             }}

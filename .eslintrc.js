@@ -6,6 +6,9 @@ module.exports = {
       },
     },
   },
+  globals: {
+    context: 'readonly',
+  },
   env: {
     amd: true,
     browser: true,

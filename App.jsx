@@ -1,7 +1,7 @@
-import RootStackNavigator from './src/components/navigation/RootStackNavigator';
+import App from './src/App';
 
 const STORYBOOK_START = false;
 /* eslint-disable global-require */
 export default STORYBOOK_START ? require('./storybook').default
-  : RootStackNavigator;
+  : App;
 /* eslint-enable global-require */
