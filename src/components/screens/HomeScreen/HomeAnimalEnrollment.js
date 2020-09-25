@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 /* eslint-disable global-require */
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { TouchableOpacity } from 'react-native';
 
-import { AuthContext } from '../../../contexts';
+import { useDispatch } from 'react-redux';
+
+import { toggleAuth } from '../../../slice';
 
 import {
   AnimalEnrollmentContainter,
@@ -15,10 +17,10 @@ import {
 } from './style';
 
 export default function HomeAnimalEnrollment() {
-  const { toggleAuth } = useContext(AuthContext);
+  const dispatch = useDispatch();
 
   return (
-    <TouchableOpacity onPress={() => toggleAuth()}>
+    <TouchableOpacity onPress={() => dispatch(toggleAuth())}>
       <AnimalEnrollmentContainter>
         <AnimalEnrollImage source={require('../../assets/PetEnroll.png')} />
         <EnrollmentTextContainer>

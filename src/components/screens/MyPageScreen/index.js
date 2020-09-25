@@ -1,16 +1,17 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 /* eslint-disable global-require */
-import React, { useContext } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import { useSelector } from 'react-redux';
+
+import { get } from '../../../utils';
+
 import FollowButton from './FollowButton';
-// import TextButton from './TextButton';
 import PetImageSet from './PetImageSet';
 import MyPageProfileButton from './MyPageProfileButton';
-
-import { AuthContext } from '../../../contexts';
 
 import {
   UpperContainer,
@@ -37,29 +38,6 @@ const value = {
   likeTextCount: 4,
 };
 
-// const textButtonContent = [
-//   {
-//     textType: '내 게시글',
-//     count: value.myTextCount,
-//     key: 1,
-//   },
-//   {
-//     textType: '댓글단 글',
-//     count: value.commentTextCount,
-//     key: 2,
-//   },
-//   {
-//     textType: '전문가 상담 글',
-//     count: value.expertTextCount,
-//     key: 3,
-//   },
-//   {
-//     textType: "'좋아요'한 글",
-//     count: value.likeTextCount,
-//     key: 4,
-//   },
-// ];
-
 const petStatus = [
   {
     petName: '냥이',
@@ -76,7 +54,7 @@ const petStatus = [
 ];
 
 export default function MyPageScreen({ navigation }) {
-  const { profile } = useContext(AuthContext);
+  const profile = useSelector(get('profile'));
 
   return (
     <UpperContainer>
@@ -113,7 +91,6 @@ export default function MyPageScreen({ navigation }) {
           <PetImageContainer horizontal showsHorizontalScrollIndicator={false}>
             <PetImageSet data={petStatus} />
           </PetImageContainer>
-          {/* <TextButton data={textButtonContent} /> */}
         </BottomContainer>
       </Container>
     </UpperContainer>

@@ -1,6 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { AuthContext } from '../../../contexts';
+import { useDispatch } from 'react-redux';
+
+import { toggleAuth } from '../../../slice';
 
 import {
   TermsBottomButtonContainer,
@@ -11,7 +13,7 @@ import {
 } from './style';
 
 export default function TermsBottomButton({ navigation }) {
-  const { toggleAuth } = useContext(AuthContext);
+  const dispatch = useDispatch();
 
   return (
     <TermsBottomButtonContainer>
@@ -19,7 +21,7 @@ export default function TermsBottomButton({ navigation }) {
         <BottomButtonContainer onPress={() => navigation.popToTop()}>
           <CancelButton> 취소 </CancelButton>
         </BottomButtonContainer>
-        <BottomButtonContainer onPress={() => toggleAuth()}>
+        <BottomButtonContainer onPress={() => dispatch(toggleAuth())}>
           <ConsentBotton> 동의 </ConsentBotton>
         </BottomButtonContainer>
       </RowView>

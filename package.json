@@ -23,6 +23,7 @@
     "@react-navigation/bottom-tabs": "^5.7.3",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.8.0",
+    "@reduxjs/toolkit": "^1.4.0",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
@@ -51,6 +52,9 @@
     "react-native-web": "~0.11.7",
     "react-native-webview": "9.4.0",
     "react-naver-maps": "^0.0.13",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.1",
     "victory": "^35.0.8",
     "victory-native": "^35.0.1"
@@ -73,10 +77,12 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.7",
+    "flow-bin": "^0.134.0",
     "given2": "^2.1.7",
     "jest": "^26.1.0",
     "jest-expo": "^38.0.2",
-    "jest-plugin-context": "^2.9.0"
+    "jest-plugin-context": "^2.9.0",
+    "redux-mock-store": "^1.5.4"
   },
   "private": true
 }

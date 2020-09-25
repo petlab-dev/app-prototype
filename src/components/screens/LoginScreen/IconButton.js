@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Platform } from 'react-native';
 
@@ -16,7 +16,9 @@ import {
   Prompt,
 } from 'expo-auth-session';
 
-import { AuthContext } from '../../../contexts';
+import { useDispatch } from 'react-redux';
+
+import { toggleAuth, setName, setPicture } from '../../../slice';
 
 import firebase from '../../../../firebase';
 
@@ -47,7 +49,8 @@ if (!firebase.apps.length) {
 export default function IconButton({ value }) {
   const { platform } = value;
 
-  const { toggleAuth, setProfile } = useContext(AuthContext);
+  const dispatch = useDispatch();
+
   const [token, setToken] = useState();
   const [user, setUser] = useState({});
 
@@ -100,10 +103,12 @@ export default function IconButton({ value }) {
   useEffect(() => {
     firebase.auth().onAuthStateChanged((getUser) => {
       if (getUser) {
-        setProfile({
+        dispatch(setName({
           name: firebase.auth().currentUser.displayName,
+        }));
+        dispatch(setPicture({
           picture: firebase.auth().currentUser.photoURL,
-        });
+        }));
       }
     });
   }, []);
@@ -118,7 +123,7 @@ export default function IconButton({ value }) {
 
       firebase.auth().signInWithCredential(credential);
 
-      toggleAuth();
+      dispatch(toggleAuth());
       console.log('response', response);
 
       console.log('token: ', token, 'user: ', user);
@@ -140,14 +145,17 @@ export default function IconButton({ value }) {
         config,
       );
 
-      await setProfile({
+      await dispatch(setName({
         name: data.response.name,
+      }));
+
+      await dispatch(setPicture({
         picture: data.response.profile_image,
-      });
+      }));
 
       setToken(responseFrom.data.access_token);
       setUser(data);
-      toggleAuth();
+      dispatch(toggleAuth());
     }
 
     if (platform === 'kakao') {
@@ -166,14 +174,17 @@ export default function IconButton({ value }) {
         config,
       );
 
-      await setProfile({
+      await dispatch(setName({
         name: data.properties.nickname,
+      }));
+
+      await dispatch(setPicture({
         picture: data.properties.profile_image,
-      });
+      }));
 
       setToken(responseFrom.data.access_token);
       setUser(data);
-      toggleAuth();
+      dispatch(toggleAuth());
     }
   }
 
