@@ -5,7 +5,6 @@ import {
   ProfileButton,
   ProfileTextBox,
   ProfileText,
-  // ProfileTextImage,
 } from './style';
 
 export default function MyPageProfileButton({ name, navigation }) {

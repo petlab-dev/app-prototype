@@ -1,21 +1,11 @@
 import styled from '@emotion/native';
 
-import { constantsValue } from '../../constants';
-
-const {
-  // COLOR_SECONDARY,
-  // COLOR_LIGHT,
+import {
   COLOR_LIGHTER,
   COLOR_LIGHTEST,
-  // FONTSIZE_BIGGEST,
-  // FONTSIZE_BIGGER,
-  FONTSIZE_BIG,
   FONTSIZE_SMALL,
   FONTSIZE_SMALLER,
-  FONTSIZE_SMALLEST,
-} = constantsValue;
-
-// TermScreen
+} from '../../constants';
 
 // TermsBottomButton
 export const TermsBottomButtonContainer = styled.View({
@@ -25,7 +15,7 @@ export const TermsBottomButtonContainer = styled.View({
 
 export const CancelButton = styled.Text({
   margin: 15,
-  // fontWeight: 500,
+  fontFamily: 'NanumGothicCoding_700Bold',
   fontSize: FONTSIZE_SMALL,
 });
 
@@ -55,6 +45,7 @@ export const TermsButtonContainer = styled.View({
 });
 
 export const CosentButton = styled.Text({
+  fontFamily: 'NanumGothicCoding_700Bold',
   fontSize: FONTSIZE_SMALLER,
   textDecorationLine: 'underline',
 });
@@ -76,19 +67,6 @@ export const TermsContentsImage = styled.Image({
   margin: 20,
 });
 
-export const TextWrapBig = styled.Text({
-  fontSize: FONTSIZE_BIG,
-});
-
-export const TextWrap = styled.Text({
-  fontSize: FONTSIZE_SMALLEST,
-});
-
-export const CenterView = styled.View({
-  justifyContent: 'center',
-  alignItems: 'center',
-});
-
 // TermsHeader
 export const TermsHeaderContainer = styled.View({
   paddingTop: '5%',
@@ -98,6 +76,7 @@ export const TermsHeaderContainer = styled.View({
 });
 
 export const TextWrapBold = styled.Text({
+  fontFamily: 'NanumGothicCoding_700Bold',
   fontWeight: 'bold',
   fontSize: FONTSIZE_SMALL,
   marginBottom: '5%',

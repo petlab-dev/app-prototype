@@ -3,9 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 
 import { VictoryPie } from 'victory';
-import { constantsValue } from '../../constants';
-
-const { COLOR_RED, COLOR_GREEN } = constantsValue;
+import { COLOR_RED, COLOR_GREEN } from '../../constants';
 
 const screenWidth = (window.innerWidth * 4) / 5;
 const screenHeight = (window.innerHeight * 4) / 5 - 100;

@@ -64,7 +64,6 @@ export default function IconButton({ value }) {
     },
   }[platform];
 
-  // Request
   const [, response, promptAsync] = useAuthRequest(
     platform === 'google'
       ? {

@@ -3,9 +3,7 @@ import React from 'react';
 import { View, Dimensions } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import { VictoryPie } from 'victory-native';
-import { constantsValue } from '../../constants';
-
-const { COLOR_RED, COLOR_GREEN } = constantsValue;
+import { COLOR_RED, COLOR_GREEN } from '../../constants';
 
 const screenWidth = (Dimensions.get('window').width * 2) / 3;
 

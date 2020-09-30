@@ -8,6 +8,8 @@ import reducer, {
   setLongtitude,
   setName,
   setPicture,
+  setFollowerCount,
+  setFollowingCount,
   toggleAuth,
 } from './slice';
 
@@ -26,6 +28,8 @@ describe('reducer', () => {
         picture:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRqj_WvMmoHaetb38rMQlE2wgH5Kj5ATh8XaA&usqp=CAU',
       },
+      followerCount: 0,
+      followingCount: 0,
     };
 
     it('returns initialSatate', () => {
@@ -73,6 +77,22 @@ describe('reducer', () => {
     const state = reducer(undefined, setPicture({ picture }));
 
     expect(state.profile.picture).toEqual(picture);
+  });
+
+  describe('setFollowerCount', () => {
+    const followerCount = 0;
+
+    const state = reducer(undefined, setFollowerCount({ followerCount }));
+
+    expect(state.followerCount).toEqual(followerCount);
+  });
+
+  describe('setFollowingCount', () => {
+    const followingCount = 0;
+
+    const state = reducer(undefined, setFollowingCount({ followingCount }));
+
+    expect(state.followingCount).toEqual(followingCount);
   });
 
   describe('toggleAuth', () => {

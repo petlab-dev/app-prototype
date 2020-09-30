@@ -9,7 +9,7 @@ export default function TermsButton() {
     <View>
       <TermsButtonContainer>
         <TouchableOpacity onPress={() => {}}>
-          <CosentButton>펫닥 통합 이용 약관, </CosentButton>
+          <CosentButton>펫닥 통합 이용 약관,</CosentButton>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => {}}>
           <CosentButton>개인정보 수집 및 이용정책,</CosentButton>

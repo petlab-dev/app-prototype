@@ -1,8 +1,6 @@
 import styled from '@emotion/native';
 
-import { constantsValue } from '../constants';
-
-const { COLOR_PRIMARY } = constantsValue;
+import { COLOR_PRIMARY } from '../constants';
 
 export const HeaderTitle = styled.TouchableOpacity({
   justifyContent: 'center',
@@ -10,8 +8,9 @@ export const HeaderTitle = styled.TouchableOpacity({
 });
 
 export const HeaderTitleText = styled.Text({
+  fontFamily: 'Nunito_900Black',
   color: COLOR_PRIMARY,
-  fontSize: 20,
+  fontSize: 25,
   fontWeight: 'bold',
 });
 

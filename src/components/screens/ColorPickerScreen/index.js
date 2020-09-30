@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Platform,
-  Image,
 } from 'react-native';
 
 import { Camera } from 'expo-camera';
@@ -22,7 +21,13 @@ import VictoryPieChartWeb from './VictoryPieChart.web';
 import firebase from '../../../../firebase';
 import { Environment } from '../../../../environment';
 
-import { Container, CameraContainer, CameraButton } from './style';
+import { COLOR_PRIMARY } from '../../constants';
+import {
+  CameraContainer,
+  CameraButton,
+  Container,
+  HsvImage,
+} from './style';
 
 const CAMERA_SCREEN = 0;
 const LOADING_SCREEN = 1;
@@ -125,7 +130,10 @@ export default function ColorPickerScreen() {
     const response = await fetch(uri);
     const blob = await response.blob();
     const randomBytes = await Random.getRandomBytesAsync(6);
-    const ref = await firebase.storage().ref().child(Buffer.from(randomBytes).toString('utf-8'));
+    const ref = await firebase
+      .storage()
+      .ref()
+      .child(Buffer.from(randomBytes).toString('utf-8'));
     const snapshot = await ref.put(blob);
 
     if (Platform.OS !== 'web') {
@@ -227,7 +235,7 @@ export default function ColorPickerScreen() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ backgroundColor: 'white', flex: 1 }}>
       {
         {
           [CAMERA_SCREEN]: (
@@ -235,7 +243,7 @@ export default function ColorPickerScreen() {
               <CameraContainer>
                 <CameraButton onPress={() => takePicture()}>
                   <Container>
-                    <Icon name="stethoscope" size={50} color="#f44336" />
+                    <Icon name="stethoscope" size={50} color={COLOR_PRIMARY} />
                   </Container>
                 </CameraButton>
               </CameraContainer>
@@ -243,23 +251,13 @@ export default function ColorPickerScreen() {
           ),
           [LOADING_SCREEN]: (
             <Container>
-              <View
-                style={{ fles: 1 }}
-              >
-                <ActivityIndicator
-                  style={{ zIndex: 1, top: 0, relative: 'absolute' }}
-                  color="black"
-                  size="large"
-                />
-                <Image
-                  style={{
-                    zIndex: 0,
-                    height: 100,
-                    width: 300,
-                  }}
-                  source={require('../../assets/hsv.png')}
-                />
-              </View>
+              <ActivityIndicator
+                color="black"
+                size="large"
+              />
+              <HsvImage
+                source={require('../../assets/hsv.png')}
+              />
             </Container>
           ),
           [FINAL_SCREEN]: (

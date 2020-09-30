@@ -1,12 +1,9 @@
 /* eslint-disable global-require */
 import React, { useState, useEffect, useRef } from 'react';
 
-// import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
 import { View, Dimensions } from 'react-native';
 
 import * as WebBrowser from 'expo-web-browser';
-
-// import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { HomeBannerButton, HomeBannerContainer, BannerImage } from './style';
 
@@ -82,25 +79,6 @@ export default function HomeBanner() {
         paddingTop: 10,
       }}
     >
-      {/* <View
-        style={{
-          zIndex: 1,
-          width,
-          height: 0,
-          position: 'absolute',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexDirection: 'row',
-          padding: 20,
-        }}
-      >
-        <TouchableOpacity onPress={() => moveScroll(-width)}>
-          <Icon name="angle-left" size={50} color="#f44336" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => moveScroll(width)}>
-          <Icon name="angle-right" size={50} color="#f44336" />
-        </TouchableOpacity>
-      </View> */}
       <HomeBannerContainer
         ref={scrollRef}
         screenWidth={width}

@@ -21,9 +21,7 @@ import HomeTabNavigator from './HomeTabNavigator';
 
 import { HeaderSide, HeaderTitle, HeaderTitleText } from './style';
 
-import { constantsValue } from '../constants';
-
-const { COLOR_PRIMARY } = constantsValue;
+import { COLOR_PRIMARY, COLOR_GREEN, COLOR_SECONDARY } from '../constants';
 
 const Stack = createStackNavigator();
 
@@ -45,7 +43,7 @@ export default function MainStackNavigator({ navigation }) {
     count: 1,
     interval: 500,
     particleTimeout: 500,
-    colors: ['#f44336', '#BBF1C4', '#71C0BB'],
+    colors: [COLOR_PRIMARY, COLOR_GREEN, COLOR_SECONDARY],
     x: window.innerWidth / 2 - 70,
     y: 5,
   };

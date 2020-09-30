@@ -4,10 +4,9 @@ import React from 'react';
 import {
   TermsContentsContainer,
   TermsContentsImage,
-  TextWrapBig,
-  TextWrap,
-  CenterView,
 } from './style';
+
+import { TextWrapBig, TextWrap, CenterView } from '../../constants';
 
 export default function TermsContents() {
   return (
