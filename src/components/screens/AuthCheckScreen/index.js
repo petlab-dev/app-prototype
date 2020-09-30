@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Text, TouchableOpacity, TextInput } from 'react-native';
 
+import { useSelector, useDispatch } from 'react-redux';
+
+import { get } from '../../../utils';
+import { handleChangeToPhoneButton, handleChangeToEmailButton, isDisabled } from '../../../slice';
 import ClosingMent from './ClosingMent';
 import AuthCheckHeader from './AuthCheckHeader';
 import AuthCheckSelectButton from './AuthCheckSelectButton';
@@ -13,33 +17,13 @@ import {
   ButtonContainer,
 } from './style';
 
-export default function AuthCheckScreen({ navigation }) {
-  const [value, setValue] = useState('');
-  const [state, setState] = useState({
-    nextButton: true,
-    toggleButton: true,
-    defualtMessage: 'Phone Number 01011112222',
-  });
+// export default function AuthCheckScreen({ navigation }) {
+export default function AuthCheckScreen() {
+  const dispatch = useDispatch();
 
-  const { nextButton, toggleButton, defualtMessage } = state;
-
-  function isDisabled(event) {
-    setValue(event);
-    if (value.length > 1) {
-      setState({ ...state, nextButton: false });
-      return;
-    }
-    setState({ ...state, nextButton: true });
-  }
-
-  function handleChangeToPhoneButton() {
-    setState({ ...state, toggleButton: !toggleButton, defualtMessage: 'Phone Number 01011112222' });
-  }
-
-  function handleChangeToEmailButton() {
-    setState({ ...state, toggleButton: !toggleButton, defualtMessage: 'Email Adrress email@adress.com' });
-  }
-
+  const toggleButton = useSelector(get('toggleButton'));
+  const defaultMessage = useSelector(get('defaultMessage'));
+  const nextButton = useSelector(get('nextButton'));
   return (
     <Container>
       <AuthCheckHeader
@@ -48,25 +32,25 @@ export default function AuthCheckScreen({ navigation }) {
       <Body>
         <Select>
           <AuthCheckSelectButton
-            onClick={handleChangeToPhoneButton}
+            onClick={dispatch(handleChangeToPhoneButton)}
             text="Phone"
             active={toggleButton}
           />
           <AuthCheckSelectButton
-            onClick={handleChangeToEmailButton}
+            onClick={dispatch(handleChangeToEmailButton)}
             text="Email"
             active={!toggleButton}
           />
         </Select>
         <TextInputWrap>
           <TextInput
-            placeholder={defualtMessage}
-            onChangeText={isDisabled}
+            placeholder={defaultMessage}
+            onChangeText={dispatch(isDisabled)}
           />
         </TextInputWrap>
         <ButtonContainer>
           <TouchableOpacity
-            onPress={() => navigation.navigate('TermsScreen')}
+            // onPress={() => navigation.navigate('TermsScreen')}
             disabled={nextButton}
           >
             <Text>Next</Text>

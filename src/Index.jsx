@@ -24,7 +24,6 @@ export default function Index() {
     return (
       <CenterView>
         <ActivityIndicator color="black" size="large" />
-        <Text>aa</Text>
       </CenterView>
     );
   }

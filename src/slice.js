@@ -16,6 +16,13 @@ const { actions, reducer } = createSlice({
     },
     followerCount: 0,
     followingCount: 0,
+    inputText: '',
+    checkState: {
+      nextButton: true,
+      toggleButton: true,
+      defaultMessage: 'None',
+    },
+    graphSize: 0,
   },
 
   reducers: {
@@ -61,6 +68,38 @@ const { actions, reducer } = createSlice({
         followingCount,
       };
     },
+    //
+    setInputText(state, { payload: { inputText } }) {
+      return {
+        ...state,
+        inputText,
+      };
+    },
+    setNextButton(state, { payload: { nextButton } }) {
+      return {
+        ...state,
+        checkState: { ...state.profile, nextButton },
+      };
+    },
+    setToggleButton(state, { payload: { toggleButton } }) {
+      return {
+        ...state,
+        checkState: { ...state.profile, toggleButton },
+      };
+    },
+    setDefaultMessage(state, { payload: { defaultMessage } }) {
+      return {
+        ...state,
+        checkState: { ...state.profile, defaultMessage },
+      };
+    },
+    //
+    setGraphSize(state, { payload: { graphSize } }) {
+      return {
+        ...state,
+        graphSize,
+      };
+    },
   },
 });
 
@@ -72,12 +111,38 @@ export const {
   setPicture,
   setFollowerCount,
   setFollowingCount,
+  setInputText,
+  setNextButton,
+  setToggleButton,
+  setDefaultMessage,
+  setGraphSize,
 } = actions;
 
 export const toggleAuth = () => (dispatch, getState) => {
   const { auth } = getState();
 
   dispatch(setAuth({ auth: !auth }));
+};
+
+export const isDisabled = (event) => (dispatch) => {
+  dispatch(setInputText({ inputText: event }));
+
+  if (event === undefined) {
+    return dispatch(setNextButton({ nextButton: true }));
+  }
+  return dispatch(setNextButton({ nextButton: false }));
+};
+
+export const handleChangeToPhoneButton = () => (dispatch, getState) => {
+  const { toggleButton } = getState();
+  dispatch(setToggleButton({ toggleButton: !toggleButton }));
+  dispatch(setDefaultMessage({ defaultMessage: 'Phone Number' }));
+};
+
+export const handleChangeToEmailButton = () => (dispatch, getState) => {
+  const { toggleButton } = getState();
+  dispatch(setToggleButton({ toggleButton: !toggleButton }));
+  dispatch(setDefaultMessage({ defaultMessage: 'Email Adrress' }));
 };
 
 export default reducer;

@@ -7,23 +7,7 @@ import * as WebBrowser from 'expo-web-browser';
 
 import { HomeBannerButton, HomeBannerContainer, BannerImage } from './style';
 
-const adData = [
-  {
-    key: 1,
-    url: 'https://www.seoulpetshow.co.kr/',
-    source: require('../../assets/Ad/1.png'),
-  },
-  {
-    key: 2,
-    url: 'https://www.suwonpetshow.co.kr/',
-    source: require('../../assets/Ad/2.png'),
-  },
-  {
-    key: 3,
-    url: 'https://gdppcat.com/index.html',
-    source: require('../../assets/Ad/3.png'),
-  },
-];
+import adData from '../../../__fixtures__/adData';
 
 export default function HomeBanner() {
   const scrollRef = useRef();
@@ -32,7 +16,7 @@ export default function HomeBanner() {
   const [width, setWidth] = useState(Dimensions.get('window').width);
   const [seconds, setSeconds] = useState(0);
 
-  function moveScroll(direction) {
+  function moveScroll(length) {
     if (scroll < 0 || scroll > width) {
       scrollRef.current?.scrollTo({
         x: 0,
@@ -41,10 +25,10 @@ export default function HomeBanner() {
       setScroll(0);
     } else {
       scrollRef.current?.scrollTo({
-        x: scroll + direction,
+        x: scroll + length,
         animated: true,
       });
-      setScroll(scroll + direction);
+      setScroll(scroll + length);
     }
   }
 
@@ -91,6 +75,7 @@ export default function HomeBanner() {
             onPress={() => handleUrlPressButtonAsync(value.url)}
             screenWidth={width}
             resizeMode="filled"
+            testID="test-ad-banner-button"
           >
             <BannerImage screenWidth={width} source={value.source} />
           </HomeBannerButton>

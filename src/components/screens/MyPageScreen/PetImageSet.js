@@ -1,17 +1,16 @@
 /* eslint-disable global-require */
 import React from 'react';
 
-import {
-  PetImageBox,
-  PetImage,
-} from './style';
+import { PetImageBox, PetImage } from './style';
 
 export default function PetImageSet({ data }) {
   return (
-    data.map((value) => (
-      <PetImageBox key={value.key}>
-        <PetImage source={value.source} resizeMode="contain" />
-      </PetImageBox>
-    ))
+    <PetImageBox key={data.key}>
+      <PetImage
+        source={data.source}
+        resizeMode="contain"
+        testID="test-profile-pet-image"
+      />
+    </PetImageBox>
   );
 }

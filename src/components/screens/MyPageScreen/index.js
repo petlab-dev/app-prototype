@@ -27,23 +27,11 @@ import {
   BottomContainer,
 } from './style';
 
-const petStatus = [
-  {
-    petName: '냥이',
-    years: '2',
-    key: 1,
-    source: require('../../assets/Meow/meow-1.jpeg'),
-  },
-  {
-    petName: '냥냥이',
-    years: '5',
-    key: 2,
-    source: require('../../assets/Meow/meow-2.jpeg'),
-  },
-];
+import myPet from '../../../__fixtures__/myPet';
 
 export default function MyPageScreen({ navigation }) {
   const profile = useSelector(get('profile'));
+  const { name, picture } = profile;
   const followerCount = useSelector(get('followerCount'));
   const followingCount = useSelector(get('followingCount'));
 
@@ -51,7 +39,7 @@ export default function MyPageScreen({ navigation }) {
     <UpperContainer>
       <Container>
         <ProfileView>
-          <ProfileImage source={{ uri: profile.picture }} />
+          <ProfileImage source={{ uri: picture }} />
           <GradeButton>
             <GradeImageContainer>
               <Icon
@@ -65,16 +53,18 @@ export default function MyPageScreen({ navigation }) {
               </GradeButtonTextWrapper>
             </GradeImageContainer>
           </GradeButton>
-          <MyPageProfileButton name={profile.name} navigation={navigation} />
+          <MyPageProfileButton name={name} navigation={navigation} />
           <FollowButtonContainer>
-            <FollowButtonWrapper text="팔로워" count={followerCount} />
-            <FollowButtonWrapper text="팔로잉" count={followingCount} />
+            <FollowButtonWrapper renderText="팔로워" count={followerCount} />
+            <FollowButtonWrapper renderText="팔로잉" count={followingCount} />
           </FollowButtonContainer>
         </ProfileView>
         <BottomContainer>
           <PetImageContainerText>나의 아이들 🐈</PetImageContainerText>
           <PetImageContainer horizontal showsHorizontalScrollIndicator={false}>
-            <PetImageSet data={petStatus} />
+            {myPet.map((value) => (
+              <PetImageSet key={`k-${value.key}`} data={value} />
+            ))}
           </PetImageContainer>
         </BottomContainer>
       </Container>

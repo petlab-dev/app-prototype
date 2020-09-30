@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useDispatch } from 'react-redux';
 
@@ -23,40 +23,12 @@ import {
 
 import { Container } from '../../constants';
 
+import platformInfo from '../../../__fixtures__/platformInfo';
+
 export default function LoginScreen() {
   const dispatch = useDispatch();
 
-  const [value, setValue] = useState({
-    email: '',
-    password: '',
-  });
-
-  const platformData = [
-    {
-      platform: 'naver',
-      link: '네이버연동',
-      key: 1,
-      source: require('../../assets/LoginIcons/naver.png'),
-    },
-    {
-      platform: 'kakao',
-      link: '카카오톡연동',
-      key: 2,
-      source: require('../../assets/LoginIcons/kakao.png'),
-    },
-    {
-      platform: 'facebook',
-      link: '페북연동',
-      key: 3,
-      source: require('../../assets/LoginIcons/facebook.png'),
-    },
-    {
-      platform: 'google',
-      link: '구글연동',
-      key: 4,
-      source: require('../../assets/LoginIcons/google.png'),
-    },
-  ];
+  // TODO: Add onChange Logic
 
   return (
     <Container>
@@ -68,15 +40,16 @@ export default function LoginScreen() {
         <InputData>
           <InputBox
             placeholder="E-mail"
-            onChangeText={(email) => setValue({ ...value, email })}
           />
           <InputBox
             secureTextEntry
             placeholder="Password"
-            onChangeText={(password) => setValue({ ...value, password })}
           />
         </InputData>
-        <LoginButton onPress={() => dispatch(toggleAuth())}>
+        <LoginButton
+          // TODO: Add logic to match from server
+          onPress={() => dispatch(toggleAuth())}
+        >
           <LoginButtonText>로그인</LoginButtonText>
         </LoginButton>
         <ViewSet>
@@ -88,9 +61,12 @@ export default function LoginScreen() {
           </SubButton>
         </ViewSet>
         <ViewSet>
-          {platformData.map((val, key) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <IconButton key={`icb-${key}`} value={val} />
+          {platformInfo.map((value) => (
+            <IconButton
+              key={value.key}
+              platform={value.platform}
+              source={value.source}
+            />
           ))}
         </ViewSet>
       </LoginView>

@@ -90,38 +90,6 @@ export const Title = styled.Text({
   letterSpacing: 1,
 });
 
-// HomeHospital
-export const HomeHospitalContainer = styled.View({
-  marginTop: '4%',
-});
-
-export const HospitalInformationContainer = styled.ScrollView({
-  margin: '2%',
-});
-
-export const HospitalInfoView = styled.View({
-  flexDirection: 'column',
-  width: 250,
-  height: 200,
-  margin: 10,
-  borderRadius: 10,
-  borderWidth: 1,
-  borderColor: COLOR_LIGHTER,
-});
-
-export const TextWrapForEnroll = styled.Text({
-  fontFamily: 'NanumGothicCoding_700Bold',
-  fontSize: FONTSIZE_SMALL,
-  fontWeight: 'bold',
-  padding: 20,
-});
-
-export const TextWrapForHospitalInfo = styled.Text({
-  fontFamily: 'NanumGothicCoding_700Bold',
-  fontSize: FONTSIZE_SMALL,
-  padding: 15,
-});
-
 // HomeMap
 export const CompassIconButton = styled.TouchableOpacity({
   zIndex: 1,
@@ -176,6 +144,7 @@ export const QRButtonImage = styled.Image({
 });
 
 export const QRButtonText = styled.Text({
+  fontFamily: 'NanumGothicCoding_700Bold',
   fontSize: 15,
   fontWeight: 'bold',
 });
@@ -192,6 +161,7 @@ export const SearchBoxContainer = styled.View({
 });
 
 export const SearchBox = styled.TextInput({
+  fontFamily: 'NanumGothicCoding_700Bold',
   padding: 10,
   width: '80%',
   height: '100%',

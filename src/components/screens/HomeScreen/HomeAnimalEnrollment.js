@@ -22,7 +22,10 @@ export default function HomeAnimalEnrollment() {
   return (
     <TouchableOpacity onPress={() => dispatch(toggleAuth())}>
       <AnimalEnrollmentContainter>
-        <AnimalEnrollImage source={require('../../assets/PetEnroll.png')} />
+        <AnimalEnrollImage
+          source={require('../../assets/PetEnroll.png')}
+          testID="test-animal-enroll-image"
+        />
         <EnrollmentTextContainer>
           <TextWrapBold>🐈 등록</TextWrapBold>
           <TextWrap>보호자님의 사랑스러운</TextWrap>

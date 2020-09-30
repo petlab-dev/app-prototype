@@ -7,9 +7,10 @@ import {
   ProfileText,
 } from './style';
 
-export default function MyPageProfileButton({ name, navigation }) {
+export default function MyPageProfileButton({ name }) {
   return (
-    <ProfileButton onPress={() => navigation.push('Test')}>
+    // <ProfileButton onPress={() => navigation.push('Test')}>
+    <ProfileButton onPress={() => {}}>
       <ProfileTextBox>
         <ProfileText>{name}</ProfileText>
       </ProfileTextBox>
