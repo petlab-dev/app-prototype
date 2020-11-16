@@ -5,11 +5,11 @@ import {
   FollowButtonText,
 } from './style';
 
-export default function FollowButtonWrapper({ followState, count }) {
+export default function FollowButtonWrapper({ renderText, count }) {
   return (
     <FollowButton onPress={() => {}}>
       <FollowButtonCount>{count}</FollowButtonCount>
-      <FollowButtonText>{followState}</FollowButtonText>
+      <FollowButtonText>{renderText}</FollowButtonText>
     </FollowButton>
   );
 }

@@ -50,13 +50,14 @@ export default function HomeMap({ navigation, handleUrlPressButtonAsync }) {
 
   useEffect(() => {
     handleGetLocation();
-    console.log('profile', profile);
+    console.log('profile: ', profile);
   }, []);
 
   return (
     <View>
       <CompassIconButton
         onPress={() => handleGetLocation()}
+        testID="test-compass-button"
       >
         <Icon name="compass" size={30} color={COLOR_PRIMARY} />
       </CompassIconButton>
@@ -68,6 +69,7 @@ export default function HomeMap({ navigation, handleUrlPressButtonAsync }) {
             )
             : () => navigation.push('Web')
         }
+        testID="test-map-button"
       >
         <MapButtonImage
           opacity={0.5}

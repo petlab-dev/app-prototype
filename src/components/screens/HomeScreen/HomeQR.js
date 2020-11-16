@@ -12,6 +12,7 @@ export default function HomeQR({ handleUrlPressButtonAsync }) {
       <QRButtonImage
         opacity={0.5}
         source={require('../../assets/expo-qr.png')}
+        testID="test-qr-button-image"
       />
       <QRButtonText>Mobile App(Expo) 실행</QRButtonText>
     </QRButton>

@@ -9,7 +9,9 @@ const screenWidth = (Dimensions.get('window').width * 2) / 3;
 
 export default function VictoryPieChart({ colors, detect, none }) {
   return (
-    <View>
+    <View
+      testID="test-victory-pie-chart"
+    >
       <Svg width={screenWidth} height={screenWidth}>
         <Circle
           cx={screenWidth / 2}

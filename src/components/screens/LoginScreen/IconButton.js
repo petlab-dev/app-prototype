@@ -46,9 +46,8 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
-export default function IconButton({ value }) {
-  const { platform } = value;
-
+export default function IconButton(props) {
+  const { platform, source } = props;
   const dispatch = useDispatch();
 
   const [token, setToken] = useState();
@@ -213,7 +212,6 @@ export default function IconButton({ value }) {
 
   return (
     <IconButtonStyle
-      key={`icon-${value.key}`}
       onPress={
         {
           naver: () => handlePressAsync(),
@@ -227,8 +225,9 @@ export default function IconButton({ value }) {
         && platform !== 'facebook'
         && Platform.OS === 'web')
       }
+      testID="test-icon-button"
     >
-      <IonButtonImage source={value.source} />
+      <IonButtonImage source={source} />
     </IconButtonStyle>
   );
 }

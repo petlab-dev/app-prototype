@@ -11,6 +11,14 @@ import reducer, {
   setFollowerCount,
   setFollowingCount,
   toggleAuth,
+  setInputText,
+  setNextButton,
+  setToggleButton,
+  setDefaultMessage,
+  setGraphSize,
+  isDisabled,
+  handleChangeToPhoneButton,
+  handleChangeToEmailButton,
 } from './slice';
 
 const mockStore = configureStore([...getDefaultMiddleware()]);
@@ -30,6 +38,13 @@ describe('reducer', () => {
       },
       followerCount: 0,
       followingCount: 0,
+      inputText: '',
+      checkState: {
+        nextButton: true,
+        toggleButton: true,
+        defaultMessage: 'None',
+      },
+      graphSize: 0,
     };
 
     it('returns initialSatate', () => {
@@ -95,6 +110,46 @@ describe('reducer', () => {
     expect(state.followingCount).toEqual(followingCount);
   });
 
+  describe('setInputText', () => {
+    const inputText = 'abc';
+
+    const state = reducer(undefined, setInputText({ inputText }));
+
+    expect(state.inputText).toEqual(inputText);
+  });
+
+  describe('setNextButton', () => {
+    const nextButton = 'abc';
+
+    const state = reducer(undefined, setNextButton({ nextButton }));
+
+    expect(state.checkState.nextButton).toEqual(nextButton);
+  });
+
+  describe('setToggleButton', () => {
+    const toggleButton = false;
+
+    const state = reducer(undefined, setToggleButton({ toggleButton }));
+
+    expect(state.checkState.toggleButton).toEqual(toggleButton);
+  });
+
+  describe('setDefaultMessage', () => {
+    const defaultMessage = false;
+
+    const state = reducer(undefined, setDefaultMessage({ defaultMessage }));
+
+    expect(state.checkState.defaultMessage).toEqual(defaultMessage);
+  });
+
+  describe('setGraphSize', () => {
+    const graphSize = 3;
+
+    const state = reducer(undefined, setGraphSize({ graphSize }));
+
+    expect(state.graphSize).toEqual(graphSize);
+  });
+
   describe('toggleAuth', () => {
     const store = mockStore({});
 
@@ -105,5 +160,43 @@ describe('reducer', () => {
     const { auth } = actions[0].payload;
 
     expect(actions[0].payload.auth).toEqual(auth);
+  });
+
+  describe('isDisabled', () => {
+    const store = mockStore({});
+    const event = 'test';
+
+    store.dispatch(isDisabled(event));
+
+    const actions = store.getActions('');
+
+    expect(actions[0].payload.inputText).toEqual('test');
+    expect(actions[1].payload.nextButton).toEqual(false);
+
+    store.dispatch(isDisabled());
+
+    expect(actions[2].payload.inputText).toEqual(undefined);
+    expect(actions[3].payload.nextButton).toEqual(true);
+  });
+
+  describe('handleChangeToPhoneButton', () => {
+    const store = mockStore({});
+
+    store.dispatch(handleChangeToPhoneButton());
+
+    const actionsAfter = store.getActions('');
+
+    expect(actionsAfter[0].payload.toggleButton).toEqual(true);
+    expect(actionsAfter[1].payload.defaultMessage).toEqual('Phone Number');
+  });
+  describe('handleChangeToEmailButton', () => {
+    const store = mockStore({});
+
+    store.dispatch(handleChangeToEmailButton());
+
+    const actionsBefore = store.getActions('');
+
+    expect(actionsBefore[0].payload.toggleButton).toEqual(true);
+    expect(actionsBefore[1].payload.defaultMessage).toEqual('Email Adrress');
   });
 });
