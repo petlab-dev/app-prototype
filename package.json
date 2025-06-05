@@ -47,7 +47,7 @@
     "expo-random": "~8.2.1",
     "expo-status-bar": "^1.0.0",
     "expo-web-browser": "~8.3.1",
-    "firebase": "7.9.0",
+    "firebase": "10.9.0",
     "fireworks": "^2.2.6",
     "jest-emotion": "^10.0.32",
     "prop-types": "^15.7.2",
