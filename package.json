@@ -39,7 +39,7 @@
     "@storybook/react-native-server": "^5.3.19",
     "axios": "^0.19.2",
     "emotion": "^10.0.27",
-    "expo": "~38.0.1",
+    "expo": "~48.0.0",
     "expo-auth-session": "~1.4.0",
     "expo-camera": "~8.3.1",
     "expo-font": "~8.2.1",
